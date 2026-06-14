@@ -3,47 +3,36 @@
 # Triggered on every push to main branch.
 # ══════════════════════════════════════════════════════════════════
 name: Build Search Index
- 
-# ── TRIGGER: run on every push to main ──
+
 on:
   push:
     branches:
       - main
- 
-# ── PERMISSIONS: allow the workflow to push commits back to the repo ──
+
 permissions:
   contents: write
- 
+
 jobs:
   build-search-index:
     name: Build Pagefind index and commit
     runs-on: ubuntu-latest
- 
+
     steps:
-      # Step 1: Check out the repository at the latest commit
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history so git-auto-commit can diff correctly
- 
-      # Step 2: Set up Node.js 20 (required to run npx pagefind)
+          fetch-depth: 0
+
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
- 
-      # Step 3: Build the Pagefind search index
-      # Scans all HTML files in the repo root and outputs to the search/ folder
+
       - name: Build Pagefind search index
         run: npx pagefind --site . --output-subdir search
- 
-      # Step 4: Auto-commit the generated search/ folder back to the repo
-      # Uses stefanzweifel/git-auto-commit-action to detect and commit any changes
+
       - name: Commit updated search index
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          # Commit message — [skip ci] prevents an infinite workflow loop
           commit_message: "Auto-update search index [skip ci]"
-          # Only stage files inside the search/ folder
           file_pattern: search/
- 
