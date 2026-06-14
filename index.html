@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G5M1ZPJW29');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8728382905346597" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RDJ Publishers Blog — Guides, Tips & Tools</title>
+<meta name="description" content="RDJ Publishers Blog — free guides, tutorials, SEO tips, tool reviews and productivity insights. No sign-up required.">
+<meta name="keywords" content="RDJ Publishers blog, free guides, SEO tips, web tools, productivity, tutorials, browser tools">
+<meta name="author" content="RDJ Publishers">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://rdjpublishers.com/blogs/">
+<!-- Open Graph -->
+<meta property="og:title" content="RDJ Publishers Blog — Guides, Tips & Tools">
+<meta property="og:description" content="Free guides, tutorials, SEO tips and productivity insights from RDJ Publishers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rdjpublishers.com/blogs/">
+<meta property="og:image" content="https://rdjpublishers.com/blogs/blog.png">
+<meta property="og:locale" content="en_IN">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RDJ Publishers Blog">
+<meta name="twitter:description" content="Free guides, tutorials and tips from RDJ Publishers.">
+<meta name="twitter:image" content="https://rdjpublishers.com/blogs/blog.png">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "RDJ Publishers Blog",
+  "url": "https://rdjpublishers.com/blogs/",
+  "description": "Free guides, tutorials, SEO tips and productivity insights.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "RDJ Publishers",
+    "url": "https://rdjpublishers.com/",
+    "logo": { "@type": "ImageObject", "url": "https://rdjpublishers.com/blogs/blog.png" }
+  }
+}
+</script>
+<!-- Pagefind search (auto-built by GitHub Actions after every push) -->
+<link rel="stylesheet" href="search/pagefind-ui.css" onerror="this.remove()">
+<script>
+(function(){
+  var s=document.createElement('script');
+  s.src='search/pagefind-ui.js';
+  s.onload=function(){
+    if(window.PagefindUI){
+      var el=document.getElementById('search');
+      if(el){
+        el.style.display='block';
+        new PagefindUI({element:'#search',showImages:false,showSubResults:true});
+        var fb=document.getElementById('search-fallback');
+        if(fb) fb.style.display='none';
+      }
+    }
+  };
+  document.head.appendChild(s);
+})();
+</script>
+<link rel="icon" href="https://rdjpublishers.com/blogs/blog.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   CSS RESET & TOKENS
+══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0f1e1c;
+  --teal:#0b6e61;
+  --teal-dark:#084d44;
+  --teal-mid:#0d8a79;
+  --teal-pale:#e6f4f2;
+  --gold:#c8892a;
+  --gold-pale:#fdf4e3;
+  --surface:#ffffff;
+  --bg:#f5f7f7;
+  --border:#dde8e6;
+  --muted:#6b8c88;
+  --shadow-sm:0 2px 12px rgba(11,110,97,0.08);
+  --shadow-md:0 6px 28px rgba(11,110,97,0.14);
+  --shadow-lg:0 16px 50px rgba(11,110,97,0.18);
+  --r:14px;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+
+/* ── DESKTOP CENTERING ── */
+@media(min-width:1024px){
+  .topbar{padding:0 2.5rem;}
+  .topbar-brand{font-size:1.15rem;}
+  .hero-banner{margin:1.5rem auto;max-width:1200px;padding:3rem 3rem;}
+  .hero-banner h1{font-size:2.6rem;}
+  .hero-banner p{font-size:.95rem;max-width:640px;}
+  .hero-cta{font-size:.95rem;padding:.7rem 1.6rem;}
+  .sec-hd,.cat-chips,.post-grid,.about-page,.contact-page{max-width:1200px;margin-left:auto;margin-right:auto;}
+  #home-search{max-width:1200px;margin-left:auto;margin-right:auto;}
+  .sec-hd h2{font-size:1.4rem;}
+  footer{padding:2.5rem 2.5rem 1.4rem;}
+  footer .f-brand,footer p,footer .f-links,footer .f-copy{max-width:1200px;margin-left:auto;margin-right:auto;}
+  .cat-hero,.contact-hero,.about-hero{max-width:1200px;margin-left:auto;margin-right:auto;}
+}
+
+/* ── PAGES ── */
+.page{display:none;min-height:100vh;animation:fadeUp .28s ease both;}
+.page.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+/* ── OVERLAY ── */
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(5,25,22,0.6);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;}
+.overlay.active{opacity:1;pointer-events:all;}
+
+/* ── SIDEBAR / HAMBURGER ── */
+.sidebar{position:fixed;top:0;left:-300px;bottom:0;width:280px;z-index:300;background:var(--ink);display:flex;flex-direction:column;transition:left .32s cubic-bezier(.4,0,.2,1);box-shadow:6px 0 40px rgba(0,0,0,0.3);}
+.sidebar.open{left:0;}
+.sb-header{padding:1.8rem 1.4rem 1.4rem;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;}
+.sb-brand{font-family:var(--serif);font-size:1.1rem;color:#fff;line-height:1.2;}
+.sb-brand small{display:block;font-family:var(--sans);font-size:.58rem;font-weight:500;color:rgba(255,255,255,0.35);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;}
+.sb-close{background:rgba(255,255,255,0.06);border:none;color:rgba(255,255,255,0.6);width:32px;height:32px;border-radius:50%;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.sb-close:hover{background:rgba(255,255,255,0.14);color:#fff;}
+.sb-nav{flex:1;overflow-y:auto;padding:.8rem 0;}
+.sb-group{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,0.28);font-weight:700;padding:.9rem 1.4rem .3rem;}
+.sb-link{display:flex;align-items:center;gap:.8rem;padding:.7rem 1.4rem;color:rgba(255,255,255,0.65);text-decoration:none;font-size:.88rem;font-weight:500;border-left:3px solid transparent;cursor:pointer;transition:all .2s;background:none;border-top:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:var(--sans);}
+.sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.06);color:#fff;border-left-color:var(--gold);}
+.sb-link .ic{font-size:.95rem;width:20px;text-align:center;}
+.sb-div{height:1px;background:rgba(255,255,255,0.07);margin:.4rem 1.4rem;}
+.sb-foot{padding:.9rem 1.4rem;border-top:1px solid rgba(255,255,255,0.07);font-size:.65rem;color:rgba(255,255,255,0.22);text-align:center;}
+
+/* ── TOPBAR ── */
+.topbar{position:sticky;top:0;z-index:100;height:60px;background:rgba(255,255,255,0.94);backdrop-filter:blur(16px);display:flex;align-items:center;padding:0 1.2rem;border-bottom:1px solid var(--border);box-shadow:0 2px 14px rgba(11,110,97,0.06);}
+.menu-btn{background:var(--teal-pale);border:none;color:var(--teal);width:38px;height:38px;border-radius:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all .2s;flex-shrink:0;}
+.menu-btn:hover{background:var(--teal);color:#fff;}
+.menu-btn span{display:block;width:16px;height:2px;background:currentColor;border-radius:2px;transition:all .3s;}
+.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.menu-btn.open span:nth-child(2){opacity:0;}
+.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.topbar-brand{font-family:var(--serif);font-size:1rem;color:var(--ink);margin-left:.8rem;white-space:nowrap;}
+.topbar-brand span{color:var(--teal);}
+.topbar-right{margin-left:auto;display:flex;gap:.2rem;align-items:center;}
+.topbar-right button,.topbar-right a{color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:600;padding:.3rem .75rem;border-radius:8px;transition:all .2s;cursor:pointer;background:none;border:none;font-family:var(--sans);}
+.topbar-right button:hover,.topbar-right a:hover{background:var(--teal-pale);color:var(--teal);}
+@media(max-width:380px){
+  .topbar-right button,.topbar-right a{padding:.3rem .5rem;font-size:.72rem;}
+  .topbar-brand{font-size:.9rem;margin-left:.5rem;}
+}
+.admin-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;cursor:pointer;margin-left:.3rem;transition:transform .2s;box-shadow:0 0 0 2px var(--gold-pale);}
+.admin-dot:hover{transform:scale(1.5);}
+
+/* ── BACK BTN ── */
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-pale);color:var(--teal);border:none;padding:.45rem 1rem;border-radius:9px;font-family:var(--sans);font-size:.8rem;font-weight:600;cursor:pointer;margin:1.2rem 1.2rem 0;transition:all .2s;}
+.back-btn:hover{background:var(--teal);color:#fff;}
+
+/* ── HERO BANNER ── */
+.hero-banner{margin:1.2rem;border-radius:20px;background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal-mid) 100%);padding:2.2rem 1.8rem;position:relative;overflow:hidden;}
+.hero-banner::before{content:'';position:absolute;top:-50px;right:60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.hero-banner::after{content:'';position:absolute;bottom:-30px;right:10px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.hero-eyebrow{font-size:.62rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,0.45);font-weight:700;margin-bottom:.6rem;}
+.hero-banner h1{font-family:var(--serif);font-size:1.8rem;color:#fff;line-height:1.2;position:relative;}
+.hero-banner h1 em{font-style:italic;color:rgba(255,255,255,0.7);}
+.hero-banner p{font-size:.82rem;color:rgba(255,255,255,0.6);margin-top:.6rem;line-height:1.65;max-width:480px;}
+.hero-cta{display:inline-block;margin-top:1.2rem;background:#fff;color:var(--teal);padding:.55rem 1.3rem;border-radius:9px;font-size:.82rem;font-weight:700;text-decoration:none;border:none;font-family:var(--sans);cursor:pointer;transition:all .2s;}
+.hero-cta:hover{background:var(--gold);color:#fff;}
+
+/* ── SEARCH BOX ── */
+.search-wrap{margin:1.2rem;position:relative;}
+.search-wrap input{width:100%;padding:.8rem 1rem .8rem 2.8rem;border:1.5px solid var(--border);border-radius:12px;background:var(--surface);font-family:var(--sans);font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;}
+.search-wrap input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(11,110,97,0.1);}
+.search-wrap .s-icon{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;}
+/* Pagefind override */
+.pagefind-ui{--pagefind-ui-primary:var(--teal);--pagefind-ui-font:var(--sans);}
+/* Native search result cards */
+.search-result-card{display:flex;align-items:center;gap:.75rem;padding:.65rem .75rem;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;margin-bottom:.45rem;text-decoration:none;color:inherit;transition:border-color .18s;}
+.search-result-card:hover{border-color:var(--teal);}
+
+/* ── SECTION HEADER ── */
+.sec-hd{display:flex;align-items:baseline;justify-content:space-between;padding:0 1.2rem;margin:1.8rem 0 .9rem;}
+.sec-hd h2{font-family:var(--serif);font-size:1.1rem;color:var(--ink);}
+.view-all{font-size:.75rem;color:var(--teal);font-weight:600;cursor:pointer;background:none;border:none;font-family:var(--sans);transition:color .2s;}
+.view-all:hover{color:var(--teal-dark);}
+
+/* ── CATEGORY CHIPS ── */
+.cat-chips{display:flex;flex-wrap:wrap;gap:.55rem;padding:0 1.2rem;margin-bottom:1.2rem;}
+.cat-chip{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .95rem;background:var(--surface);border:1.5px solid var(--border);border-radius:100px;font-size:.8rem;font-weight:600;color:var(--ink);cursor:pointer;transition:all .2s;box-shadow:var(--shadow-sm);}
+.cat-chip:hover,.cat-chip.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+.cat-chip .count{font-size:.65rem;background:rgba(0,0,0,0.08);padding:.1rem .4rem;border-radius:100px;}
+
+/* ── POST GRID ── */
+.post-grid{display:grid;grid-template-columns:1fr;gap:1.1rem;padding:0 1.2rem 2rem;}
+@media(min-width:600px){.post-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1024px){.post-grid{grid-template-columns:1fr 1fr 1fr;}}
+
+.post-card{background:var(--surface);border-radius:var(--r);border:1.5px solid var(--border);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:all .22s;text-decoration:none;color:inherit;}
+.post-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--teal);}
+.post-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+.post-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.post-thumb-placeholder{font-size:2.5rem;color:rgba(255,255,255,0.3);}
+.post-body{padding:1rem;flex:1;display:flex;flex-direction:column;}
+.post-meta{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;}
+.post-cat-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:.2rem .55rem;border-radius:100px;}
+.post-date{font-size:.68rem;color:var(--muted);}
+.post-title{font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--ink);line-height:1.35;margin-bottom:.4rem;flex:1;}
+.post-desc{font-size:.8rem;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-read-more{display:inline-flex;align-items:center;gap:.3rem;margin-top:.8rem;font-size:.78rem;font-weight:700;color:var(--teal);}
+
+/* ── CATEGORY PAGE ── */
+.cat-hero{background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));padding:2rem 1.4rem 1.8rem;display:flex;align-items:flex-start;gap:1rem;}
+.cat-hero-icon{font-size:2.5rem;line-height:1;flex-shrink:0;}
+.cat-hero h2{font-family:var(--serif);font-size:1.5rem;color:#fff;}
+.cat-hero p{font-size:.8rem;color:rgba(255,255,255,0.6);margin-top:.3rem;line-height:1.6;}
+.post-count-badge{display:inline-block;margin-top:.5rem;background:rgba(255,255,255,0.15);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .7rem;border-radius:100px;}
+
+/* ── ABOUT PAGE ── */
+.about-page{padding:0 1.2rem 3rem;}
+.about-hero{background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));border-radius:20px;padding:2.5rem 1.6rem;margin-bottom:1.5rem;text-align:center;}
+.about-hero h2{font-family:var(--serif);font-size:1.5rem;color:#fff;font-style:italic;}
+.about-hero p{font-size:.85rem;color:rgba(255,255,255,0.65);margin-top:.6rem;line-height:1.7;max-width:400px;margin-left:auto;margin-right:auto;}
+.about-cards{display:grid;grid-template-columns:1fr;gap:.85rem;}
+@media(min-width:600px){.about-cards{grid-template-columns:1fr 1fr;}}
+.about-card{background:var(--surface);border-radius:var(--r);padding:1.3rem;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);}
+.about-card .ac-icon{font-size:1.6rem;margin-bottom:.6rem;}
+.about-card h4{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.35rem;}
+.about-card p{font-size:.82rem;color:var(--muted);line-height:1.65;}
+.privacy-highlight{background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:var(--r);padding:1.2rem 1.4rem;margin-top:1.2rem;display:flex;gap:.9rem;align-items:flex-start;}
+.privacy-highlight .phi-icon{font-size:1.4rem;flex-shrink:0;margin-top:.1rem;}
+.privacy-highlight p{font-size:.83rem;color:var(--teal-dark);line-height:1.65;}
+
+/* ── CONTACT PAGE ── */
+.contact-page{padding:0 1.2rem 3rem;}
+.contact-hero{background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));border-radius:20px;padding:2.2rem 1.6rem;margin-bottom:1.5rem;text-align:center;}
+.contact-hero h2{font-family:var(--serif);font-size:1.4rem;color:#fff;}
+.contact-hero p{font-size:.82rem;color:rgba(255,255,255,0.65);margin-top:.5rem;line-height:1.65;}
+.contact-info-row{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem;}
+@media(min-width:600px){.contact-info-row{flex-direction:row;}}
+.contact-info{background:var(--surface);border-radius:12px;padding:1rem 1.2rem;border:1.5px solid var(--border);display:flex;align-items:center;gap:.9rem;box-shadow:var(--shadow-sm);flex:1;min-width:0;}
+.ci-icon{width:40px;height:40px;background:var(--teal-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.ci-label{font-size:.63rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+.ci-val{font-size:.88rem;font-weight:700;color:var(--ink);margin-top:2px;word-break:break-word;overflow-wrap:break-word;}
+.ci-val a{color:var(--teal);text-decoration:none;}
+.cform{background:var(--surface);border-radius:var(--r);padding:1.5rem;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);}
+.cform h3{font-family:var(--serif);font-size:1.05rem;margin-bottom:1.1rem;color:var(--ink);}
+.fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.85rem;}
+.fg label{font-size:.66rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;}
+.fg input,.fg textarea{padding:.72rem .95rem;border:1.5px solid var(--border);border-radius:9px;background:var(--bg);font-family:var(--sans);font-size:.87rem;color:var(--ink);outline:none;transition:border-color .2s,background .2s;}
+.fg input:focus,.fg textarea:focus{border-color:var(--teal);background:#fff;}
+.fg textarea{resize:vertical;min-height:110px;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr;}}
+.submit-btn{width:100%;background:var(--teal);color:#fff;border:none;padding:.9rem;border-radius:10px;font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.4rem;}
+.submit-btn:hover{background:var(--teal-dark);transform:translateY(-2px);}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.cf-err{background:#fef2f2;color:#dc2626;border:1px solid #fca5a5;border-radius:8px;padding:.7rem .9rem;font-size:.82rem;margin-bottom:.8rem;display:none;}
+.cf-success{background:#f0fdf4;border:1.5px solid #86efac;border-radius:var(--r);padding:2rem;text-align:center;display:none;}
+.cf-success .s-icon{font-size:2.5rem;margin-bottom:.6rem;}
+.cf-success h4{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:.3rem;}
+.cf-success p{font-size:.83rem;color:var(--muted);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:.65rem 1.4rem;border-radius:100px;font-size:.83rem;font-weight:600;z-index:9999;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ── EMPTY STATE ── */
+.empty-state{text-align:center;padding:3rem 1.5rem;color:var(--muted);}
+.empty-state .es-icon{font-size:3rem;margin-bottom:1rem;}
+.empty-state h3{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:.4rem;}
+.empty-state p{font-size:.83rem;line-height:1.6;}
+
+/* ══════════════════════════════════════════════
+   ADMIN MODAL — Blog Publisher
+══════════════════════════════════════════════ */
+.admin-modal-wrap{position:fixed;inset:0;z-index:500;background:rgba(5,20,18,.8);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:1rem;overflow-y:auto;}
+.admin-modal-wrap.show{display:flex;}
+.admin-modal{background:var(--surface);border-radius:20px;width:100%;max-width:560px;box-shadow:var(--shadow-lg);overflow:hidden;max-height:94vh;display:flex;flex-direction:column;margin:auto;}
+.admin-modal-head{background:linear-gradient(135deg,var(--ink) 0%,#1d3632 100%);padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.admin-modal-head h2{font-family:var(--serif);font-size:1.1rem;color:#fff;}
+.admin-modal-head small{font-size:.63rem;color:rgba(255,255,255,0.35);display:block;margin-top:1px;}
+.admin-close-btn{background:rgba(255,255,255,0.08);border:none;color:rgba(255,255,255,0.7);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.admin-close-btn:hover{background:rgba(255,255,255,0.18);color:#fff;}
+.admin-body{padding:1.4rem;overflow-y:auto;flex:1;}
+/* Tabs */
+.admin-tabs{display:flex;gap:.25rem;padding:.8rem 1.4rem;border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;}
+.admin-tab{padding:.45rem .9rem;border-radius:8px;font-family:var(--sans);font-size:.78rem;font-weight:600;border:none;background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all .2s;}
+.admin-tab.active{background:var(--teal);color:#fff;}
+/* Login */
+.admin-lock-icon{font-size:2.5rem;text-align:center;margin-bottom:.6rem;}
+.admin-body h3{font-family:var(--serif);font-size:1.1rem;text-align:center;color:var(--ink);margin-bottom:.3rem;}
+.admin-body p.hint{font-size:.78rem;text-align:center;color:var(--muted);margin-bottom:1.3rem;}
+.admin-input{width:100%;padding:.75rem 1rem;border:2px solid var(--border);border-radius:10px;font-family:var(--sans);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;margin-bottom:.8rem;background:var(--bg);}
+.admin-input:focus{border-color:var(--teal);background:#fff;}
+.admin-btn{width:100%;background:var(--teal);color:#fff;border:none;padding:.85rem;border-radius:10px;font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.admin-btn:hover{background:var(--teal-dark);}
+.admin-err{color:#dc2626;font-size:.8rem;text-align:center;margin-top:.4rem;display:block;}
+/* Form grid */
+.admin-fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.85rem;}
+.admin-fg label{font-size:.65rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;}
+.admin-fg input,.admin-fg textarea,.admin-fg select{padding:.7rem .9rem;border:1.5px solid var(--border);border-radius:9px;background:var(--bg);font-family:var(--sans);font-size:.86rem;color:var(--ink);outline:none;transition:border-color .2s;}
+.admin-fg input:focus,.admin-fg textarea:focus,.admin-fg select:focus{border-color:var(--teal);background:#fff;}
+.admin-fg textarea{resize:vertical;min-height:80px;}
+.admin-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:420px){.admin-row{grid-template-columns:1fr;}}
+.admin-fg.full{grid-column:1/-1;}
+.char-count{font-size:.63rem;color:var(--muted);text-align:right;margin-top:2px;}
+.char-count.warn{color:#f59e0b;}
+.char-count.over{color:#dc2626;}
+/* Actions */
+.admin-actions{display:flex;gap:.7rem;padding-top:.9rem;border-top:1px solid var(--border);margin-top:.9rem;}
+.btn-save{flex:1;background:var(--teal);color:#fff;border:none;padding:.75rem;border-radius:9px;font-family:var(--sans);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.btn-save:hover{background:var(--teal-dark);}
+.btn-save:disabled{opacity:.5;cursor:not-allowed;}
+.btn-cancel{background:var(--bg);color:var(--muted);border:1.5px solid var(--border);padding:.75rem 1.1rem;border-radius:9px;font-family:var(--sans);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;}
+.btn-cancel:hover{background:var(--border);}
+/* HTML upload */
+.file-drop{border:2px dashed var(--border);border-radius:12px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg);}
+.file-drop:hover,.file-drop.drag{border-color:var(--teal);background:var(--teal-pale);}
+.file-drop p{font-size:.82rem;color:var(--muted);margin-top:.4rem;}
+.file-drop .fd-icon{font-size:1.8rem;}
+.file-status{margin-top:.6rem;font-size:.8rem;color:var(--teal);font-weight:600;}
+/* Cover image upload */
+.cover-upload-wrap{display:flex;gap:.7rem;align-items:flex-start;}
+.cover-preview{width:80px;height:52px;border-radius:8px;object-fit:cover;background:var(--teal-pale);display:none;border:1.5px solid var(--border);}
+.cover-preview.visible{display:block;}
+.cover-upload-label{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border:1.5px dashed var(--border);border-radius:9px;font-size:.8rem;font-weight:600;color:var(--teal);cursor:pointer;background:var(--bg);transition:all .2s;}
+.cover-upload-label:hover{border-color:var(--teal);background:var(--teal-pale);}
+/* Validation feedback */
+.validation-list{list-style:none;margin-top:.4rem;}
+.validation-list li{font-size:.75rem;padding:.15rem 0;display:flex;align-items:center;gap:.4rem;}
+.validation-list li.ok{color:#16a34a;}
+.validation-list li.err{color:#dc2626;}
+/* Publish section */
+.publish-box{background:var(--bg);border-radius:12px;padding:1.2rem;border:1.5px solid var(--border);margin-top:.8rem;}
+.publish-box h4{font-family:var(--serif);font-size:.95rem;color:var(--ink);margin-bottom:.7rem;}
+.publish-status{font-size:.8rem;color:rgba(255,255,255,0.6);margin-top:.5rem;min-height:1.2em;}
+.publish-log{background:#0f1e1c;border-radius:8px;padding:.85rem;margin-top:.6rem;font-size:.73rem;color:rgba(255,255,255,0.55);font-family:monospace;line-height:1.8;max-height:140px;overflow-y:auto;display:none;}
+.publish-log.show{display:block;}
+.publish-log .log-ok{color:#4ade80;}
+.publish-log .log-err{color:#f87171;}
+.publish-log .log-info{color:rgba(255,255,255,0.55);}
+/* Export box */
+.export-box{background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:12px;padding:1.2rem;font-size:.82rem;color:var(--teal-dark);line-height:1.7;}
+.export-box strong{display:block;margin-bottom:.4rem;font-size:.88rem;}
+.export-box code{background:rgba(0,0,0,0.07);padding:.1rem .4rem;border-radius:4px;font-size:.78rem;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:2rem 1.4rem 1.4rem;margin-top:auto;}
+footer .f-brand{font-family:var(--serif);font-size:1rem;color:#fff;margin-bottom:.4rem;}
+footer p{font-size:.73rem;color:rgba(255,255,255,0.35);line-height:1.65;}
+footer .f-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:.9rem;}
+footer .f-links a{font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .2s;cursor:pointer;}
+footer .f-links a:hover{color:var(--gold);}
+footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;border-top:1px solid rgba(255,255,255,0.06);padding-top:.8rem;}
+</style>
+</head>
+<body>
+
+<!-- ── OVERLAY ── -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- ══════════════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════════════ -->
+<nav class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+  <div class="sb-header">
+    <div class="sb-brand">RDJ Publishers<small>BLOG</small></div>
+    <button class="sb-close" onclick="closeSidebar()" aria-label="Close menu">✕</button>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-group">Navigate</div>
+    <button class="sb-link active" onclick="goTo('home')"><span class="ic">🏠</span> Home</button>
+    <button class="sb-link" onclick="goTo('about')"><span class="ic">ℹ️</span> About</button>
+    <button class="sb-link" onclick="goTo('contact')"><span class="ic">✉️</span> Contact</button>
+    <div class="sb-div"></div>
+    <div class="sb-group">Categories</div>
+    <div id="sb-cat-links"></div>
+  </div>
+  <div class="sb-foot">© 2026 RDJ Publishers · All rights reserved</div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     TOAST
+══════════════════════════════════════════════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════════════════════════════
+     ADMIN LOGIN MODAL
+══════════════════════════════════════════════ -->
+<div class="admin-modal-wrap" id="adminLoginWrap">
+  <div class="admin-modal" style="max-width:380px;">
+    <div class="admin-modal-head">
+      <div><h2>Admin Login</h2><small>Blog Publisher — rdjpublishers.com/blogs/</small></div>
+      <button class="admin-close-btn" onclick="closeAdminLogin()">✕</button>
+    </div>
+    <div class="admin-body">
+      <div class="admin-lock-icon">🔐</div>
+      <h3>Admin Access</h3>
+      <p class="hint">Enter your password to publish posts to the blog.</p>
+      <input class="admin-input" type="password" id="adminPass" placeholder="Admin password" onkeydown="if(event.key==='Enter')doLogin()">
+      <button class="admin-btn" onclick="doLogin()">Sign In →</button>
+      <span class="admin-err" id="adminErr"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ADMIN PANEL MODAL — BLOG PUBLISHER
+══════════════════════════════════════════════ -->
+<div class="admin-modal-wrap" id="adminPanelWrap">
+  <div class="admin-modal">
+    <div class="admin-modal-head">
+      <div><h2>Blog Admin Panel</h2><small>Publish posts to rdjpublishers.com/blogs/</small></div>
+      <button class="admin-close-btn" onclick="closeAdminPanel()">✕</button>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('publish')">📝 New Post</button>
+      <button class="admin-tab" onclick="switchTab('cats')">📂 Categories</button>
+      <button class="admin-tab" onclick="switchTab('info')">ℹ️ Setup</button>
+    </div>
+    <div class="admin-body">
+
+      <!-- ── NEW POST TAB ── -->
+      <div id="tab-publish">
+        <div class="admin-fg">
+          <label>Category *</label>
+          <select id="f-cat" onchange="updateSlugPrefix()"></select>
+        </div>
+        <div class="admin-fg">
+          <label>Post Title * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(max 100 chars)</span></label>
+          <input type="text" id="f-title" placeholder="e.g. Google SEO Complete Guide 2026" maxlength="100" oninput="onTitleInput()">
+          <div class="char-count" id="title-count">0 / 100</div>
+        </div>
+        <div class="admin-fg">
+          <label>URL Slug * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(auto-generated)</span></label>
+          <input type="text" id="f-slug" placeholder="google-seo-complete-guide-2026" maxlength="60" oninput="onSlugInput()">
+          <div class="char-count" id="slug-count">0 / 60</div>
+        </div>
+        <div class="admin-fg">
+          <label>Meta Description * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(max 160 chars)</span></label>
+          <textarea id="f-desc" placeholder="SEO meta description shown in Google…" maxlength="160" rows="3" oninput="onDescInput()"></textarea>
+          <div class="char-count" id="desc-count">0 / 160</div>
+        </div>
+        <div class="admin-fg">
+          <label>Tags <span style="font-weight:400;text-transform:none;letter-spacing:0;">(comma separated)</span></label>
+          <input type="text" id="f-tags" placeholder="SEO, Google, 2026">
+        </div>
+        <div class="admin-fg">
+          <label>Cover Image Filename</label>
+          <input type="text" id="f-cover" placeholder="cover.jpg" value="cover.jpg">
+        </div>
+        <div class="admin-fg">
+          <label>Post HTML File * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(must contain &lt;html&gt;)</span></label>
+          <div class="file-drop" id="html-drop" onclick="document.getElementById('html-file-input').click()" ondragover="onDragOver(event)" ondrop="onDrop(event)">
+            <div class="fd-icon">📄</div>
+            <strong style="font-size:.85rem;color:var(--ink);">Click to choose HTML file</strong>
+            <p>or drag &amp; drop your post's index.html here</p>
+            <input type="file" id="html-file-input" accept=".html,.htm" style="display:none" onchange="onHtmlFileChange(event)">
+          </div>
+          <div class="file-status" id="html-file-status"></div>
+          <ul class="validation-list" id="validation-list"></ul>
+        </div>
+        <div class="admin-fg">
+          <label>Additional Image Files <span style="font-weight:400;text-transform:none;letter-spacing:0;">(cover.jpg etc.)</span></label>
+          <input type="file" id="img-files-input" accept="image/*" multiple style="padding:.6rem .9rem;border:1.5px solid var(--border);border-radius:9px;background:var(--bg);font-family:var(--sans);font-size:.82rem;cursor:pointer;">
+          <div class="file-status" id="img-files-status"></div>
+        </div>
+        <div class="admin-fg">
+          <label>GitHub Token *</label>
+          <input class="admin-input" type="password" id="gh-token" placeholder="ghp_…" style="margin-bottom:0;">
+        </div>
+        <div class="admin-actions">
+          <button class="btn-save" id="publish-btn" onclick="publishPost()">🚀 Publish Post</button>
+        </div>
+        <div class="publish-box" id="publish-box" style="display:none;">
+          <h4>Publish Log</h4>
+          <div class="publish-log show" id="publish-log"></div>
+        </div>
+      </div>
+
+      <!-- ── CATEGORIES TAB ── -->
+      <div id="tab-cats" style="display:none;">
+        <div id="admin-cat-list" style="margin-bottom:1.2rem;"></div>
+        <div style="background:var(--bg);border-radius:10px;padding:1.1rem;border:1.5px solid var(--border);">
+          <div style="font-size:.7rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.8rem;">➕ Add New Category</div>
+          <div class="admin-row">
+            <div class="admin-fg">
+              <label>Category Name <span style="font-weight:400;text-transform:none;letter-spacing:0;">(PascalCase)</span></label>
+              <input type="text" id="nc-name" placeholder="Tech">
+            </div>
+            <div class="admin-fg">
+              <label>Icon / Emoji</label>
+              <input type="text" id="nc-icon" placeholder="💻" maxlength="8">
+            </div>
+          </div>
+          <div class="admin-fg">
+            <label>Description</label>
+            <input type="text" id="nc-desc" placeholder="Technology guides and tutorials">
+          </div>
+          <div class="admin-actions" style="margin-top:.5rem;">
+            <button class="btn-save" onclick="addCategory()">➕ Add Category</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SETUP INFO TAB ── -->
+      <div id="tab-info" style="display:none;">
+        <div class="export-box">
+          <strong>📦 Pagefind Search Setup</strong>
+          After pushing posts, run this once from your repo root to build the search index:<br>
+          <code>npm install pagefind --save-dev</code><br>
+          <code>npx pagefind --site . --output-subdir search</code><br><br>
+          Then commit and push the generated <code>search/</code> folder.
+        </div>
+        <div class="export-box" style="margin-top:.8rem;">
+          <strong>🌐 Repo &amp; URL Structure</strong>
+          Repo: <code>rdjpublishers/blogs</code> → hosted at <code>rdjpublishers.com/blogs/</code><br>
+          Post URL: <code>/blogs/Tech/google-seo/</code> → file: <code>Tech/google-seo/index.html</code><br>
+          Category URL: <code>/blogs/Tech/</code> → file: <code>Tech/index.html</code><br>
+          GitHub Pages auto-serves <code>index.html</code> in any folder.
+        </div>
+        <div class="export-box" style="margin-top:.8rem;">
+          <strong>✅ New Posts Live In</strong>
+          GitHub Pages CDN cache = ~10 min. After publishing, wait 5–10 min for new posts to appear.
+        </div>
+        <div class="export-box" style="margin-top:.8rem;">
+          <strong>🗺️ Sitemap</strong>
+          <code>sitemap_blogs.xml</code> is auto-regenerated after every publish, structured by category with all post URLs.<br><br>
+          <div class="admin-fg" style="margin-bottom:.5rem;">
+            <label>GitHub Token</label>
+            <input class="admin-input" type="password" id="sm-token" placeholder="ghp_…" style="margin-bottom:0;">
+          </div>
+          <button class="btn-save" onclick="regenerateSitemap()">🔄 Regenerate Sitemap Now</button>
+        </div>
+        <div class="admin-actions">
+          <button class="btn-cancel" onclick="doLogout()">🚪 Log Out</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <header class="topbar">
+    <button class="menu-btn" id="menu-btn" onclick="openSidebar()" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="topbar-brand">RDJ <span>Blog</span></div>
+    <div class="topbar-right">
+      <button onclick="goTo('about')">About</button>
+      <button onclick="goTo('contact')">Contact</button>
+      <a href="https://rdjpublishers.com/" target="_blank">Tools</a>
+      <div class="admin-dot" id="adminDot" onclick="openAdminEntry()" title="Admin"></div>
+    </div>
+  </header>
+
+  <!-- Search bar — above hero banner -->
+  <div id="home-search" style="background:var(--surface);border-bottom:1px solid var(--border);padding:.75rem 1.2rem;">
+    <div style="max-width:700px;margin:0 auto;position:relative;">
+      <span style="position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;">🔍</span>
+      <!-- Pagefind native target -->
+      <div id="search" style="display:none;"></div>
+      <!-- Native fallback search (always visible until Pagefind loads) -->
+      <div id="search-fallback">
+        <input type="search" id="native-search-input"
+          placeholder="Search articles by title, tag or category…"
+          oninput="nativeSearch(this.value)" autocomplete="off" spellcheck="false"
+          style="width:100%;padding:.72rem 1rem .72rem 2.6rem;border:1.5px solid var(--border);border-radius:12px;background:var(--bg);font-family:var(--sans);font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;"
+          onfocus="this.style.borderColor='var(--teal)';this.style.boxShadow='0 0 0 3px rgba(11,110,97,0.1)'"
+          onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div id="native-search-results" style="margin-top:.6rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-banner">
+    <div class="hero-eyebrow">RDJ Publishers · Free Knowledge</div>
+    <h1>Guides, Tips &amp; <em>Ideas</em> — for free.</h1>
+    <p>Practical articles on SEO, productivity, web tools and everything in between. Written by the RDJ Publishers team. No paywalls, no sign-ups.</p>
+    <button class="hero-cta" onclick="showAllPosts()">Start Reading →</button>
+  </div>
+
+  <!-- Category chips -->
+  <div class="sec-hd"><h2>Categories</h2></div>
+  <div class="cat-chips" id="home-cat-chips"></div>
+
+  <!-- Latest posts -->
+  <div class="sec-hd">
+    <h2>Latest Articles</h2>
+    <button class="view-all" onclick="showAllPosts()">View all →</button>
+  </div>
+  <div class="post-grid" id="home-posts">
+    <div class="empty-state" style="grid-column:1/-1;">
+      <div class="es-icon">📝</div>
+      <h3>No posts yet</h3>
+      <p>Use the admin panel to publish your first article. Triple-click the gold dot in the top-right corner.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand">RDJ Publishers Blog</div>
+    <p>Free guides, tutorials and tips — no paywalls, no sign-ups.</p>
+    <div class="f-links">
+      <a onclick="goTo('home')">Home</a>
+      <a onclick="goTo('about')">About</a>
+      <a onclick="goTo('contact')">Contact</a>
+      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
+      <a href="/blogs/sitemap_blogs.xml">Sitemap</a>
+      <a onclick="goTo('privacy')">Privacy</a>
+    </div>
+    <div class="f-copy">© 2026 RDJ Publishers. All rights reserved. · New posts live in 5–10 min after publish.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CATEGORY PAGE (dynamic)
+══════════════════════════════════════════════ -->
+<div class="page" id="page-cat">
+  <header class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand" id="cat-topbar-brand">Category</div>
+    <div class="topbar-right">
+      <button onclick="goTo('home')">Home</button>
+      <div class="admin-dot" onclick="openAdminEntry()" title="Admin"></div>
+    </div>
+  </header>
+  <button class="back-btn" onclick="goTo('home')">← All Posts</button>
+  <div class="cat-hero">
+    <div class="cat-hero-icon" id="cat-view-icon">📁</div>
+    <div>
+      <h2 id="cat-view-title">Category</h2>
+      <p id="cat-view-desc"></p>
+      <span class="post-count-badge" id="cat-post-count"></span>
+    </div>
+  </div>
+  <div class="post-grid" id="cat-posts" style="margin-top:1.2rem;"></div>
+  <footer>
+    <div class="f-brand">RDJ Publishers Blog</div>
+    <div class="f-links">
+      <a onclick="goTo('home')">Home</a>
+      <a onclick="goTo('about')">About</a>
+      <a onclick="goTo('contact')">Contact</a>
+      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
+    </div>
+    <div class="f-copy">© 2026 RDJ Publishers.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ABOUT PAGE
+══════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <header class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand">About</div>
+    <div class="topbar-right">
+      <button onclick="goTo('home')">Home</button>
+      <div class="admin-dot" onclick="openAdminEntry()" title="Admin"></div>
+    </div>
+  </header>
+  <button class="back-btn" onclick="goTo('home')">← Back</button>
+  <div class="about-page">
+    <div class="about-hero">
+      <h2>"Crafting Tools People Actually Use"</h2>
+      <p>RDJ Publishers is an independent web studio dedicated to building free, fast, and privacy-respecting tools for students, professionals, and everyday users — with zero sign-ups and zero costs.</p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <div class="ac-icon">👥</div>
+        <h4>Who We Are</h4>
+        <p>Independent web publishing studio building practical, free-to-use web apps and articles for everyone.</p>
+      </div>
+      <div class="about-card">
+        <div class="ac-icon">🎯</div>
+        <h4>Our Mission</h4>
+        <p>Democratise access to productivity tools with browser-based utilities that work on any device, any data plan.</p>
+      </div>
+      <div class="about-card">
+        <div class="ac-icon">🆓</div>
+        <h4>Always Free</h4>
+        <p>No hidden paywalls, no freemium limits, no forced sign-ups. Supported by non-intrusive advertising.</p>
+      </div>
+      <div class="about-card">
+        <div class="ac-icon">🔄</div>
+        <h4>Always Evolving</h4>
+        <p>We regularly add new tools and articles. We read every feature request and bug report sent to us.</p>
+      </div>
+    </div>
+    <div class="privacy-highlight">
+      <div class="phi-icon">🔒</div>
+      <p><strong>Your privacy is guaranteed.</strong> All tools process your data entirely inside your browser. Nothing is ever sent to any server, stored, or seen by anyone else.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="f-brand">RDJ Publishers Blog</div>
+    <div class="f-links">
+      <a onclick="goTo('home')">Home</a>
+      <a onclick="goTo('contact')">Contact</a>
+      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
+      <a onclick="goTo('privacy')">Privacy</a>
+    </div>
+    <div class="f-copy">© 2026 RDJ Publishers.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CONTACT PAGE
+══════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <header class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand">Contact</div>
+    <div class="topbar-right">
+      <button onclick="goTo('home')">Home</button>
+      <div class="admin-dot" onclick="openAdminEntry()" title="Admin"></div>
+    </div>
+  </header>
+  <button class="back-btn" onclick="goTo('home')">← Back</button>
+  <div class="contact-page">
+    <div class="contact-hero">
+      <h2>We'd Love to Hear From You</h2>
+      <p>Questions, bug reports, tool requests, or just say hello — we read every message.</p>
+    </div>
+    <div class="contact-info-row">
+      <div class="contact-info">
+        <div class="ci-icon">✉️</div>
+        <div style="min-width:0;">
+          <div class="ci-label">Email</div>
+          <div class="ci-val"><a href="mailto:rdjpublishers@gmail.com">rdjpublishers@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="ci-icon">🌐</div>
+        <div style="min-width:0;">
+          <div class="ci-label">Website</div>
+          <div class="ci-val"><a href="https://rdjpublishers.com/" target="_blank">rdjpublishers.com</a></div>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="ci-icon">⏰</div>
+        <div>
+          <div class="ci-label">Response Time</div>
+          <div class="ci-val">Usually 24–48 hours</div>
+        </div>
+      </div>
+    </div>
+    <div class="cform">
+      <h3>Send a Message</h3>
+      <div id="cform-fields">
+        <div class="cf-err" id="cf-err"></div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Your Name *</label>
+            <input type="text" id="cf-name" placeholder="Ratheesh">
+          </div>
+          <div class="fg">
+            <label>Email Address *</label>
+            <input type="email" id="cf-email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="fg">
+          <label>Subject</label>
+          <input type="text" id="cf-subject" placeholder="Tool request / Bug report / …">
+        </div>
+        <div class="fg">
+          <label>Message *</label>
+          <textarea id="cf-message" placeholder="Write your message here…"></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitContactForm()">Send Message ✉️</button>
+      </div>
+      <div class="cf-success" id="cform-success">
+        <div class="s-icon">✅</div>
+        <h4>Message sent!</h4>
+        <p>Thank you for reaching out. We'll get back to you within 24–48 hours.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="f-brand">RDJ Publishers Blog</div>
+    <div class="f-links">
+      <a onclick="goTo('home')">Home</a>
+      <a onclick="goTo('about')">About</a>
+      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
+    </div>
+    <div class="f-copy">© 2026 RDJ Publishers.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PRIVACY POLICY PAGE
+══════════════════════════════════════════════ -->
+<div class="page" id="page-privacy">
+  <header class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand">Privacy Policy</div>
+    <div class="topbar-right">
+      <button onclick="goTo('home')">Home</button>
+    </div>
+  </header>
+  <button class="back-btn" onclick="goTo('home')">← Back</button>
+  <div style="padding:1.2rem 1.2rem 3rem;">
+    <div style="background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));border-radius:18px;padding:2rem 1.5rem;margin-bottom:1.4rem;text-align:center;">
+      <h2 style="font-family:var(--serif);font-size:1.4rem;color:#fff;">Privacy Policy</h2>
+      <p style="font-size:.82rem;color:rgba(255,255,255,0.65);margin-top:.5rem;">Last updated: 2025–2026</p>
+    </div>
+    <div style="background:var(--surface);border-radius:12px;padding:1.4rem;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);font-size:.85rem;line-height:1.8;color:var(--ink);">
+      <p>RDJ Publishers ("we", "us", or "our") operates the RDJ Publishers Blog. This page explains our policies on data collection, use, and disclosure.</p>
+      <h4 style="color:var(--teal);margin:1.1rem 0 .3rem;">Information We Collect</h4>
+      <p>This blog does not collect any personal information from visitors. All blog preferences are stored only on your own device.</p>
+      <h4 style="color:var(--teal);margin:1.1rem 0 .3rem;">Third-Party Advertising</h4>
+      <p>We use Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits. You can opt out at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" style="color:var(--teal);">Google Ad Settings</a>.</p>
+      <h4 style="color:var(--teal);margin:1.1rem 0 .3rem;">Analytics</h4>
+      <p>We use Google Analytics (GA4) to understand how visitors use this blog. This data is aggregated and does not identify individual users.</p>
+      <h4 style="color:var(--teal);margin:1.1rem 0 .3rem;">Contact Us</h4>
+      <p>For questions, contact us via the <span onclick="goTo('contact')" style="color:var(--teal);cursor:pointer;font-weight:600;">Contact page</span> or email <a href="mailto:rdjpublishers@gmail.com" style="color:var(--teal);">rdjpublishers@gmail.com</a>.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="f-brand">RDJ Publishers Blog</div>
+    <div class="f-links">
+      <a onclick="goTo('home')">Home</a>
+      <a onclick="goTo('about')">About</a>
+    </div>
+    <div class="f-copy">© 2026 RDJ Publishers.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     EMBEDDED CATEGORIES DATA
+══════════════════════════════════════════════ -->
+<script id="rdj-blog-cats" type="application/json">
+[
+  {"id":"Tech","name":"Tech","icon":"💻","desc":"Technology guides, browser tools, coding tips and more."},
+  {"id":"SEO","name":"SEO","icon":"🔍","desc":"Search engine optimisation strategies and keyword research."},
+  {"id":"Productivity","name":"Productivity","icon":"⚡","desc":"Work smarter with productivity tips and workflows."},
+  {"id":"AITools","name":"AI Tools","icon":"🤖","desc":"Guides to the best AI tools and how to use them."}
+]
+</script>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ── CONFIG ── */
+const GH_OWNER = 'rdjpublishers';
+const GH_REPO  = 'blogs';            // repo name for the blogs site
+const GH_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/`;
+const ADMIN_HASH = '26f5f8b67b8a8cf17b2a2e43dc2dea57bfdd1cf27175260280308e356ea8e99d'; // same hash as main site
+
+/* ── ADMIN AUTH ── */
+let isAdmin = false, dotClickCount = 0, dotClickTimer = null;
+async function checkPassword(input) {
+  const enc = new TextEncoder().encode(input);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+function openAdminEntry() {
+  dotClickCount++;
+  clearTimeout(dotClickTimer);
+  if (dotClickCount >= 3) { dotClickCount = 0; isAdmin ? openAdminPanel() : openAdminLogin(); }
+  else dotClickTimer = setTimeout(() => { dotClickCount = 0; }, 600);
+}
+function openAdminLogin()  { document.getElementById('adminLoginWrap').classList.add('show'); setTimeout(()=>document.getElementById('adminPass')?.focus(),100); }
+function closeAdminLogin() { document.getElementById('adminLoginWrap').classList.remove('show'); }
+async function doLogin() {
+  const pw = document.getElementById('adminPass')?.value || '';
+  const hash = await checkPassword(pw);
+  if (hash === ADMIN_HASH) {
+    isAdmin = true;
+    closeAdminLogin();
+    document.querySelectorAll('.admin-dot').forEach(d => d.style.background = '#22c55e');
+    showToast('✅ Admin mode on');
+    openAdminPanel();
+  } else {
+    const el = document.getElementById('adminErr');
+    if (el) el.textContent = 'Incorrect password. Try again.';
+    const pw = document.getElementById('adminPass');
+    if (pw) { pw.value = ''; pw.focus(); }
+  }
+}
+function doLogout() {
+  isAdmin = false;
+  document.querySelectorAll('.admin-dot').forEach(d => d.style.background = '');
+  closeAdminPanel();
+  showToast('👋 Signed out');
+}
+function openAdminPanel()  { renderCatSelect(); document.getElementById('adminPanelWrap').classList.add('show'); }
+function closeAdminPanel() { document.getElementById('adminPanelWrap').classList.remove('show'); }
+function switchTab(tab) {
+  ['publish','cats','info'].forEach(t => {
+    const el = document.getElementById('tab-'+t);
+    if (el) el.style.display = (t===tab)?'block':'none';
+  });
+  document.querySelectorAll('.admin-tab').forEach((btn,i) => {
+    btn.classList.toggle('active', ['publish','cats','info'][i] === tab);
+  });
+  if (tab === 'cats') renderAdminCats();
+}
+
+/* ── CATEGORIES DATA ── */
+function getCategories() {
+  try {
+    const s = localStorage.getItem('rdj_blog_cats');
+    if (s) {
+      const parsed = JSON.parse(s);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch(e) {}
+  try {
+    const embedded = document.getElementById('rdj-blog-cats');
+    if (embedded) return JSON.parse(embedded.textContent);
+  } catch(e) {}
+  // Hard-coded fallback so categories always show
+  return [
+    {id:'Tech',      name:'Tech',         icon:'💻', desc:'Technology guides, browser tools, coding tips and more.'},
+    {id:'SEO',       name:'SEO',          icon:'🔍', desc:'Search engine optimisation strategies and keyword research.'},
+    {id:'Productivity',name:'Productivity',icon:'⚡', desc:'Work smarter with productivity tips and workflows.'},
+    {id:'AITools',   name:'AI Tools',     icon:'🤖', desc:'Guides to the best AI tools and how to use them.'}
+  ];
+}
+function saveCategories(cats) { localStorage.setItem('rdj_blog_cats', JSON.stringify(cats)); }
+
+function renderCatSelect() {
+  const sel = document.getElementById('f-cat');
+  if (!sel) return;
+  const cats = getCategories();
+  sel.innerHTML = cats.map(c => `<option value="${c.id}">${c.icon} ${c.name}</option>`).join('');
+}
+
+function renderAdminCats() {
+  const cats = getCategories();
+  const el = document.getElementById('admin-cat-list');
+  if (!el) return;
+  el.innerHTML = cats.length
+    ? cats.map(c => `<div style="display:flex;align-items:center;gap:.8rem;padding:.6rem .8rem;background:var(--surface);border-radius:9px;border:1.5px solid var(--border);margin-bottom:.5rem;">
+        <span style="font-size:1.1rem;">${c.icon}</span>
+        <div style="flex:1;"><div style="font-size:.88rem;font-weight:700;">${c.name}</div><div style="font-size:.7rem;color:var(--muted);">${c.desc}</div></div>
+        <button style="background:#fef2f2;border:none;color:#dc2626;padding:.3rem .6rem;border-radius:6px;cursor:pointer;font-size:.75rem;" onclick="deleteCategory('${c.id}')">🗑️</button>
+      </div>`).join('')
+    : '<div style="color:var(--muted);font-size:.83rem;text-align:center;padding:1rem;">No categories yet.</div>';
+}
+
+function addCategory() {
+  const name = (document.getElementById('nc-name')?.value||'').trim();
+  const icon = (document.getElementById('nc-icon')?.value||'').trim() || '📁';
+  const desc = (document.getElementById('nc-desc')?.value||'').trim();
+  if (!name) { showToast('⚠️ Category name required'); return; }
+  // Enforce PascalCase-ish id = name with no spaces
+  const id = name.replace(/\s+/g,'');
+  const cats = getCategories();
+  if (cats.find(c=>c.id===id)) { showToast('⚠️ Category already exists'); return; }
+  cats.push({id,name,icon,desc});
+  saveCategories(cats);
+  renderAdminCats();
+  renderCatSelect();
+  renderSidebar();
+  renderHomeChips();
+  document.getElementById('nc-name').value='';
+  document.getElementById('nc-icon').value='';
+  document.getElementById('nc-desc').value='';
+  showToast(`✅ Category "${name}" added`);
+}
+
+function deleteCategory(id) {
+  if (!confirm(`Delete category "${id}"?`)) return;
+  saveCategories(getCategories().filter(c=>c.id!==id));
+  renderAdminCats();
+  renderCatSelect();
+  renderSidebar();
+  renderHomeChips();
+  showToast('🗑️ Category deleted');
+}
+
+/* ── TOAST ── */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+/* ── NAVIGATION ── */
+let currentCatId = null;
+function goTo(pageId) {
+  closeSidebar();
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const t = document.getElementById('page-'+pageId);
+  if (t) { t.classList.add('active'); window.scrollTo(0,0); }
+  document.querySelectorAll('.sb-link').forEach(l=>{
+    l.classList.remove('active');
+    if ((l.getAttribute('onclick')||'').includes(`'${pageId}'`)) l.classList.add('active');
+  });
+}
+function goToCat(catId) {
+  currentCatId = catId;
+  const cats = getCategories();
+  const cat = cats.find(c=>c.id===catId) || {id:catId,name:catId,icon:'📁',desc:''};
+  document.getElementById('cat-topbar-brand').textContent = cat.name;
+  document.getElementById('cat-view-icon').textContent = cat.icon;
+  document.getElementById('cat-view-title').textContent = cat.name;
+  document.getElementById('cat-view-desc').textContent = cat.desc;
+  // Fetch posts for this category from GitHub meta.jsons
+  loadCategoryPosts(catId, cat);
+  goTo('cat');
+}
+function showAllPosts() {
+  // scroll home page to posts grid
+  document.getElementById('home-posts')?.scrollIntoView({behavior:'smooth'});
+}
+function openSidebar()  {
+  document.getElementById('sidebar')?.classList.add('open');
+  document.getElementById('overlay')?.classList.add('active');
+  document.getElementById('menu-btn')?.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeSidebar() {
+  document.getElementById('sidebar')?.classList.remove('open');
+  document.getElementById('overlay')?.classList.remove('active');
+  document.getElementById('menu-btn')?.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ── SIDEBAR CAT LINKS ── */
+function renderSidebar() {
+  const cats = getCategories();
+  const el = document.getElementById('sb-cat-links');
+  if (!el) return;
+  el.innerHTML = cats.map(c =>
+    `<button class="sb-link" onclick="goToCat('${c.id}')"><span class="ic">${c.icon}</span> ${c.name}</button>`
+  ).join('');
+}
+
+/* ── HOME CAT CHIPS ── */
+function renderHomeChips() {
+  const cats = getCategories();
+  const el = document.getElementById('home-cat-chips');
+  if (!el) return;
+  el.innerHTML = cats.map(c =>
+    `<button class="cat-chip" onclick="goToCat('${c.id}')">${c.icon} ${c.name}</button>`
+  ).join('');
+}
+
+/* ── DATE FORMATTING ── */
+function fmtDate(iso) {
+  const d = new Date(iso);
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${String(d.getDate()).padStart(2,'0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+/* ── POST CARD HTML ── */
+function postCardHTML(post) {
+  const url = `/${GH_REPO}/${post.category}/${post.slug}/`;
+  const cover = post.cover ? `${post.category}/${post.slug}/${post.cover}` : null;
+  const thumb = cover
+    ? `<div class="post-thumb"><img src="${cover}" alt="${post.title}" loading="lazy"></div>`
+    : `<div class="post-thumb"><span class="post-thumb-placeholder">📝</span></div>`;
+  const tags = (post.tags||[]).slice(0,2).map(t=>`<span style="display:inline-block;background:var(--teal-pale);color:var(--teal);font-size:.58rem;font-weight:700;padding:.15rem .45rem;border-radius:100px;margin-left:.3rem;">${t}</span>`).join('');
+  return `<a class="post-card" href="${url}">
+    ${thumb}
+    <div class="post-body">
+      <div class="post-meta">
+        <span class="post-cat-tag">${post.category}</span>
+        <time class="post-date" datetime="${post.date}">${fmtDate(post.date)}</time>
+      </div>
+      <div class="post-title">${post.title}</div>
+      <div class="post-desc">${post.desc||post.description||''}</div>
+      <div class="post-read-more">Read more →${tags}</div>
+    </div>
+  </a>`;
+}
+
+/* ── LOAD POSTS FROM GITHUB ── */
+// Cache so we don't re-fetch on every nav
+const _postCache = {};
+
+async function fetchMetaJson(category, slug, token) {
+  const path = `${category}/${slug}/meta.json`;
+  const url = `${GH_API}${path}`;
+  const headers = {'Accept':'application/vnd.github+json'};
+  if (token) headers['Authorization'] = `token ${token}`;
+  const res = await fetch(url, {headers});
+  if (!res.ok) return null;
+  const data = await res.json();
+  return JSON.parse(atob(data.content.replace(/\n/g,'')));
+}
+
+async function loadCategoryPosts(catId, cat) {
+  const el = document.getElementById('cat-posts');
+  if (!el) return;
+  el.innerHTML = '<div class="empty-state"><div class="es-icon">⏳</div><p>Loading posts…</p></div>';
+  try {
+    // List files in {Category}/ folder
+    const res = await fetch(`${GH_API}${catId}/`, {headers:{'Accept':'application/vnd.github+json'}});
+    if (!res.ok) throw new Error('No posts published in this category yet.');
+    const items = await res.json();
+    // Folders = post slugs
+    const slugFolders = items.filter(i=>i.type==='dir' && i.name!=='search');
+    if (!slugFolders.length) {
+      el.innerHTML = '<div class="empty-state"><div class="es-icon">📝</div><h3>No posts yet</h3><p>Publish your first post in this category.</p></div>';
+      document.getElementById('cat-post-count').textContent = '0 articles';
+      return;
+    }
+    // Fetch all meta.json in parallel
+    const metas = (await Promise.all(
+      slugFolders.map(async f => {
+        try {
+          const mRes = await fetch(`${GH_API}${catId}/${f.name}/meta.json`,{headers:{'Accept':'application/vnd.github+json'}});
+          if (!mRes.ok) return null;
+          const mData = await mRes.json();
+          return JSON.parse(atob(mData.content.replace(/\n/g,'')));
+        } catch { return null; }
+      })
+    )).filter(Boolean);
+    // Sort newest first
+    metas.sort((a,b)=>new Date(b.date)-new Date(a.date));
+    document.getElementById('cat-post-count').textContent = `${metas.length} article${metas.length!==1?'s':''}`;
+    el.innerHTML = metas.length
+      ? metas.map(m=>postCardHTML({...m,desc:m.description})).join('')
+      : '<div class="empty-state"><div class="es-icon">📝</div><h3>No posts</h3><p>Posts will appear here after publishing.</p></div>';
+  } catch(e) {
+    el.innerHTML = `<div class="empty-state"><div class="es-icon">⚠️</div><p>${e.message}</p></div>`;
+  }
+}
+
+async function loadLatestPosts() {
+  const el = document.getElementById('home-posts');
+  if (!el) return;
+  el.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><div class="es-icon">⏳</div><p>Loading latest posts…</p></div>';
+  const cats = getCategories();
+  const allMetas = [];
+  await Promise.all(cats.map(async cat => {
+    try {
+      const res = await fetch(`${GH_API}${cat.id}/`,{headers:{'Accept':'application/vnd.github+json'}});
+      if (!res.ok) return;
+      const items = await res.json();
+      const slugFolders = items.filter(i=>i.type==='dir');
+      await Promise.all(slugFolders.map(async f => {
+        try {
+          const mRes = await fetch(`${GH_API}${cat.id}/${f.name}/meta.json`,{headers:{'Accept':'application/vnd.github+json'}});
+          if (!mRes.ok) return;
+          const mData = await mRes.json();
+          const meta = JSON.parse(atob(mData.content.replace(/\n/g,'')));
+          allMetas.push({...meta, desc: meta.description});
+          indexPostForSearch(meta);
+        } catch{}
+      }));
+    } catch{}
+  }));
+  if (!allMetas.length) {
+    el.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><div class="es-icon">📝</div><h3>No posts yet</h3><p>Use the admin panel to publish your first article. Triple-click the gold dot.</p></div>';
+    return;
+  }
+  allMetas.sort((a,b)=>new Date(b.date)-new Date(a.date));
+  el.innerHTML = allMetas.slice(0,6).map(m=>postCardHTML(m)).join('');
+}
+
+/* ══════════════════════════════════════════════
+   FILE STATE
+══════════════════════════════════════════════ */
+let pendingHtmlContent  = null;
+let pendingHtmlFilename = null;
+let pendingImgFiles     = [];
+
+/* ── SLUG HELPERS ── */
+function slugify(str) {
+  return str.toLowerCase()
+    .replace(/[^a-z0-9\s-]/g,'')
+    .trim()
+    .replace(/\s+/g,'-')
+    .replace(/-+/g,'-')
+    .substring(0,60)
+    .replace(/^-|-$/g,'');
+}
+
+function onTitleInput() {
+  const v = document.getElementById('f-title').value;
+  const cc = document.getElementById('title-count');
+  if (cc) { cc.textContent=`${v.length} / 100`; cc.className='char-count'+(v.length>80?' warn':'')+(v.length>=100?' over':''); }
+  // Auto-fill slug
+  const slugEl = document.getElementById('f-slug');
+  if (slugEl && !slugEl.dataset.manual) {
+    slugEl.value = slugify(v);
+    updateSlugCount();
+  }
+}
+function onSlugInput() {
+  const el = document.getElementById('f-slug');
+  if (el) {
+    el.dataset.manual = '1';
+    // Sanitise
+    el.value = el.value.toLowerCase().replace(/[^a-z0-9-]/g,'').replace(/-+/g,'-');
+    updateSlugCount();
+  }
+}
+function updateSlugCount() {
+  const v = document.getElementById('f-slug')?.value||'';
+  const cc = document.getElementById('slug-count');
+  if (cc) { cc.textContent=`${v.length} / 60`; cc.className='char-count'+(v.length>50?' warn':'')+(v.length>=60?' over':''); }
+}
+function onDescInput() {
+  const v = document.getElementById('f-desc').value;
+  const cc = document.getElementById('desc-count');
+  if (cc) { cc.textContent=`${v.length} / 160`; cc.className='char-count'+(v.length>140?' warn':'')+(v.length>=160?' over':''); }
+}
+function updateSlugPrefix() {} // reserved for future use
+
+/* ── DRAG & DROP / HTML UPLOAD ── */
+function onDragOver(e) { e.preventDefault(); document.getElementById('html-drop')?.classList.add('drag'); }
+function onDrop(e) {
+  e.preventDefault();
+  document.getElementById('html-drop')?.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (file) processHtmlFile(file);
+}
+function onHtmlFileChange(e) {
+  const file = e.target.files[0];
+  if (file) processHtmlFile(file);
+}
+function processHtmlFile(file) {
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const content = ev.target.result;
+    pendingHtmlContent  = content;
+    pendingHtmlFilename = file.name;
+    const statusEl = document.getElementById('html-file-status');
+    if (statusEl) statusEl.textContent = `✅ ${file.name} loaded (${(file.size/1024).toFixed(1)} KB)`;
+    validateHtml(content);
+  };
+  reader.readAsText(file);
+}
+function validateHtml(content) {
+  const ul = document.getElementById('validation-list');
+  if (!ul) return;
+  const checks = [
+    { ok: /<html/i.test(content), label: 'Contains <html> tag' },
+    { ok: !/<title>/i.test(content) || /<title>[^<]{1,120}<\/title>/i.test(content), label: 'Title tag looks good' },
+    { ok: !/src=["']\//i.test(content) && !/href=["']\//i.test(content), label: 'No absolute paths (src="/…" or href="/…")' },
+    { ok: /<meta\s[^>]*name=["']description/i.test(content), label: 'Has meta description' },
+    { ok: content.length < 50*1024*1024, label: 'File size under 50 MB' },
+  ];
+  ul.innerHTML = checks.map(c =>
+    `<li class="${c.ok?'ok':'err'}">${c.ok?'✅':'❌'} ${c.label}</li>`
+  ).join('');
+  return checks.every(c=>c.ok);
+}
+
+/* ── IMAGE FILES ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const imgInput = document.getElementById('img-files-input');
+  if (imgInput) {
+    imgInput.addEventListener('change', e => {
+      pendingImgFiles = Array.from(e.target.files);
+      const s = document.getElementById('img-files-status');
+      if (s) s.textContent = `✅ ${pendingImgFiles.length} image file(s) selected`;
+    });
+  }
+});
+
+/* ── GITHUB HELPERS ── */
+async function ghGetSHA(token, path) {
+  const res = await fetch(`${GH_API}${path}`, {
+    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`Cannot fetch ${path}: HTTP ${res.status}`);
+  return (await res.json()).sha;
+}
+async function ghPushFile(token, path, content, sha, commitMsg) {
+  const encoded = typeof content === 'string'
+    ? btoa(unescape(encodeURIComponent(content)))
+    : content; // already base64 for binary
+  const body = { message: commitMsg, content: encoded };
+  if (sha) body.sha = sha;
+  const res = await fetch(`${GH_API}${path}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${token}`,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(()=>({}));
+    throw new Error(err.message || `Push failed for ${path}: ${res.status}`);
+  }
+}
+async function imageToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = ev => resolve(ev.target.result.split(',')[1]);
+    r.onerror = () => reject(new Error('File read error'));
+    r.readAsDataURL(file);
+  });
+}
+async function ghListDir(token, path) {
+  const headers = {'Accept':'application/vnd.github+json'};
+  if (token) headers['Authorization'] = `token ${token}`;
+  const res = await fetch(`${GH_API}${path}`, {headers});
+  if (res.status === 404) return [];
+  if (!res.ok) throw new Error(`Cannot list ${path}: HTTP ${res.status}`);
+  return res.json();
+}
+
+/* ── IST DATE ── */
+function nowIST() {
+  // Returns ISO 8601 with +05:30 offset
+  const now = new Date();
+  const offset = 5*60 + 30;
+  const local = new Date(now.getTime() + offset*60000);
+  const iso = local.toISOString().slice(0,19);
+  return iso + '+05:30';
+}
+
+/* ══════════════════════════════════════════════
+   CATEGORY PAGE GENERATOR
+   Reads all meta.json in a category folder on
+   GitHub and builds {Category}/index.html
+══════════════════════════════════════════════ */
+async function buildCategoryPage(token, catId, commitMsg) {
+  const cats = getCategories();
+  const cat = cats.find(c=>c.id===catId) || {id:catId,name:catId,icon:'📁',desc:''};
+  // List all folders in {catId}/
+  const items = await ghListDir(token, catId);
+  const slugFolders = items.filter(i=>i.type==='dir');
+  // Fetch all meta.json
+  const metas = (await Promise.all(
+    slugFolders.map(async f => {
+      try {
+        const res = await fetch(`${GH_API}${catId}/${f.name}/meta.json`,{
+          headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github+json'}
+        });
+        if (!res.ok) return null;
+        const data = await res.json();
+        return JSON.parse(atob(data.content.replace(/\n/g,'')));
+      } catch{ return null; }
+    })
+  )).filter(Boolean);
+  metas.sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+  const postCards = metas.map(m => {
+    const cover = m.cover ? `${m.slug}/${m.cover}` : null;
+    const thumbHtml = cover
+      ? `<img src="${cover}" alt="${m.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`
+      : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg,#084d44,#0d8a79);font-size:2.5rem;color:rgba(255,255,255,0.3);">📝</div>`;
+    return `
+  <article class="post-card">
+    <div class="post-thumb">${thumbHtml}</div>
+    <div class="post-body">
+      <div class="post-meta">
+        <span class="post-cat-tag">${m.category}</span>
+        <time class="post-date" datetime="${m.date}">${fmtDate(m.date)}</time>
+      </div>
+      <h2 class="post-title">${m.title}</h2>
+      <p class="post-desc">${m.description||''}</p>
+      <a class="post-read-more" href="${m.slug}/">Read More →</a>
+    </div>
+  </article>`;
+  }).join('');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"><\/script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G5M1ZPJW29');<\/script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8728382905346597" crossorigin="anonymous"><\/script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${cat.name} Articles | RDJ Publishers Blog</title>
+<meta name="description" content="Browse ${cat.name} articles on RDJ Publishers Blog. ${cat.desc}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://rdjpublishers.com/blogs/${catId}/">
+<meta property="og:title" content="${cat.name} Articles | RDJ Publishers Blog">
+<meta property="og:description" content="Browse ${cat.name} articles — free guides and tutorials.">
+<meta property="og:url" content="https://rdjpublishers.com/blogs/${catId}/">
+<meta property="og:image" content="https://rdjpublishers.com/blogs/blog.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"${cat.name} | RDJ Publishers Blog","url":"https://rdjpublishers.com/blogs/${catId}/","description":"${cat.desc}"}<\/script>
+<link rel="icon" href="https://rdjpublishers.com/blogs/blog.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../search/pagefind-ui.css">
+<script src="../search/pagefind-ui.js"><\/script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--ink:#0f1e1c;--teal:#0b6e61;--teal-dark:#084d44;--teal-mid:#0d8a79;--teal-pale:#e6f4f2;--gold:#c8892a;--surface:#fff;--bg:#f5f7f7;--border:#dde8e6;--muted:#6b8c88;--r:14px;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);}
+a{text-decoration:none;color:inherit;}
+nav{position:sticky;top:0;z-index:100;height:58px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);display:flex;align-items:center;padding:0 1.2rem;border-bottom:1px solid var(--border);gap:.8rem;}
+nav .brand{font-family:var(--serif);font-size:1rem;}nav .brand span{color:var(--teal);}
+nav .links{margin-left:auto;display:flex;gap:.2rem;}
+nav .links a{font-size:.78rem;font-weight:600;padding:.3rem .75rem;border-radius:8px;color:var(--muted);}
+nav .links a:hover{background:var(--teal-pale);color:var(--teal);}
+.breadcrumb{font-size:.72rem;color:var(--muted);padding:.8rem 1.2rem;display:flex;gap:.3rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a{color:var(--teal);}
+.cat-hero{background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));padding:2rem 1.4rem 1.8rem;display:flex;align-items:flex-start;gap:1rem;}
+.cat-hero .icon{font-size:2.5rem;}
+.cat-hero h1{font-family:var(--serif);font-size:1.5rem;color:#fff;}
+.cat-hero p{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:.3rem;line-height:1.6;}
+.search-wrap{padding:1rem 1.2rem 0;}
+.pagefind-ui{--pagefind-ui-primary:var(--teal);}
+.post-grid{display:grid;grid-template-columns:1fr;gap:1.1rem;padding:1.2rem 1.2rem 2rem;}
+@media(min-width:600px){.post-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1024px){.post-grid{grid-template-columns:1fr 1fr 1fr;}}
+.post-card{background:var(--surface);border-radius:var(--r);border:1.5px solid var(--border);overflow:hidden;box-shadow:0 2px 12px rgba(11,110,97,.08);display:flex;flex-direction:column;transition:all .22s;}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 6px 28px rgba(11,110,97,.14);border-color:var(--teal);}
+.post-thumb{width:100%;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;}
+.post-body{padding:1rem;flex:1;display:flex;flex-direction:column;}
+.post-meta{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;}
+.post-cat-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:.2rem .55rem;border-radius:100px;}
+.post-date{font-size:.68rem;color:var(--muted);}
+.post-title{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.35;margin-bottom:.4rem;flex:1;}
+.post-desc{font-size:.8rem;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-read-more{display:inline-flex;align-items:center;gap:.3rem;margin-top:.8rem;font-size:.78rem;font-weight:700;color:var(--teal);}
+footer{background:var(--ink);padding:1.5rem 1.2rem;margin-top:2rem;}
+footer p{font-size:.73rem;color:rgba(255,255,255,.3);}
+footer .fl{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin:.6rem 0;}
+footer .fl a{font-size:.73rem;color:rgba(255,255,255,.4);}footer .fl a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../" class="brand">RDJ <span>Blog</span></a>
+  <div class="links">
+    <a href="../">Home</a>
+    <a href="https://rdjpublishers.com/" target="_blank">Tools</a>
+  </div>
+</nav>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://rdjpublishers.com/">Home</a> /
+  <a href="../">Blog</a> /
+  <span>${cat.name}</span>
+</nav>
+<div class="cat-hero">
+  <div class="icon">${cat.icon}</div>
+  <div>
+    <h1>${cat.name}</h1>
+    <p>${cat.desc}</p>
+  </div>
+</div>
+<div class="search-wrap">
+  <div id="search"></div>
+</div>
+<div class="post-grid">
+  ${postCards || '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted);">No posts in this category yet.</div>'}
+</div>
+<footer>
+  <p>© 2026 RDJ Publishers · Free guides &amp; tutorials</p>
+  <div class="fl">
+    <a href="../">Blog Home</a>
+    <a href="https://rdjpublishers.com/">Tools</a>
+    <a href="https://rdjpublishers.com/#contact">Contact</a>
+  </div>
+</footer>
+\x3cscript\x3e
+window.addEventListener('DOMContentLoaded',()=>{
+  if(window.PagefindUI) new PagefindUI({element:'#search',showImages:false,showSubResults:true});
+});
+\x3c/script\x3e
+</body></html>`;
+
+  const sha = await ghGetSHA(token, `${catId}/index.html`);
+  await ghPushFile(token, `${catId}/index.html`, html, sha, commitMsg);
+}
+
+/* ══════════════════════════════════════════════
+   SITEMAP GENERATOR
+   Builds sitemap_blogs.xml — structured by category,
+   with every post URL included. Regenerated on
+   every publish so new posts are auto-included.
+══════════════════════════════════════════════ */
+async function buildSitemap(token, commitMsg) {
+  const cats = getCategories();
+  const BASE = 'https://rdjpublishers.com/blogs';
+  const today = new Date().toISOString().slice(0,10);
+
+  const urlEntries = [];
+
+  // Root blog index
+  urlEntries.push(`  <url>\n    <loc>${BASE}/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>`);
+
+  for (const cat of cats) {
+    // Category index page
+    urlEntries.push(`\n  <!-- ══ Category: ${cat.name} ══ -->`);
+    urlEntries.push(`  <url>\n    <loc>${BASE}/${cat.id}/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`);
+
+    // All posts in this category
+    let metas = [];
+    try {
+      const items = await ghListDir(token, cat.id);
+      const slugFolders = items.filter(i=>i.type==='dir');
+      metas = (await Promise.all(
+        slugFolders.map(async f => {
+          try {
+            const res = await fetch(`${GH_API}${cat.id}/${f.name}/meta.json`,{
+              headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github+json'}
+            });
+            if (!res.ok) return null;
+            const data = await res.json();
+            return JSON.parse(atob(data.content.replace(/\n/g,'')));
+          } catch{ return null; }
+        })
+      )).filter(Boolean);
+      metas.sort((a,b)=>new Date(b.date)-new Date(a.date));
+    } catch {}
+
+    for (const m of metas) {
+      const lastmod = (m.date||today).slice(0,10);
+      urlEntries.push(`  <url>\n    <loc>${BASE}/${cat.id}/${m.slug}/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`);
+    }
+  }
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries.join('\n')}\n</urlset>\n`;
+
+  const sha = await ghGetSHA(token, `sitemap_blogs.xml`);
+  await ghPushFile(token, `sitemap_blogs.xml`, xml, sha, commitMsg);
+}
+
+async function regenerateSitemap() {
+  const token = document.getElementById('sm-token')?.value?.trim() || '';
+  if (!token) { showToast('⚠️ GitHub token required'); return; }
+  try {
+    showToast('🔄 Regenerating sitemap…');
+    await buildSitemap(token, 'Regenerate sitemap_blogs.xml');
+    showToast('✅ Sitemap updated');
+  } catch(err) {
+    showToast('❌ ' + err.message);
+  }
+}
+
+/* ══════════════════════════════════════════════
+   PAGEFIND INJECT HELPERS
+══════════════════════════════════════════════ */
+
+/* ── CONFIG PLACEHOLDERS (replace with your actual values) ── */
+const GITHUB_TOKEN = 'YOUR_TOKEN_HERE';
+const REPO = 'username/repo';
+const BRANCH = 'main';
+
+/**
+ * injectPagefindScript(html)
+ * Blocks publish if HTML contains absolute paths (src="/" or href="/").
+ * Injects the pagefind.js script tag before </head>.
+ * Returns the modified HTML string.
+ */
+function injectPagefindScript(html) {
+  // Block if absolute paths found
+  if (/src=["']\//i.test(html) || /href=["']\//i.test(html)) {
+    throw new Error('❌ Absolute paths detected (src="/" or href="/"). Use relative paths instead, e.g. src="image.jpg" not src="/image.jpg".');
+  }
+  // Inject pagefind.js before </head> if not already present
+  if (!/search\/pagefind\.js/i.test(html)) {
+    html = html.replace('</head>', '<script src="/search/pagefind.js"><\/script>\n</head>');
+  }
+  return html;
+}
+
+/**
+ * ensureHomepageSearch(token)
+ * Fetches repo root index.html via GitHub API.
+ * Checks for: <div id="search"></div>, pagefind.js, and PagefindUI init with showSubResults: true.
+ * If any are missing, injects a complete search section before </body> and pushes the update.
+ * Non-blocking — errors are swallowed so publish is not interrupted.
+ */
+async function ensureHomepageSearch(token) {
+  try {
+    const ghApiBase = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/`;
+    const res = await fetch(`${ghApiBase}index.html`, {
+      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
+    });
+    if (!res.ok) return; // homepage not found, skip silently
+
+    const data = await res.json();
+    const sha = data.sha;
+    let homeHtml = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+
+    const hasSearchDiv    = /<div[^>]*id=["']search["']/i.test(homeHtml);
+    const hasPagefindJs   = /search\/pagefind(\.js|-ui\.js)/i.test(homeHtml);
+    const hasPagefindInit = /PagefindUI[\s\S]*?showSubResults\s*:\s*true/i.test(homeHtml);
+
+    if (hasSearchDiv && hasPagefindJs && hasPagefindInit) return; // already complete
+
+    // Inject missing pieces before </body>
+    const searchSection = [
+      '<!-- Auto-injected Pagefind Search -->',
+      '<link rel="stylesheet" href="search/pagefind-ui.css">',
+      '\x3cscript src="search/pagefind-ui.js">\x3c/script>',
+      '<section style="max-width:700px;margin:1.2rem auto;padding:0 1.2rem;">',
+      '  <div id="search"></div>',
+      '</section>',
+      '\x3cscript>',
+      'window.addEventListener(\'DOMContentLoaded\',function(){',
+      '  if(window.PagefindUI){new PagefindUI({element:\'#search\',showImages:false,showSubResults:true});}',
+      '});',
+      '\x3c/script>'
+    ].join('\n');
+
+    if (!homeHtml.includes('</body>')) return; // malformed, skip
+    homeHtml = homeHtml.replace('</body>', searchSection + '\n</body>');
+
+    // Push update to GitHub
+    const encoded = btoa(unescape(encodeURIComponent(homeHtml)));
+    await fetch(`${ghApiBase}index.html`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Auto-add Pagefind search bar [skip ci]',
+        content: encoded,
+        sha: sha
+      })
+    });
+  } catch (e) {
+    // Non-blocking: log but do not throw
+    console.warn('ensureHomepageSearch: failed silently —', e.message);
+  }
+}
+
+/**
+ * ensureSearchBar()
+ * Called on page load. If #search exists in DOM but PagefindUI is not yet
+ * initialised, re-tries PagefindUI init. Useful when the search/ folder
+ * is already deployed but the script loaded before DOMContentLoaded fired.
+ */
+function ensureSearchBar() {
+  const el = document.getElementById('search');
+  if (!el) return;
+  // If already populated skip
+  if (el.children.length > 0) return;
+  if (window.PagefindUI) {
+    new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
+  }
+}
+
+/* ══════════════════════════════════════════════
+   PUBLISH POST
+══════════════════════════════════════════════ */
+async function publishPost() {
+  if (!isAdmin) return;
+  const token   = document.getElementById('gh-token')?.value?.trim() || '';
+  const cat     = document.getElementById('f-cat')?.value?.trim() || '';
+  const title   = document.getElementById('f-title')?.value?.trim() || '';
+  const slug    = document.getElementById('f-slug')?.value?.trim() || '';
+  const desc    = document.getElementById('f-desc')?.value?.trim() || '';
+  const tagsRaw = document.getElementById('f-tags')?.value?.trim() || '';
+  const cover   = document.getElementById('f-cover')?.value?.trim() || 'cover.jpg';
+
+  // Validation
+  if (!token) { showToast('⚠️ GitHub token required'); return; }
+  if (!cat)   { showToast('⚠️ Category required'); return; }
+  if (!title) { showToast('⚠️ Title required'); return; }
+  if (!slug)  { showToast('⚠️ Slug required'); return; }
+  if (!/^[a-z0-9-]+$/.test(slug)) { showToast('⚠️ Slug: lowercase a-z, 0-9, hyphens only'); return; }
+  if (slug.length > 60) { showToast('⚠️ Slug max 60 chars'); return; }
+  if (!pendingHtmlContent) { showToast('⚠️ Upload your HTML file first'); return; }
+
+  // Validate HTML
+  if (!/<html/i.test(pendingHtmlContent)) { showToast('❌ HTML file must contain <html> tag'); return; }
+  if (/src=["']\//i.test(pendingHtmlContent) || /href=["']\//i.test(pendingHtmlContent)) {
+    showToast('❌ Use relative paths in HTML: src="image.jpg" not src="/image.jpg"');
+    return;
+  }
+
+  // Slug uniqueness check
+  const existSHA = await ghGetSHA(token, `${cat}/${slug}/meta.json`).catch(()=>null);
+  if (existSHA !== null && existSHA !== undefined) {
+    showToast(`❌ Slug "${slug}" already exists in ${cat}/. Try "${slug}-2"`);
+    return;
+  }
+
+  const btn = document.getElementById('publish-btn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Publishing…'; }
+  const logEl = document.getElementById('publish-log');
+  const box   = document.getElementById('publish-box');
+  if (box) box.style.display = 'block';
+  if (logEl) { logEl.innerHTML = ''; }
+
+  function log(msg, type='info') {
+    if (!logEl) return;
+    const cls = type==='ok'?'log-ok':type==='err'?'log-err':'log-info';
+    logEl.innerHTML += `<span class="${cls}">${msg}</span>\n`;
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  const tags = tagsRaw ? tagsRaw.split(',').map(t=>t.trim()).filter(Boolean) : [];
+  const date = nowIST();
+  const commitMsg = `Add post: ${cat}/${slug} - ${title}`;
+  const basePath  = `${cat}/${slug}`;
+
+  try {
+    // 1. meta.json
+    log(`📤 Pushing ${basePath}/meta.json…`);
+    const meta = { title, slug, category:cat, date, description:desc, tags, cover };
+    await ghPushFile(token, `${basePath}/meta.json`, JSON.stringify(meta, null, 2), null, commitMsg);
+    log(`✅ meta.json pushed`, 'ok');
+
+    // 2. index.html (inject breadcrumb + title + meta if needed)
+    log(`📤 Pushing ${basePath}/index.html…`);
+    let postHtml = pendingHtmlContent;
+    // Inject title if missing
+    if (!/<title>/i.test(postHtml)) {
+      postHtml = postHtml.replace('</head>', `<title>${title} | RDJ Publishers</title>\n<meta name="description" content="${desc}">\n</head>`);
+    }
+    // Inject GA4 + AdSense in <head> if not present
+    if (!/G-G5M1ZPJW29/.test(postHtml)) {
+      const gaSnippet = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G5M1ZPJW29');<\/script>`;
+      postHtml = postHtml.replace('<head>', `<head>\n${gaSnippet}`);
+    }
+    if (!/ca-pub-8728382905346597/.test(postHtml)) {
+      const adsSnippet = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8728382905346597" crossorigin="anonymous"><\/script>`;
+      postHtml = postHtml.replace('</head>', `${adsSnippet}\n</head>`);
+    }
+    // Inject pagefind.js into post HTML (throws if absolute paths found)
+    postHtml = injectPagefindScript(postHtml);
+    await ghPushFile(token, `${basePath}/index.html`, postHtml, null, commitMsg);
+    log(`✅ index.html pushed`, 'ok');
+
+    // 3. Image files
+    if (pendingImgFiles.length) {
+      log(`📤 Pushing ${pendingImgFiles.length} image(s)…`);
+      for (const file of pendingImgFiles) {
+        const b64 = await imageToBase64(file);
+        const imgPath = `${basePath}/${file.name}`;
+        const imgSHA = await ghGetSHA(token, imgPath).catch(()=>null);
+        await ghPushFile(token, imgPath, b64, imgSHA, commitMsg);
+        log(`✅ ${file.name} pushed`, 'ok');
+      }
+    }
+
+    // 4. Regenerate {Category}/index.html
+    log(`🔄 Regenerating ${cat}/index.html…`);
+    await buildCategoryPage(token, cat, commitMsg);
+    log(`✅ ${cat}/index.html updated`, 'ok');
+
+    // 4b. Regenerate sitemap_blogs.xml
+    log(`🔄 Updating sitemap_blogs.xml…`);
+    await buildSitemap(token, commitMsg);
+    log(`✅ sitemap_blogs.xml updated`, 'ok');
+
+    // 5. Done
+    log(`\n🎉 Post "${title}" published! Live in 5–10 min at:`, 'ok');
+    log(`   https://rdjpublishers.com/blogs/${cat}/${slug}/`, 'ok');
+    showToast('✅ Post published!');
+
+    // Ensure homepage has search bar
+    log(`🔍 Checking homepage search bar…`);
+    await ensureHomepageSearch(token);
+
+    // Refresh home posts
+    loadLatestPosts();
+
+  } catch(err) {
+    log(`❌ ${err.message}`, 'err');
+    showToast('❌ Publish failed. See log.');
+  } finally {
+    if (btn) { btn.disabled=false; btn.textContent='🚀 Publish Post'; }
+  }
+}
+
+/* ── CONTACT FORM ── */
+async function submitContactForm() {
+  const name    = document.getElementById('cf-name')?.value?.trim()||'';
+  const email   = document.getElementById('cf-email')?.value?.trim()||'';
+  const subject = document.getElementById('cf-subject')?.value?.trim()||'';
+  const message = document.getElementById('cf-message')?.value?.trim()||'';
+  const errEl   = document.getElementById('cf-err');
+  if (errEl) errEl.style.display='none';
+  if (!name||!email||!message) {
+    if (errEl) { errEl.textContent='Please fill in your name, email and message.'; errEl.style.display='block'; }
+    return;
+  }
+  const btn = document.querySelector('.submit-btn');
+  if (btn) { btn.textContent='Sending…'; btn.disabled=true; }
+  try {
+    const res = await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({access_key:'b8e73ebb-4cd4-45ae-aa44-5a9725856c03',name,email,subject,message})
+    });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('cform-fields').style.display='none';
+      document.getElementById('cform-success').style.display='block';
+    } else throw new Error('Server error');
+  } catch(e) {
+    if (errEl) { errEl.textContent='Failed to send. Email us: rdjpublishers@gmail.com'; errEl.style.display='block'; }
+    if (btn) { btn.textContent='Send Message ✉️'; btn.disabled=false; }
+  }
+}
+
+/* ── NATIVE SEARCH (fallback & instant search) ── */
+// Stores all loaded post metas for instant client-side search
+const _searchIndex = [];
+
+function indexPostForSearch(meta) {
+  // Called after each meta.json is fetched in loadLatestPosts
+  if (!meta) return;
+  _searchIndex.push({
+    title:    meta.title || '',
+    desc:     meta.description || meta.desc || '',
+    category: meta.category || '',
+    slug:     meta.slug || '',
+    date:     meta.date || '',
+    tags:     (meta.tags || []).join(' '),
+    cover:    meta.cover || null
+  });
+}
+
+function nativeSearch(query) {
+  const out = document.getElementById('native-search-results');
+  if (!out) return;
+  query = (query || '').trim().toLowerCase();
+  if (!query) { out.innerHTML = ''; return; }
+
+  const terms = query.split(/\s+/).filter(Boolean);
+  const matches = _searchIndex.filter(p => {
+    const hay = (p.title + ' ' + p.desc + ' ' + p.category + ' ' + p.tags).toLowerCase();
+    return terms.every(t => hay.includes(t));
+  });
+
+  if (!matches.length) {
+    out.innerHTML = '<div style="font-size:.83rem;color:var(--muted);padding:.5rem 0;">No results found. Try a different keyword.</div>';
+    return;
+  }
+
+  out.innerHTML = matches.slice(0, 8).map(function(p) {
+    const url = '/blogs/' + p.category + '/' + p.slug + '/';
+    const coverSrc = p.cover ? (p.category + '/' + p.slug + '/' + p.cover) : null;
+    const thumb = coverSrc
+      ? `<img src="${coverSrc}" alt="" style="width:52px;height:52px;object-fit:cover;border-radius:8px;flex-shrink:0;">`
+      : `<div style="width:52px;height:52px;border-radius:8px;background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;">📝</div>`;
+    return `<a href="${url}" class="search-result-card">
+      ${thumb}
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.88rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${p.title}</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px;">${p.category}${p.date ? ' · ' + fmtDate(p.date) : ''}</div>
+      </div>
+      <span style="color:var(--teal);font-size:.8rem;flex-shrink:0;">→</span>
+    </a>`;
+  }).join('');
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderSidebar();
+  renderHomeChips();
+  loadLatestPosts();
+  // Init Pagefind on home
+  if (window.PagefindUI) {
+    new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
+  }
+  // Ensure search bar is present and initialised
+  ensureSearchBar();
+});
+</script>
+<!-- Pagefind search init (standalone, runs after all scripts) -->
+<script>
+window.addEventListener('load', function() {
+  if (window.PagefindUI) {
+    var el = document.getElementById('search');
+    if (el && el.children.length === 0) {
+      new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
+    }
+  }
+});
+</script>
+</body>
+</html>
