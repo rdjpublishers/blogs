@@ -1,0 +1,59 @@
+# ══════════════════════════════════════════════════════════════════
+# pagefind.yml — Build & commit Pagefind search index automatically
+# Triggered on every push to main branch.
+# ══════════════════════════════════════════════════════════════════
+name: Build Search Index
+
+on:
+  push:
+    branches:
+      - main
+
+# Serialize runs so a burst of pushes (e.g. a multi-file blog publish) doesn't
+# race: each run waits its turn instead of starting from a base that the next
+# push has already moved past.
+concurrency:
+  group: pagefind-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build-search-index:
+    name: Build Pagefind index and commit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # Sync with main right after checkout, while the tree is still clean.
+      # (This must run BEFORE the build steps below: `git rebase` refuses to
+      # run at all if there are any uncommitted/untracked changes in the
+      # working tree, and the build steps always leave one — even a no-op
+      # rebase fails on a dirty tree. Doing it here, before anything is
+      # generated, avoids that entirely.)
+      - name: Sync with latest main
+        run: |
+          git fetch origin main
+          git rebase origin/main
+
+      - name: Build posts manifest
+        run: node scripts/build-manifest.js
+
+      - name: Build Pagefind search index
+        run: npx pagefind --site . --output-subdir search
+
+      - name: Commit updated search index and manifest
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update search index and posts manifest [skip ci]"
+          file_pattern: "search/ posts-manifest.json"
