@@ -27,15 +27,29 @@ function isCategoryDir(name) {
   return !IGNORE.has(name) && !name.startsWith('.');
 }
 
+// Safe wrapper: a folder that's mid-upload (e.g. GitHub's web "Add file"
+// flow commits files one at a time) can briefly disappear or become
+// unreadable between the readdir() that found it and the fs call that
+// tries to look inside it. Never let that kill the whole build — skip
+// the offending entry and keep going.
+function safeReaddir(dir) {
+  try {
+    return fs.readdirSync(dir, { withFileTypes: true });
+  } catch (err) {
+    console.error(`⚠️  Skipping unreadable directory ${dir}: ${err.message}`);
+    return [];
+  }
+}
+
 function findCategoryDirs(base, prefix = '') {
   // Supports nested category ids like "Tutorials/HowtoGuides".
   const found = [];
-  for (const entry of fs.readdirSync(base, { withFileTypes: true })) {
+  for (const entry of safeReaddir(base)) {
     if (!entry.isDirectory()) continue;
     if (prefix === '' && !isCategoryDir(entry.name)) continue;
     const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
     const full = path.join(base, entry.name);
-    const children = fs.readdirSync(full, { withFileTypes: true });
+    const children = safeReaddir(full);
     const hasPosts = children.some(c => c.isDirectory() && fs.existsSync(path.join(full, c.name, 'meta.json')));
     const hasSubcats = children.some(c => c.isDirectory() && !fs.existsSync(path.join(full, c.name, 'meta.json')));
     if (hasPosts) found.push(rel);
@@ -50,13 +64,16 @@ function collectPosts() {
 
   for (const catId of categoryDirs) {
     const catPath = path.join(ROOT, catId);
-    for (const entry of fs.readdirSync(catPath, { withFileTypes: true })) {
+    for (const entry of safeReaddir(catPath)) {
       if (!entry.isDirectory()) continue;
       const metaPath = path.join(catPath, entry.name, 'meta.json');
       if (!fs.existsSync(metaPath)) continue;
       try {
         const raw = fs.readFileSync(metaPath, 'utf8');
         const meta = JSON.parse(raw);
+        if (!meta || typeof meta !== 'object' || Array.isArray(meta)) {
+          throw new Error('meta.json must contain a JSON object');
+        }
         posts.push({ ...meta, category: meta.category || catId, slug: meta.slug || entry.name });
       } catch (err) {
         console.error(`⚠️  Skipping invalid meta.json at ${metaPath}: ${err.message}`);
@@ -64,11 +81,27 @@ function collectPosts() {
     }
   }
 
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Posts with a missing/unparseable date sort to the end instead of
+  // corrupting the whole sort (invalid Date -> NaN, whose ordering vs.
+  // other values isn't consistent) or throwing.
+  const time = (d) => {
+    const t = new Date(d).getTime();
+    return Number.isNaN(t) ? -Infinity : t;
+  };
+  posts.sort((a, b) => time(b.date) - time(a.date));
   return posts;
 }
 
-const posts = collectPosts();
-const outPath = path.join(ROOT, 'posts-manifest.json');
-fs.writeFileSync(outPath, JSON.stringify({ generatedAt: new Date().toISOString(), posts }, null, 2) + '\n');
-console.log(`✅ Wrote ${posts.length} post(s) to posts-manifest.json`);
+try {
+  const posts = collectPosts();
+  const outPath = path.join(ROOT, 'posts-manifest.json');
+  fs.writeFileSync(outPath, JSON.stringify({ generatedAt: new Date().toISOString(), posts }, null, 2) + '\n');
+  console.log(`✅ Wrote ${posts.length} post(s) to posts-manifest.json`);
+} catch (err) {
+  // Last-resort safety net. Individual bad posts/dirs are already handled
+  // above and won't reach here — this only catches something truly
+  // unexpected, and fails loudly rather than committing a half-built
+  // manifest.
+  console.error(`❌ Failed to build posts-manifest.json: ${err.message}`);
+  process.exit(1);
+}
