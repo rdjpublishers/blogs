@@ -1,54 +1,21 @@
 {
-  "generatedAt": "2026-09-20T11:30:00.000Z",
+  "generatedAt": "2026-09-20T11:19:58.852Z",
   "posts": [
     {
-      "title": "6 Free Python Courses Worth Your Time in 2026",
-      "slug": "free-python-courses-2026",
+      "title": "Best Free Python IDEs for Beginners in 2026",
+      "slug": "best-free-python-ides-2026",
       "category": "Programming",
-      "date": "2026-08-22T12:00:00+05:30",
-      "description": "Six free, well-structured Python courses ranked by depth, pacing and how quickly you'll be able to build real projects after finishing.",
+      "date": "2026-09-18T10:00:00+05:30",
+      "description": "A practical guide to the best free Python IDEs and editors for beginners in 2026 — comparing setup speed, learning curve, and features so you can pick the right one.",
       "tags": [
         "Python",
-        "Python Courses",
-        "Learn Python",
-        "Free Courses",
-        "CS50P",
-        "freeCodeCamp",
-        "Automate the Boring Stuff",
-        "Kaggle"
-      ],
-      "cover": "cover.jpg"
-    },
-    {
-      "title": "Google Search Operators: A Practical Cheat Sheet",
-      "slug": "google-search-operators",
-      "category": "Tutorials",
-      "date": "2026-08-28T14:00:00+05:30",
-      "description": "Use site:, filetype:, intitle: and the rest of Google's search operators to find exactly what you need — with copy-paste examples for every operator.",
-      "tags": [
-        "Google Search",
-        "Search Operators",
-        "Productivity",
-        "Research",
-        "SEO",
-        "Tutorial"
-      ],
-      "cover": "cover.jpg"
-    },
-    {
-      "title": "10 Practical Ways to Speed Up Your Browser",
-      "slug": "speed-up-your-browser",
-      "category": "Tutorials",
-      "date": "2026-09-10T09:00:00+05:30",
-      "description": "Ten concrete, tested steps that make Chrome, Edge and Firefox noticeably faster — extensions to remove, settings to flip, and habits to change.",
-      "tags": [
-        "Browser Speed",
-        "Chrome",
-        "Firefox",
-        "Edge",
-        "Performance",
-        "Extensions",
-        "Tutorial"
+        "Python IDE",
+        "Python for Beginners",
+        "VS Code",
+        "PyCharm",
+        "Thonny",
+        "Free Tools",
+        "Code Editors"
       ],
       "cover": "cover.jpg"
     },
@@ -72,20 +39,53 @@
       "cover": "cover.jpg"
     },
     {
-      "title": "Best Free Python IDEs for Beginners in 2026",
-      "slug": "best-free-python-ides-2026",
+      "title": "10 Practical Ways to Speed Up Your Browser",
+      "slug": "speed-up-your-browser",
+      "category": "Tutorials",
+      "date": "2026-09-10T09:00:00+05:30",
+      "description": "Ten concrete, tested steps that make Chrome, Edge and Firefox noticeably faster — extensions to remove, settings to flip, and habits to change.",
+      "tags": [
+        "Browser Speed",
+        "Chrome",
+        "Firefox",
+        "Edge",
+        "Performance",
+        "Extensions",
+        "Tutorial"
+      ],
+      "cover": "cover.jpg"
+    },
+    {
+      "title": "Google Search Operators: A Practical Cheat Sheet",
+      "slug": "google-search-operators",
+      "category": "Tutorials",
+      "date": "2026-08-28T14:00:00+05:30",
+      "description": "Use site:, filetype:, intitle: and the rest of Google's search operators to find exactly what you need — with copy-paste examples for every operator.",
+      "tags": [
+        "Google Search",
+        "Search Operators",
+        "Productivity",
+        "Research",
+        "SEO",
+        "Tutorial"
+      ],
+      "cover": "cover.jpg"
+    },
+    {
+      "title": "6 Free Python Courses Worth Your Time in 2026",
+      "slug": "free-python-courses-2026",
       "category": "Programming",
-      "date": "2026-09-18T10:00:00+05:30",
-      "description": "A practical guide to the best free Python IDEs and editors for beginners in 2026 — comparing setup speed, learning curve, and features so you can pick the right one.",
+      "date": "2026-08-22T12:00:00+05:30",
+      "description": "Six free, well-structured Python courses ranked by depth, pacing and how quickly you'll be able to build real projects after finishing.",
       "tags": [
         "Python",
-        "Python IDE",
-        "Python for Beginners",
-        "VS Code",
-        "PyCharm",
-        "Thonny",
-        "Free Tools",
-        "Code Editors"
+        "Python Courses",
+        "Learn Python",
+        "Free Courses",
+        "CS50P",
+        "freeCodeCamp",
+        "Automate the Boring Stuff",
+        "Kaggle"
       ],
       "cover": "cover.jpg"
     },
