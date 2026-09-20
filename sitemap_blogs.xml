@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rdjpublishers.com/blogs/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -10,9 +10,21 @@
   <!-- ══ Category: Programming ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/Programming/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rdjpublishers.com/blogs/Programming/free-python-courses-2026/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rdjpublishers.com/blogs/Programming/best-free-python-ides-2026/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rdjpublishers.com/blogs/Programming/top-10-python-projects-for-beginners/</loc>
@@ -21,27 +33,45 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- ══ Category: Ai News ══ -->
+  <!-- ══ Category: AiNews ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/AiNews/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://rdjpublishers.com/blogs/AiNews/top-free-ai-tools-2026/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
-  <!-- ══ Category: Tech News ══ -->
+  <!-- ══ Category: TechNews ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/TechNews/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- ══ Category: Tutorials/How to Guides ══ -->
+  <!-- ══ Category: Tutorials / How-to Guides ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/Tutorials/HowtoGuides/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rdjpublishers.com/blogs/Tutorials/HowtoGuides/google-search-operators/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rdjpublishers.com/blogs/Tutorials/HowtoGuides/speed-up-your-browser/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

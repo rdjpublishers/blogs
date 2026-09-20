@@ -3,6 +3,7 @@
  * build-manifest.js
  *
  * Walks every category folder in the repo, reads each post's meta.json,
+ * validates that each post points to files that actually exist on disk,
  * and writes a single posts-manifest.json at the repo root.
  *
  * Why: the homepage and category pages used to call the GitHub Contents
@@ -14,6 +15,11 @@
  * This script runs in CI (see .github/workflows/pagefind.yml) so the
  * manifest is always fresh after a publish, and the site reads one static
  * JSON file instead of hammering the GitHub API.
+ *
+ * Validation added 2026-09: refuse to ship a manifest that points to a
+ * missing index.html, a missing cover image, or a non-existent folder.
+ * Previously the build would silently emit a post whose URL 404'd, which
+ * then got into sitemap_blogs.xml and into the category page lists.
  */
 const fs = require('fs');
 const path = require('path');
@@ -61,6 +67,7 @@ function findCategoryDirs(base, prefix = '') {
 function collectPosts() {
   const posts = [];
   const categoryDirs = findCategoryDirs(ROOT);
+  const validationErrors = [];
 
   for (const catId of categoryDirs) {
     const catPath = path.join(ROOT, catId);
@@ -74,7 +81,21 @@ function collectPosts() {
         if (!meta || typeof meta !== 'object' || Array.isArray(meta)) {
           throw new Error('meta.json must contain a JSON object');
         }
-        posts.push({ ...meta, category: meta.category || catId, slug: meta.slug || entry.name });
+        const slug = meta.slug || entry.name;
+        const postDir = path.join(catPath, entry.name);
+        const indexPath = path.join(postDir, 'index.html');
+        const coverPath = meta.cover ? path.join(postDir, meta.cover) : null;
+
+        // Validate required files exist on disk. This is what prevents
+        // 404 URLs from creeping into sitemap_blogs.xml and the homepage.
+        if (!fs.existsSync(indexPath)) {
+          validationErrors.push(`${catId}/${slug}/: index.html missing — refusing to ship a manifest entry that 404s`);
+        }
+        if (coverPath && !fs.existsSync(coverPath)) {
+          validationErrors.push(`${catId}/${slug}/: cover image "${meta.cover}" missing`);
+        }
+
+        posts.push({ ...meta, category: meta.category || catId, slug });
       } catch (err) {
         console.error(`⚠️  Skipping invalid meta.json at ${metaPath}: ${err.message}`);
       }
@@ -89,11 +110,18 @@ function collectPosts() {
     return Number.isNaN(t) ? -Infinity : t;
   };
   posts.sort((a, b) => time(b.date) - time(a.date));
-  return posts;
+  return { posts, validationErrors };
 }
 
 try {
-  const posts = collectPosts();
+  const { posts, validationErrors } = collectPosts();
+  if (validationErrors.length > 0) {
+    console.error('❌ Manifest validation failed:');
+    for (const err of validationErrors) {
+      console.error(`   • ${err}`);
+    }
+    process.exit(1);
+  }
   const outPath = path.join(ROOT, 'posts-manifest.json');
   fs.writeFileSync(outPath, JSON.stringify({ generatedAt: new Date().toISOString(), posts }, null, 2) + '\n');
   console.log(`✅ Wrote ${posts.length} post(s) to posts-manifest.json`);
