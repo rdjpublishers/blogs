@@ -100,7 +100,7 @@ a{color:var(--primary);text-decoration:none;transition:color .2s;}a:hover{color:
 .verdict{background:var(--accent-soft);border:1.5px solid var(--accent);border-radius:12px;padding:1.2rem;margin:1.6rem 0;}
 .verdict h2{margin-top:0;color:#8a4a1a;}
 .author-box{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:1.2rem;margin-top:2rem;display:flex;gap:1rem;align-items:center;}
-.author-box .logo{width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.1rem;}
+.author-box .logo{width:48px;height:48px;border-radius:50%;object-fit:cover;background:var(--card);flex-shrink:0;}
 .author-box h4{margin:0 0 .2rem;font-size:.95rem;}
 .author-box p{margin:0;font-size:.78rem;color:var(--muted);}
 footer{background:#14171e;padding:1.8rem 1.2rem 1.4rem;margin-top:3rem;color:#fff;}
@@ -109,6 +109,9 @@ footer p{font-size:.73rem;color:rgba(255,255,255,.4);margin-bottom:.4rem;}
 footer .fl{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin:.6rem 0;}
 footer .fl a{font-size:.73rem;color:rgba(255,255,255,.5);}
 footer .fl a:hover{color:var(--accent);}
+.back-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--primary-soft);color:var(--primary);border:none;padding:.55rem 1.1rem;border-radius:10px;font-size:.85rem;font-weight:600;cursor:pointer;margin:1.2rem 1.2rem 0;transition:all .2s;text-decoration:none;}
+.back-btn:hover{background:var(--primary);color:#fff;transform:translateX(-2px);}
+.back-btn .arrow{font-size:1.1rem;line-height:1;}
 </style>
 </head>
 <body>
@@ -123,6 +126,8 @@ footer .fl a:hover{color:var(--accent);}
     </nav>
   </div>
 </header>
+
+<a href="../../" class="back-btn" aria-label="Back to blog home"><span class="arrow">←</span> Back to Blog</a>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="../../">Home</a> /
@@ -254,10 +259,10 @@ footer .fl a:hover{color:var(--accent);}
   <p>Paid Python courses are sometimes worth it — they tend to have better pacing, more support, and more polished projects. But none of them teach anything you can't learn for free with the six sources above plus consistent practice. The two best reasons to pay for a course are: you learn better with deadlines (a paid cohort forces you to keep up), or you want a certificate on LinkedIn. Otherwise, the free tier is genuinely enough.</p>
 
   <div class="author-box">
-    <div class="logo">RDJ</div>
+    <img class="logo" src="../../Rdj_Blogs.png" alt="RDJ Publishers" loading="lazy">
     <div>
       <h4>RDJ Publishers</h4>
-      <p>Independent web studio publishing free guides, tutorials and tools since 2024.</p>
+      <p>Independent web studio publishing free guides, tutorials and tools since 2026.</p>
     </div>
   </div>
 </article>

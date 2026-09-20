@@ -58,20 +58,8 @@
   <!-- ══ Category: Tutorials / How-to Guides ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/Tutorials/HowtoGuides/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rdjpublishers.com/blogs/Tutorials/HowtoGuides/google-search-operators/</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://rdjpublishers.com/blogs/Tutorials/HowtoGuides/speed-up-your-browser/</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>

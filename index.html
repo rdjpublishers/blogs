@@ -51,18 +51,32 @@
 <link rel="stylesheet" href="search/pagefind-ui.css" onerror="this.remove()">
 <script>
 (function(){
+  var fallbackTimer = setTimeout(function(){
+    // Pagefind UI didn't load within 4s — show the native fallback.
+    var fb = document.getElementById('search-fallback');
+    if (fb) fb.style.display = '';
+    var pf = document.getElementById('search');
+    if (pf) pf.style.display = 'none';
+  }, 4000);
+
   var s=document.createElement('script');
   s.src='search/pagefind-ui.js';
   s.onload=function(){
     if(window.PagefindUI){
+      clearTimeout(fallbackTimer); // Pagefind loaded — never show the fallback.
       var el=document.getElementById('search');
       if(el){
         el.style.display='block';
         new PagefindUI({element:'#search',showImages:false,showSubResults:true});
-        var fb=document.getElementById('search-fallback');
-        if(fb) fb.style.display='none';
       }
+      var fb=document.getElementById('search-fallback');
+      if(fb) fb.style.display='none';
     }
+  };
+  s.onerror=function(){
+    clearTimeout(fallbackTimer);
+    var fb=document.getElementById('search-fallback');
+    if(fb) fb.style.display='';
   };
   document.head.appendChild(s);
 })();
@@ -339,10 +353,11 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
   <div id="home-search" style="background:var(--surface);border-bottom:1px solid var(--border);padding:.75rem 1.2rem;">
     <div style="max-width:700px;margin:0 auto;position:relative;">
       <span style="position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;">🔍</span>
-      <!-- Pagefind native target -->
-      <div id="search" style="display:none;"></div>
-      <!-- Native fallback search (always visible until Pagefind loads) -->
-      <div id="search-fallback">
+      <!-- Pagefind native target (visible once Pagefind UI loads) -->
+      <div id="search"></div>
+      <!-- Native fallback search — hidden by default, only shown if Pagefind
+           fails to load within 4s (see the script in <head>). -->
+      <div id="search-fallback" style="display:none;">
         <input type="search" id="native-search-input"
           placeholder="Search articles by title, tag or category…"
           oninput="nativeSearch(this.value)" autocomplete="off" spellcheck="false"
@@ -401,19 +416,6 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
       </div>
     </a>
 
-    <a class="post-card" href="Tutorials/HowtoGuides/speed-up-your-browser/" aria-label="Read: 10 Practical Ways to Speed Up Your Browser">
-      <div class="post-thumb"><img src="Tutorials/HowtoGuides/speed-up-your-browser/cover.jpg" alt="10 Practical Ways to Speed Up Your Browser" loading="lazy"></div>
-      <div class="post-body">
-        <div class="post-meta">
-          <span class="post-cat-tag">Tutorials</span>
-          <time class="post-date" datetime="2026-09-10">10 Sep 2026</time>
-        </div>
-        <div class="post-title">10 Practical Ways to Speed Up Your Browser</div>
-        <div class="post-desc">Ten concrete steps — extensions to remove, settings to flip, and habits to change — that actually make Chrome, Edge and Firefox noticeably faster.</div>
-        <div class="post-read-more">Read more →</div>
-      </div>
-    </a>
-
     <a class="post-card" href="AiNews/top-free-ai-tools-2026/" aria-label="Read: Top 7 Free AI Tools Worth Trying in 2026">
       <div class="post-thumb"><img src="AiNews/top-free-ai-tools-2026/cover.jpg" alt="Top 7 Free AI Tools Worth Trying in 2026" loading="lazy"></div>
       <div class="post-body">
@@ -423,19 +425,6 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
         </div>
         <div class="post-title">Top 7 Free AI Tools Worth Trying in 2026</div>
         <div class="post-desc">A curated list of seven genuinely useful, free-tier AI tools for writing, image generation, coding and research — with what each one is best at.</div>
-        <div class="post-read-more">Read more →</div>
-      </div>
-    </a>
-
-    <a class="post-card" href="Tutorials/HowtoGuides/google-search-operators/" aria-label="Read: Google Search Operators: A Practical Cheat Sheet">
-      <div class="post-thumb"><img src="Tutorials/HowtoGuides/google-search-operators/cover.jpg" alt="Google Search Operators: A Practical Cheat Sheet" loading="lazy"></div>
-      <div class="post-body">
-        <div class="post-meta">
-          <span class="post-cat-tag">Tutorials</span>
-          <time class="post-date" datetime="2026-08-28">28 Aug 2026</time>
-        </div>
-        <div class="post-title">Google Search Operators: A Practical Cheat Sheet</div>
-        <div class="post-desc">Use site:, filetype:, intitle: and the rest of Google's search operators to find exactly what you need — with copy-paste examples for every operator.</div>
         <div class="post-read-more">Read more →</div>
       </div>
     </a>

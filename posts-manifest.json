@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T11:19:58.852Z",
+  "generatedAt": "2026-09-20T11:50:17.010Z",
   "posts": [
     {
       "title": "Best Free Python IDEs for Beginners in 2026",
@@ -35,39 +35,6 @@
         "Whisper",
         "NotebookLM",
         "Bing Image Creator"
-      ],
-      "cover": "cover.jpg"
-    },
-    {
-      "title": "10 Practical Ways to Speed Up Your Browser",
-      "slug": "speed-up-your-browser",
-      "category": "Tutorials",
-      "date": "2026-09-10T09:00:00+05:30",
-      "description": "Ten concrete, tested steps that make Chrome, Edge and Firefox noticeably faster — extensions to remove, settings to flip, and habits to change.",
-      "tags": [
-        "Browser Speed",
-        "Chrome",
-        "Firefox",
-        "Edge",
-        "Performance",
-        "Extensions",
-        "Tutorial"
-      ],
-      "cover": "cover.jpg"
-    },
-    {
-      "title": "Google Search Operators: A Practical Cheat Sheet",
-      "slug": "google-search-operators",
-      "category": "Tutorials",
-      "date": "2026-08-28T14:00:00+05:30",
-      "description": "Use site:, filetype:, intitle: and the rest of Google's search operators to find exactly what you need — with copy-paste examples for every operator.",
-      "tags": [
-        "Google Search",
-        "Search Operators",
-        "Productivity",
-        "Research",
-        "SEO",
-        "Tutorial"
       ],
       "cover": "cover.jpg"
     },
