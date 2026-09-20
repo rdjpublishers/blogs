@@ -50,35 +50,35 @@
 <!-- Pagefind search (auto-built by GitHub Actions after every push) -->
 <link rel="stylesheet" href="search/pagefind-ui.css" onerror="this.remove()">
 <script>
+/**
+ * Loads Pagefind UI exactly once. The search/ folder is committed to the
+ * repo by the pagefind GitHub workflow, so this should always succeed.
+ *
+ * IMPORTANT: do NOT add a second `new PagefindUI(...)` call anywhere else
+ * in this file. Each call creates a duplicate search bar inside the same
+ * #search container, which is what caused the "two search bars" bug.
+ */
 (function(){
-  var fallbackTimer = setTimeout(function(){
-    // Pagefind UI didn't load within 4s — show the native fallback.
-    var fb = document.getElementById('search-fallback');
-    if (fb) fb.style.display = '';
-    var pf = document.getElementById('search');
-    if (pf) pf.style.display = 'none';
-  }, 4000);
+  function initPagefind() {
+    if (!window.PagefindUI) return false;
+    var el = document.getElementById('search');
+    if (!el) return false;
+    if (el.dataset.pagefindInit === '1') return true; // already initialised
+    el.dataset.pagefindInit = '1';
+    el.style.display = 'block';
+    new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
+    return true;
+  }
 
-  var s=document.createElement('script');
-  s.src='search/pagefind-ui.js';
-  s.onload=function(){
-    if(window.PagefindUI){
-      clearTimeout(fallbackTimer); // Pagefind loaded — never show the fallback.
-      var el=document.getElementById('search');
-      if(el){
-        el.style.display='block';
-        new PagefindUI({element:'#search',showImages:false,showSubResults:true});
-      }
-      var fb=document.getElementById('search-fallback');
-      if(fb) fb.style.display='none';
-    }
-  };
-  s.onerror=function(){
-    clearTimeout(fallbackTimer);
-    var fb=document.getElementById('search-fallback');
-    if(fb) fb.style.display='';
-  };
+  var s = document.createElement('script');
+  s.src = 'search/pagefind-ui.js';
+  s.onload = initPagefind;
+  s.onerror = function () { console.warn('Pagefind UI failed to load.'); };
   document.head.appendChild(s);
+
+  // If pagefind-ui.js was already cached and loaded before this script ran,
+  // initPagefind on DOMContentLoaded handles that case.
+  document.addEventListener('DOMContentLoaded', initPagefind);
 })();
 </script>
 <link rel="icon" href="https://rdjpublishers.com/blogs/blog.png" type="image/png">
@@ -351,21 +351,9 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
 
   <!-- Search bar — above hero banner -->
   <div id="home-search" style="background:var(--surface);border-bottom:1px solid var(--border);padding:.75rem 1.2rem;">
-    <div style="max-width:700px;margin:0 auto;position:relative;">
-      <span style="position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;">🔍</span>
-      <!-- Pagefind native target (visible once Pagefind UI loads) -->
+    <div style="max-width:700px;margin:0 auto;">
+      <!-- Pagefind UI mounts here. Nothing else should touch this container. -->
       <div id="search"></div>
-      <!-- Native fallback search — hidden by default, only shown if Pagefind
-           fails to load within 4s (see the script in <head>). -->
-      <div id="search-fallback" style="display:none;">
-        <input type="search" id="native-search-input"
-          placeholder="Search articles by title, tag or category…"
-          oninput="nativeSearch(this.value)" autocomplete="off" spellcheck="false"
-          style="width:100%;padding:.72rem 1rem .72rem 2.6rem;border:1.5px solid var(--border);border-radius:12px;background:var(--bg);font-family:var(--sans);font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;"
-          onfocus="this.style.borderColor='var(--teal)';this.style.boxShadow='0 0 0 3px rgba(11,110,97,0.1)'"
-          onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-        <div id="native-search-results" style="margin-top:.6rem;"></div>
-      </div>
     </div>
   </div>
 
@@ -706,8 +694,8 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     "desc": "Latest news and updates from the world of technology."
   },
   {
-    "id": "Tutorials/HowtoGuides",
-    "name": "Tutorials/How to Guides",
+    "id": "Tutorials",
+    "name": "Tutorials and How-to Guides",
     "icon": "📖",
     "desc": "Easy step-by-step lessons to learn tech skills and tools."
   }
@@ -991,39 +979,15 @@ function nativeSearch(query) {
   }).join('');
 }
 
-/* Re-init Pagefind when #search exists but hasn't been populated yet
-   (e.g. script loaded before DOMContentLoaded). */
-function ensureSearchBar() {
-  const el = document.getElementById('search');
-  if (!el) return;
-  if (el.children.length > 0) return;
-  if (window.PagefindUI) {
-    new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
-  }
-}
-
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
   renderHomeChips();
   loadLatestPosts();
-  // Init Pagefind on home
-  if (window.PagefindUI) {
-    new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
-  }
-  // Ensure search bar is present and initialised
-  ensureSearchBar();
-});
-</script>
-<!-- Pagefind search init (standalone, runs after all scripts) -->
-<script>
-window.addEventListener('load', function() {
-  if (window.PagefindUI) {
-    var el = document.getElementById('search');
-    if (el && el.children.length === 0) {
-      new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
-    }
-  }
+  // NOTE: PagefindUI is initialised exactly once, in the dynamic-loader
+  // script at the top of <head>. Do NOT add additional `new PagefindUI(...)`
+  // calls here — each one would create a duplicate search bar inside
+  // the same #search container.
 });
 </script>
 <!-- Owner flow script (no visible output until activated) -->

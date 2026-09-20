@@ -306,6 +306,23 @@
         <div class="admin-actions">
           <button class="btn-cancel" type="button" data-action="signout" title="Remove admin panel from this browser">🚪 Sign Out</button>
         </div>
+
+        <!-- ── GITHUB SYNC ── -->
+        <div class="export-box" style="margin-top:1rem;">
+          <strong>🔁 Auto-sync to GitHub</strong>
+          Push category edits and small admin changes straight to <code>rdjpublishers/blogs</code> without going through the publish flow. The token is saved in this browser only and can be cleared with the “Forget Token” button.
+          <div class="admin-fg" style="margin-top:.7rem;margin-bottom:.5rem;">
+            <label>GitHub Personal Access Token (needs <code>repo</code> scope)</label>
+            <input class="admin-input" type="password" id="gh-sync-token" placeholder="github_pat_…" autocomplete="off">
+          </div>
+          <div class="admin-fg" style="margin-bottom:.7rem;">
+            <label>Branch</label>
+            <input class="admin-input" type="text" id="gh-sync-branch" placeholder="main" value="main" style="margin-bottom:0;">
+          </div>
+          <button class="btn-save" type="button" data-action="sync-cats" style="margin-bottom:.5rem;">📤 Sync Categories to Repo</button>
+          <button class="btn-cancel" type="button" data-action="forget-token" style="width:100%;margin-bottom:.5rem;">🗑️ Forget Stored Token</button>
+          <div id="gh-sync-status" style="font-size:.78rem;color:var(--ink-soft);margin-top:.4rem;"></div>
+        </div>
       </div>
 
     </div>
@@ -480,6 +497,8 @@
         if (act === 'signout') signOut();
         if (act === 'add-category') addCategory();
         if (act === 'regen-sitemap') regenerateSitemap();
+        if (act === 'sync-cats') syncCategoriesToRepoNow();
+        if (act === 'forget-token') forgetStoredGitHubToken();
         return;
       }
       const tab = e.target.closest('[data-tab]');
@@ -515,6 +534,20 @@
       const s = document.getElementById('img-files-status');
       if (s) s.textContent = `✅ ${pendingImgFiles.length} image file(s) selected`;
     });
+
+    // Pre-fill the GitHub sync token field from localStorage, then
+    // persist any edits the owner makes so they only enter the token once.
+    const tokEl = document.getElementById('gh-sync-token');
+    const brEl = document.getElementById('gh-sync-branch');
+    if (tokEl) {
+      const saved = getStoredGitHubToken();
+      if (saved) tokEl.value = saved;
+      tokEl.addEventListener('change', () => storeGitHubToken(tokEl.value.trim()));
+    }
+    if (brEl) {
+      brEl.value = getStoredGitHubBranch();
+      brEl.addEventListener('change', () => storeGitHubBranch(brEl.value.trim() || 'main'));
+    }
 
     // Category delete buttons (delegated)
     const list = document.getElementById('admin-cat-list');
@@ -653,6 +686,14 @@
     if (h.renderSidebar) h.renderSidebar();
     if (h.renderHomeChips) h.renderHomeChips();
     showToast('💾 Categories saved locally');
+    // If a GitHub token is stored, also push the change straight to the
+    // repo so visitors on other devices see the new categories after the
+    // next GitHub Pages deploy. Silent if it fails.
+    if (getStoredGitHubToken()) {
+      autoSyncIfPossible(false).then(ok => {
+        if (ok) showToast('☁️ Pushed to repo — live in ~30s');
+      });
+    }
   }
 
   /* ──────────────────────────────────────────────────────────────────────────
@@ -1037,6 +1078,195 @@ window.addEventListener('DOMContentLoaded',()=>{
       showToast('✅ Sitemap updated');
     } catch (err) {
       showToast('❌ ' + err.message);
+    }
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────────
+   * GITHUB TOKEN STORAGE — keep one PAT in localStorage so category edits
+   * and small admin changes can be pushed straight to the repo without
+   * pasting the token every time. The token only leaves this browser when
+   * the owner clicks "Forget Token" or signs out.
+   * ────────────────────────────────────────────────────────────────────────── */
+  const GH_TOKEN_KEY = 'rdj_owner_gh_token';
+  const GH_BRANCH_KEY = 'rdj_owner_gh_branch';
+
+  function getStoredGitHubToken() {
+    try { return localStorage.getItem(GH_TOKEN_KEY) || ''; } catch (e) { return ''; }
+  }
+  function storeGitHubToken(tok) {
+    try {
+      if (tok) localStorage.setItem(GH_TOKEN_KEY, tok);
+      else localStorage.removeItem(GH_TOKEN_KEY);
+    } catch (e) {}
+  }
+  function getStoredGitHubBranch() {
+    try {
+      return localStorage.getItem(GH_BRANCH_KEY) || 'main';
+    } catch (e) { return 'main'; }
+  }
+  function storeGitHubBranch(br) {
+    try {
+      if (br) localStorage.setItem(GH_BRANCH_KEY, br);
+      else localStorage.removeItem(GH_BRANCH_KEY);
+    } catch (e) {}
+  }
+  function forgetStoredGitHubToken() {
+    storeGitHubToken('');
+    const tokenEl = document.getElementById('gh-sync-token');
+    if (tokenEl) tokenEl.value = '';
+    setGhSyncStatus('Token cleared.', 'ok');
+    showToast('🗑️ Stored token forgotten');
+  }
+
+  function setGhSyncStatus(msg, kind) {
+    const el = document.getElementById('gh-sync-status');
+    if (!el) return;
+    el.textContent = msg;
+    el.style.color = kind === 'err' ? '#dc2626' : kind === 'ok' ? '#16a34a' : 'var(--ink-soft)';
+  }
+
+  /**
+   * Push the current categories straight to the blog repo's index.html.
+   *
+   * Strategy:
+   *   1. Read current categories from localStorage (or the embedded JSON).
+   *   2. Fetch index.html from GitHub via the Contents API.
+   *   3. Replace the rdj-blog-cats <script> block with the new JSON.
+   *   4. PUT the updated file back via the API.
+   *
+   * This uses the same ghGetSHA / ghPushFile helpers as publishPost, so
+   * the existing network plumbing (GitHub API URL, error messages) stays
+   * consistent.
+   */
+  async function syncCategoriesToRepoNow() {
+    const tokenEl = document.getElementById('gh-sync-token');
+    const branchEl = document.getElementById('gh-sync-branch');
+    const token = tokenEl?.value?.trim() || '';
+    const branch = (branchEl?.value?.trim() || 'main');
+    if (!token) {
+      setGhSyncStatus('Enter a GitHub Personal Access Token first.', 'err');
+      showToast('⚠️ GitHub token required');
+      return;
+    }
+    if (!/^ghp_|github_pat_|gh[ps]_[A-Za-z0-9_]+$/.test(token)) {
+      setGhSyncStatus('That doesn\'t look like a GitHub PAT (expected ghp_…, github_pat_…, or ghs_…).', 'err');
+      return;
+    }
+
+    // Persist token + branch so the owner only has to enter them once.
+    storeGitHubToken(token);
+    storeGitHubBranch(branch);
+
+    const cats = getCategories();
+    const newJson = JSON.stringify(cats, null, 2);
+    setGhSyncStatus('Fetching index.html from repo…');
+
+    try {
+      const h = host();
+      const url = `${h.GH_API}index.html?ref=${encodeURIComponent(branch)}`;
+      const get = await fetch(url, {
+        headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
+      });
+      if (!get.ok) {
+        throw new Error(`Could not fetch index.html (HTTP ${get.status}). Check the token, branch, and that the path is correct.`);
+      }
+      const file = await get.json();
+      const sha = file.sha;
+      let homeHtml = decodeURIComponent(escape(atob(file.content.replace(/\n/g, ''))));
+
+      const blockRe = /(<script id="rdj-blog-cats" type="application\/json">)([\s\S]*?)(<\/script>)/;
+      if (!blockRe.test(homeHtml)) {
+        throw new Error('Could not find the rdj-blog-cats data block in index.html.');
+      }
+      homeHtml = homeHtml.replace(blockRe, (m, open, _old, close) => `${open}\n${newJson}\n${close}`);
+
+      const encoded = btoa(unescape(encodeURIComponent(homeHtml)));
+      setGhSyncStatus('Committing to GitHub…');
+      showToast('🔄 Syncing categories…');
+
+      const put = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${token}`,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Update categories via admin panel',
+          content: encoded,
+          sha,
+          branch
+        })
+      });
+      if (!put.ok) {
+        const err = await put.json().catch(() => ({}));
+        throw new Error(err.message || `GitHub API returned HTTP ${put.status}.`);
+      }
+
+      setGhSyncStatus('✅ Categories pushed. GitHub Pages will redeploy in ~30s.', 'ok');
+      showToast('✅ Categories synced to repo');
+    } catch (err) {
+      setGhSyncStatus('❌ ' + err.message, 'err');
+      showToast('❌ ' + err.message);
+    }
+  }
+
+  /**
+   * Auto-sync hook. Called from saveCategoriesLocally() so the category
+   * edit is pushed to the repo immediately, without the owner having
+   * to remember to click "Sync". Only fires when a token is stored —
+   * otherwise we silently keep the local-only save so visitors on this
+   * browser still see the change.
+   */
+  async function autoSyncIfPossible(silent) {
+    const tok = getStoredGitHubToken();
+    if (!tok) return false; // no token stored — skip silently
+    const cats = getCategories();
+    const newJson = JSON.stringify(cats, null, 2);
+    try {
+      const h = host();
+      const branch = getStoredGitHubBranch();
+      const url = `${h.GH_API}index.html?ref=${encodeURIComponent(branch)}`;
+      const get = await fetch(url, {
+        headers: { 'Authorization': `token ${tok}`, 'Accept': 'application/vnd.github+json' }
+      });
+      if (!get.ok) {
+        if (!silent) showToast('❌ Auto-sync failed: HTTP ' + get.status);
+        return false;
+      }
+      const file = await get.json();
+      const sha = file.sha;
+      let homeHtml = decodeURIComponent(escape(atob(file.content.replace(/\n/g, ''))));
+      const blockRe = /(<script id="rdj-blog-cats" type="application\/json">)([\s\S]*?)(<\/script>)/;
+      if (!blockRe.test(homeHtml)) {
+        if (!silent) showToast('❌ Auto-sync failed: block not found');
+        return false;
+      }
+      homeHtml = homeHtml.replace(blockRe, (m, open, _old, close) => `${open}\n${newJson}\n${close}`);
+      const encoded = btoa(unescape(encodeURIComponent(homeHtml)));
+      const put = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${tok}`,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Auto-sync categories from admin panel',
+          content: encoded,
+          sha,
+          branch
+        })
+      });
+      if (!put.ok) {
+        if (!silent) showToast('❌ Auto-sync failed: HTTP ' + put.status);
+        return false;
+      }
+      setGhSyncStatus('✅ Auto-synced to repo at ' + new Date().toLocaleTimeString(), 'ok');
+      return true;
+    } catch (e) {
+      if (!silent) showToast('❌ Auto-sync error: ' + e.message);
+      return false;
     }
   }
 
