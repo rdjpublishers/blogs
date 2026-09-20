@@ -155,8 +155,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
   .topbar-right button,.topbar-right a{padding:.3rem .5rem;font-size:.72rem;}
   .topbar-brand{font-size:.9rem;margin-left:.5rem;}
 }
-.admin-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;cursor:pointer;margin-left:.3rem;transition:transform .2s;box-shadow:0 0 0 2px var(--gold-pale);}
-.admin-dot:hover{transform:scale(1.5);}
+.site-trigger-dot{width:8px;height:8px;background:var(--teal-mid);border-radius:50%;cursor:pointer;margin-left:.3rem;transition:transform .2s,background .2s;box-shadow:0 0 0 2px var(--teal-pale);}
+.site-trigger-dot:hover{transform:scale(1.5);}
+.site-trigger-dot.on{background:#22c55e;box-shadow:0 0 0 2px rgba(34,197,94,0.18);}
 
 /* ── BACK BTN ── */
 .back-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-pale);color:var(--teal);border:none;padding:.45rem 1rem;border-radius:9px;font-family:var(--sans);font-size:.8rem;font-weight:600;cursor:pointer;margin:1.2rem 1.2rem 0;transition:all .2s;}
@@ -276,80 +277,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
 .empty-state h3{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:.4rem;}
 .empty-state p{font-size:.83rem;line-height:1.6;}
 
-/* ══════════════════════════════════════════════
-   ADMIN MODAL — Blog Publisher
-══════════════════════════════════════════════ */
-.admin-modal-wrap{position:fixed;inset:0;z-index:500;background:rgba(5,20,18,.8);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:1rem;overflow-y:auto;}
-.admin-modal-wrap.show{display:flex;}
-.admin-modal{background:var(--surface);border-radius:20px;width:100%;max-width:560px;box-shadow:var(--shadow-lg);overflow:hidden;max-height:94vh;display:flex;flex-direction:column;margin:auto;}
-.admin-modal-head{background:linear-gradient(135deg,var(--ink) 0%,#1d3632 100%);padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.admin-modal-head h2{font-family:var(--serif);font-size:1.1rem;color:#fff;}
-.admin-modal-head small{font-size:.63rem;color:rgba(255,255,255,0.35);display:block;margin-top:1px;}
-.admin-close-btn{background:rgba(255,255,255,0.08);border:none;color:rgba(255,255,255,0.7);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.admin-close-btn:hover{background:rgba(255,255,255,0.18);color:#fff;}
-.admin-body{padding:1.4rem;overflow-y:auto;flex:1;}
-/* Tabs */
-.admin-tabs{display:flex;gap:.25rem;padding:.8rem 1.4rem;border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;}
-.admin-tab{padding:.45rem .9rem;border-radius:8px;font-family:var(--sans);font-size:.78rem;font-weight:600;border:none;background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all .2s;}
-.admin-tab.active{background:var(--teal);color:#fff;}
-/* Login */
-.admin-lock-icon{font-size:2.5rem;text-align:center;margin-bottom:.6rem;}
-.admin-body h3{font-family:var(--serif);font-size:1.1rem;text-align:center;color:var(--ink);margin-bottom:.3rem;}
-.admin-body p.hint{font-size:.78rem;text-align:center;color:var(--muted);margin-bottom:1.3rem;}
-.admin-input{width:100%;padding:.75rem 1rem;border:2px solid var(--border);border-radius:10px;font-family:var(--sans);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;margin-bottom:.8rem;background:var(--bg);}
-.admin-input:focus{border-color:var(--teal);background:#fff;}
-.admin-btn{width:100%;background:var(--teal);color:#fff;border:none;padding:.85rem;border-radius:10px;font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;}
-.admin-btn:hover{background:var(--teal-dark);}
-.admin-err{color:#dc2626;font-size:.8rem;text-align:center;margin-top:.4rem;display:block;}
-/* Form grid */
-.admin-fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.85rem;}
-.admin-fg label{font-size:.65rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;}
-.admin-fg input,.admin-fg textarea,.admin-fg select{padding:.7rem .9rem;border:1.5px solid var(--border);border-radius:9px;background:var(--bg);font-family:var(--sans);font-size:.86rem;color:var(--ink);outline:none;transition:border-color .2s;}
-.admin-fg input:focus,.admin-fg textarea:focus,.admin-fg select:focus{border-color:var(--teal);background:#fff;}
-.admin-fg textarea{resize:vertical;min-height:80px;}
-.admin-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
-@media(max-width:420px){.admin-row{grid-template-columns:1fr;}}
-.admin-fg.full{grid-column:1/-1;}
-.char-count{font-size:.63rem;color:var(--muted);text-align:right;margin-top:2px;}
-.char-count.warn{color:#f59e0b;}
-.char-count.over{color:#dc2626;}
-/* Actions */
-.admin-actions{display:flex;gap:.7rem;padding-top:.9rem;border-top:1px solid var(--border);margin-top:.9rem;}
-.btn-save{flex:1;background:var(--teal);color:#fff;border:none;padding:.75rem;border-radius:9px;font-family:var(--sans);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;}
-.btn-save:hover{background:var(--teal-dark);}
-.btn-save:disabled{opacity:.5;cursor:not-allowed;}
-.btn-cancel{background:var(--bg);color:var(--muted);border:1.5px solid var(--border);padding:.75rem 1.1rem;border-radius:9px;font-family:var(--sans);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;}
-.btn-cancel:hover{background:var(--border);}
-/* HTML upload */
-.file-drop{border:2px dashed var(--border);border-radius:12px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg);}
-.file-drop:hover,.file-drop.drag{border-color:var(--teal);background:var(--teal-pale);}
-.file-drop p{font-size:.82rem;color:var(--muted);margin-top:.4rem;}
-.file-drop .fd-icon{font-size:1.8rem;}
-.file-status{margin-top:.6rem;font-size:.8rem;color:var(--teal);font-weight:600;}
-/* Cover image upload */
-.cover-upload-wrap{display:flex;gap:.7rem;align-items:flex-start;}
-.cover-preview{width:80px;height:52px;border-radius:8px;object-fit:cover;background:var(--teal-pale);display:none;border:1.5px solid var(--border);}
-.cover-preview.visible{display:block;}
-.cover-upload-label{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border:1.5px dashed var(--border);border-radius:9px;font-size:.8rem;font-weight:600;color:var(--teal);cursor:pointer;background:var(--bg);transition:all .2s;}
-.cover-upload-label:hover{border-color:var(--teal);background:var(--teal-pale);}
-/* Validation feedback */
-.validation-list{list-style:none;margin-top:.4rem;}
-.validation-list li{font-size:.75rem;padding:.15rem 0;display:flex;align-items:center;gap:.4rem;}
-.validation-list li.ok{color:#16a34a;}
-.validation-list li.err{color:#dc2626;}
-/* Publish section */
-.publish-box{background:var(--bg);border-radius:12px;padding:1.2rem;border:1.5px solid var(--border);margin-top:.8rem;}
-.publish-box h4{font-family:var(--serif);font-size:.95rem;color:var(--ink);margin-bottom:.7rem;}
-.publish-status{font-size:.8rem;color:rgba(255,255,255,0.6);margin-top:.5rem;min-height:1.2em;}
-.publish-log{background:#0f1e1c;border-radius:8px;padding:.85rem;margin-top:.6rem;font-size:.73rem;color:rgba(255,255,255,0.55);font-family:monospace;line-height:1.8;max-height:140px;overflow-y:auto;display:none;}
-.publish-log.show{display:block;}
-.publish-log .log-ok{color:#4ade80;}
-.publish-log .log-err{color:#f87171;}
-.publish-log .log-info{color:rgba(255,255,255,0.55);}
-/* Export box */
-.export-box{background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:12px;padding:1.2rem;font-size:.82rem;color:var(--teal-dark);line-height:1.7;}
-.export-box strong{display:block;margin-bottom:.4rem;font-size:.88rem;}
-.export-box code{background:rgba(0,0,0,0.07);padding:.1rem .4rem;border-radius:4px;font-size:.78rem;}
+/* (Reserved block — additional dynamic styles are injected on demand
+   by the external script when needed.) */
 
 /* ── FOOTER ── */
 footer{background:var(--ink);padding:2rem 1.4rem 1.4rem;margin-top:auto;}
@@ -392,178 +321,6 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
 <div class="toast" id="toast"></div>
 
 <!-- ══════════════════════════════════════════════
-     ADMIN LOGIN MODAL
-══════════════════════════════════════════════ -->
-<div class="admin-modal-wrap" id="adminLoginWrap">
-  <div class="admin-modal" style="max-width:380px;">
-    <div class="admin-modal-head">
-      <div><h2>Admin Login</h2><small>Blog Publisher — rdjpublishers.com/blogs/</small></div>
-      <button class="admin-close-btn" onclick="closeAdminLogin()">✕</button>
-    </div>
-    <div class="admin-body">
-      <div class="admin-lock-icon">🔐</div>
-      <h3>Admin Access</h3>
-      <p class="hint">Enter your password to publish posts to the blog.</p>
-      <input class="admin-input" type="password" id="adminPass" placeholder="Admin password" onkeydown="if(event.key==='Enter')doLogin()">
-      <button class="admin-btn" onclick="doLogin()">Sign In →</button>
-      <span class="admin-err" id="adminErr"></span>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
-     ADMIN PANEL MODAL — BLOG PUBLISHER
-══════════════════════════════════════════════ -->
-<div class="admin-modal-wrap" id="adminPanelWrap">
-  <div class="admin-modal">
-    <div class="admin-modal-head">
-      <div><h2>Blog Admin Panel</h2><small>Publish posts to rdjpublishers.com/blogs/</small></div>
-      <button class="admin-close-btn" onclick="closeAdminPanel()">✕</button>
-    </div>
-    <div class="admin-tabs">
-      <button class="admin-tab active" onclick="switchTab('publish')">📝 New Post</button>
-      <button class="admin-tab" onclick="switchTab('cats')">📂 Categories</button>
-      <button class="admin-tab" onclick="switchTab('info')">ℹ️ Setup</button>
-    </div>
-    <div class="admin-body">
-
-      <!-- ── NEW POST TAB ── -->
-      <div id="tab-publish">
-        <div class="admin-fg">
-          <label>Category *</label>
-          <select id="f-cat" onchange="updateSlugPrefix()"></select>
-        </div>
-        <div class="admin-fg">
-          <label>Post Title * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(max 100 chars)</span></label>
-          <input type="text" id="f-title" placeholder="e.g. Google SEO Complete Guide 2026" maxlength="100" oninput="onTitleInput()">
-          <div class="char-count" id="title-count">0 / 100</div>
-        </div>
-        <div class="admin-fg">
-          <label>URL Slug * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(auto-generated)</span></label>
-          <input type="text" id="f-slug" placeholder="google-seo-complete-guide-2026" maxlength="60" oninput="onSlugInput()">
-          <div class="char-count" id="slug-count">0 / 60</div>
-        </div>
-        <div class="admin-fg">
-          <label>Meta Description * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(max 160 chars)</span></label>
-          <textarea id="f-desc" placeholder="SEO meta description shown in Google…" maxlength="160" rows="3" oninput="onDescInput()"></textarea>
-          <div class="char-count" id="desc-count">0 / 160</div>
-        </div>
-        <div class="admin-fg">
-          <label>Tags <span style="font-weight:400;text-transform:none;letter-spacing:0;">(comma separated)</span></label>
-          <input type="text" id="f-tags" placeholder="SEO, Google, 2026">
-        </div>
-        <div class="admin-fg">
-          <label>Cover Image Filename</label>
-          <input type="text" id="f-cover" placeholder="cover.jpg" value="cover.jpg">
-        </div>
-        <div class="admin-fg">
-          <label>Post HTML File * <span style="font-weight:400;text-transform:none;letter-spacing:0;">(must contain &lt;html&gt;)</span></label>
-          <div class="file-drop" id="html-drop" onclick="document.getElementById('html-file-input').click()" ondragover="onDragOver(event)" ondrop="onDrop(event)">
-            <div class="fd-icon">📄</div>
-            <strong style="font-size:.85rem;color:var(--ink);">Click to choose HTML file</strong>
-            <p>or drag &amp; drop your post's index.html here</p>
-            <input type="file" id="html-file-input" accept=".html,.htm" style="display:none" onchange="onHtmlFileChange(event)">
-          </div>
-          <div class="file-status" id="html-file-status"></div>
-          <ul class="validation-list" id="validation-list"></ul>
-        </div>
-        <div class="admin-fg">
-          <label>Additional Image Files <span style="font-weight:400;text-transform:none;letter-spacing:0;">(cover.jpg etc.)</span></label>
-          <input type="file" id="img-files-input" accept="image/*" multiple style="padding:.6rem .9rem;border:1.5px solid var(--border);border-radius:9px;background:var(--bg);font-family:var(--sans);font-size:.82rem;cursor:pointer;">
-          <div class="file-status" id="img-files-status"></div>
-        </div>
-        <div class="admin-fg">
-          <label>GitHub Token *</label>
-          <input class="admin-input" type="password" id="gh-token" placeholder="ghp_…" style="margin-bottom:0;">
-        </div>
-        <div class="admin-actions">
-          <button class="btn-save" id="publish-btn" onclick="publishPost()">🚀 Publish Post</button>
-        </div>
-        <div class="publish-box" id="publish-box" style="display:none;">
-          <h4>Publish Log</h4>
-          <div class="publish-log show" id="publish-log"></div>
-        </div>
-      </div>
-
-      <!-- ── CATEGORIES TAB ── -->
-      <div id="tab-cats" style="display:none;">
-        <div id="cat-local-dirty-banner" style="display:none;background:#fef2f2;border:1.5px solid #fca5a5;color:#991b1b;font-size:.78rem;font-weight:600;border-radius:9px;padding:.6rem .8rem;margin-bottom:.7rem;">
-          ✏️ You have unsaved changes. Click "Save Changes Locally" below or they'll be lost if you leave this tab.
-        </div>
-        <div id="cat-dirty-banner" style="display:none;background:var(--gold-pale);border:1.5px solid var(--gold);color:#7a5514;font-size:.78rem;font-weight:600;border-radius:9px;padding:.6rem .8rem;margin-bottom:1rem;">
-          ⚠️ Saved locally but not on the live site yet. They'll sync to GitHub automatically the next time you publish a post.
-        </div>
-        <div id="admin-cat-list" style="margin-bottom:.8rem;"></div>
-        <div class="admin-actions" style="margin-bottom:1.2rem;">
-          <button class="btn-save" id="cat-save-local-btn" onclick="saveCategoriesLocally()">💾 Save Changes Locally</button>
-        </div>
-        <div style="background:var(--bg);border-radius:10px;padding:1.1rem;border:1.5px solid var(--border);">
-          <div style="font-size:.7rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.8rem;">➕ Add New Category</div>
-          <div class="admin-row">
-            <div class="admin-fg">
-              <label>Category Name <span style="font-weight:400;text-transform:none;letter-spacing:0;">(PascalCase)</span></label>
-              <input type="text" id="nc-name" placeholder="Tech">
-            </div>
-            <div class="admin-fg">
-              <label>Icon / Emoji</label>
-              <input type="text" id="nc-icon" placeholder="💻" maxlength="8">
-            </div>
-          </div>
-          <div class="admin-fg">
-            <label>Description</label>
-            <input type="text" id="nc-desc" placeholder="Technology guides and tutorials">
-          </div>
-          <div class="admin-actions" style="margin-top:.5rem;">
-            <button class="btn-save" onclick="addCategory()">➕ Add Category</button>
-          </div>
-        </div>
-        <div style="background:var(--bg);border-radius:10px;padding:1.1rem;border:1.5px solid var(--border);margin-top:1rem;">
-          <div style="font-size:.7rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem;">🚀 Going Live</div>
-          <div style="font-size:.75rem;color:var(--muted);">
-            Categories saved locally are automatically pushed to GitHub the next time you publish a post — no separate token needed here.
-          </div>
-        </div>
-      </div>
-
-      <!-- ── SETUP INFO TAB ── -->
-      <div id="tab-info" style="display:none;">
-        <div class="export-box">
-          <strong>📦 Pagefind Search Setup</strong>
-          After pushing posts, run this once from your repo root to build the search index:<br>
-          <code>npm install pagefind --save-dev</code><br>
-          <code>npx pagefind --site . --output-subdir search</code><br><br>
-          Then commit and push the generated <code>search/</code> folder.
-        </div>
-        <div class="export-box" style="margin-top:.8rem;">
-          <strong>🌐 Repo &amp; URL Structure</strong>
-          Repo: <code>rdjpublishers/blogs</code> → hosted at <code>rdjpublishers.com/blogs/</code><br>
-          Post URL: <code>/blogs/Tech/google-seo/</code> → file: <code>Tech/google-seo/index.html</code><br>
-          Category URL: <code>/blogs/Tech/</code> → file: <code>Tech/index.html</code><br>
-          GitHub Pages auto-serves <code>index.html</code> in any folder.
-        </div>
-        <div class="export-box" style="margin-top:.8rem;">
-          <strong>✅ New Posts Live In</strong>
-          GitHub Pages CDN cache = ~10 min. After publishing, wait 5–10 min for new posts to appear.
-        </div>
-        <div class="export-box" style="margin-top:.8rem;">
-          <strong>🗺️ Sitemap</strong>
-          <code>sitemap_blogs.xml</code> is auto-regenerated after every publish, structured by category with all post URLs.<br><br>
-          <div class="admin-fg" style="margin-bottom:.5rem;">
-            <label>GitHub Token</label>
-            <input class="admin-input" type="password" id="sm-token" placeholder="ghp_…" style="margin-bottom:0;">
-          </div>
-          <button class="btn-save" onclick="regenerateSitemap()">🔄 Regenerate Sitemap Now</button>
-        </div>
-        <div class="admin-actions">
-          <button class="btn-cancel" onclick="doLogout()">🚪 Log Out</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
      HOME PAGE
 ══════════════════════════════════════════════ -->
 <div class="page active" id="page-home">
@@ -574,7 +331,7 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
       <button onclick="goTo('about')">About</button>
       <button onclick="goTo('contact')">Contact</button>
       <a href="https://rdjpublishers.com/" target="_blank">Tools</a>
-      <div class="admin-dot" id="adminDot" onclick="openAdminEntry()" title="Admin"></div>
+      <div class="site-trigger-dot" data-owner-entry aria-hidden="true"></div>
     </div>
   </header>
 
@@ -617,7 +374,7 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <div class="empty-state" style="grid-column:1/-1;">
       <div class="es-icon">📝</div>
       <h3>No posts yet</h3>
-      <p>Use the admin panel to publish your first article. Triple-click the gold dot in the top-right corner.</p>
+      <p>Check back soon — fresh guides and tutorials are on the way.</p>
     </div>
   </div>
 
@@ -645,7 +402,7 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <div class="topbar-brand" id="cat-topbar-brand">Category</div>
     <div class="topbar-right">
       <button onclick="goTo('home')">Home</button>
-      <div class="admin-dot" onclick="openAdminEntry()" title="Admin"></div>
+      <div class="site-trigger-dot" data-owner-entry aria-hidden="true"></div>
     </div>
   </header>
   <button class="back-btn" onclick="goTo('home')">← All Posts</button>
@@ -679,7 +436,7 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <div class="topbar-brand">About</div>
     <div class="topbar-right">
       <button onclick="goTo('home')">Home</button>
-      <div class="admin-dot" onclick="openAdminEntry()" title="Admin"></div>
+      <div class="site-trigger-dot" data-owner-entry aria-hidden="true"></div>
     </div>
   </header>
   <button class="back-btn" onclick="goTo('home')">← Back</button>
@@ -736,7 +493,7 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <div class="topbar-brand">Contact</div>
     <div class="topbar-right">
       <button onclick="goTo('home')">Home</button>
-      <div class="admin-dot" onclick="openAdminEntry()" title="Admin"></div>
+      <div class="site-trigger-dot" data-owner-entry aria-hidden="true"></div>
     </div>
   </header>
   <button class="back-btn" onclick="goTo('home')">← Back</button>
@@ -887,67 +644,12 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
 <script>
 'use strict';
 
-/* ── CONFIG ── */
-const GH_OWNER = 'rdjpublishers';
-const GH_REPO  = 'blogs';            // repo name for the blogs site
-const GH_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/`;
 // Static manifest generated by scripts/build-manifest.js in CI on every publish.
 // Reading this instead of the GitHub Contents API keeps normal page loads from
 // burning through GitHub's unauthenticated rate limit (60 req/hr per IP).
 const MANIFEST_URL = 'posts-manifest.json';
-const ADMIN_HASH = '26f5f8b67b8a8cf17b2a2e43dc2dea57bfdd1cf27175260280308e356ea8e99d'; // same hash as main site
 
-/* ── ADMIN AUTH ── */
-let isAdmin = false, dotClickCount = 0, dotClickTimer = null;
-async function checkPassword(input) {
-  const enc = new TextEncoder().encode(input);
-  const buf = await crypto.subtle.digest('SHA-256', enc);
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
-function openAdminEntry() {
-  dotClickCount++;
-  clearTimeout(dotClickTimer);
-  if (dotClickCount >= 3) { dotClickCount = 0; isAdmin ? openAdminPanel() : openAdminLogin(); }
-  else dotClickTimer = setTimeout(() => { dotClickCount = 0; }, 600);
-}
-function openAdminLogin()  { document.getElementById('adminLoginWrap').classList.add('show'); setTimeout(()=>document.getElementById('adminPass')?.focus(),100); }
-function closeAdminLogin() { document.getElementById('adminLoginWrap').classList.remove('show'); }
-async function doLogin() {
-  const pw = document.getElementById('adminPass')?.value || '';
-  const hash = await checkPassword(pw);
-  if (hash === ADMIN_HASH) {
-    isAdmin = true;
-    closeAdminLogin();
-    document.querySelectorAll('.admin-dot').forEach(d => d.style.background = '#22c55e');
-    showToast('✅ Admin mode on');
-    openAdminPanel();
-  } else {
-    const el = document.getElementById('adminErr');
-    if (el) el.textContent = 'Incorrect password. Try again.';
-    const pw = document.getElementById('adminPass');
-    if (pw) { pw.value = ''; pw.focus(); }
-  }
-}
-function doLogout() {
-  isAdmin = false;
-  document.querySelectorAll('.admin-dot').forEach(d => d.style.background = '');
-  closeAdminPanel();
-  showToast('👋 Signed out');
-}
-function openAdminPanel()  { renderCatSelect(); document.getElementById('adminPanelWrap').classList.add('show'); }
-function closeAdminPanel() { document.getElementById('adminPanelWrap').classList.remove('show'); }
-function switchTab(tab) {
-  ['publish','cats','info'].forEach(t => {
-    const el = document.getElementById('tab-'+t);
-    if (el) el.style.display = (t===tab)?'block':'none';
-  });
-  document.querySelectorAll('.admin-tab').forEach((btn,i) => {
-    btn.classList.toggle('active', ['publish','cats','info'][i] === tab);
-  });
-  if (tab === 'cats') renderAdminCats();
-}
-
-/* ── CATEGORIES DATA ── */
+/* ── CATEGORIES DATA (shared) ── */
 function getCategories() {
   try {
     // getItem returns null ONLY if the key was never set. Once
@@ -970,90 +672,6 @@ function getCategories() {
     {id:'Productivity',name:'Productivity',icon:'⚡', desc:'Work smarter with productivity tips and workflows.'},
     {id:'AITools',   name:'AI Tools',     icon:'🤖', desc:'Guides to the best AI tools and how to use them.'}
   ];
-}
-function saveCategories(cats) {
-  localStorage.setItem('rdj_blog_cats', JSON.stringify(cats));
-  localStorage.setItem('rdj_blog_cats_dirty', '1'); // marks unpushed-to-GitHub changes
-}
-
-/* Draft = working copy shown in the admin list. Add/Delete only touch the
-   draft; nothing is written to localStorage until "Save Changes Locally". */
-let _catsDraft = null;
-function getCatsDraft() {
-  if (_catsDraft === null) _catsDraft = getCategories().slice();
-  return _catsDraft;
-}
-function isDraftDirty() {
-  if (_catsDraft === null) return false;
-  return JSON.stringify(_catsDraft) !== JSON.stringify(getCategories());
-}
-
-function renderCatSelect() {
-  const sel = document.getElementById('f-cat');
-  if (!sel) return;
-  const cats = getCategories();
-  sel.innerHTML = cats.map(c => `<option value="${c.id}">${c.icon} ${c.name}</option>`).join('');
-}
-
-function renderAdminCats() {
-  const cats = getCatsDraft();
-  const localBanner = document.getElementById('cat-local-dirty-banner');
-  if (localBanner) localBanner.style.display = isDraftDirty() ? 'block' : 'none';
-  const ghBanner = document.getElementById('cat-dirty-banner');
-  if (ghBanner) ghBanner.style.display = (localStorage.getItem('rdj_blog_cats_dirty') === '1') ? 'block' : 'none';
-  const el = document.getElementById('admin-cat-list');
-  if (!el) return;
-  el.innerHTML = cats.length
-    ? cats.map(c => `<div style="display:flex;align-items:center;gap:.8rem;padding:.6rem .8rem;background:var(--surface);border-radius:9px;border:1.5px solid var(--border);margin-bottom:.5rem;">
-        <span style="font-size:1.1rem;">${c.icon}</span>
-        <div style="flex:1;"><div style="font-size:.88rem;font-weight:700;">${c.name}</div><div style="font-size:.7rem;color:var(--muted);">${c.desc}</div></div>
-        <button style="background:#fef2f2;border:none;color:#dc2626;padding:.3rem .6rem;border-radius:6px;cursor:pointer;font-size:.75rem;" onclick="deleteCategory('${c.id}')">🗑️</button>
-      </div>`).join('')
-    : '<div style="color:var(--muted);font-size:.83rem;text-align:center;padding:1rem;">No categories yet.</div>';
-}
-
-function addCategory() {
-  const name = (document.getElementById('nc-name')?.value||'').trim();
-  const icon = (document.getElementById('nc-icon')?.value||'').trim() || '📁';
-  const desc = (document.getElementById('nc-desc')?.value||'').trim();
-  if (!name) { showToast('⚠️ Category name required'); return; }
-  // Enforce PascalCase-ish id = name with no spaces
-  const id = name.replace(/\s+/g,'');
-  const cats = getCatsDraft();
-  if (cats.find(c=>c.id===id)) { showToast('⚠️ Category already exists'); return; }
-  cats.push({id,name,icon,desc});
-  renderAdminCats();
-  document.getElementById('nc-name').value='';
-  document.getElementById('nc-icon').value='';
-  document.getElementById('nc-desc').value='';
-  showToast(`✅ "${name}" staged — click "Save Changes Locally" to keep it`);
-}
-
-function deleteCategory(id) {
-  if (!confirm(`Delete category "${id}"?`)) return;
-  _catsDraft = getCatsDraft().filter(c=>c.id!==id);
-  renderAdminCats();
-  showToast('🗑️ Staged for deletion — click "Save Changes Locally" to confirm');
-}
-
-function saveCategoriesLocally() {
-  saveCategories(getCatsDraft());
-  renderAdminCats();
-  renderCatSelect();
-  renderSidebar();
-  renderHomeChips();
-  showToast('💾 Categories saved locally');
-}
-
-/* ── TOAST ── */
-let toastTimer;
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  if (!t) return;
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 3000);
 }
 
 /* ── NAVIGATION ── */
@@ -1126,7 +744,7 @@ function fmtDate(iso) {
 
 /* ── POST CARD HTML ── */
 function postCardHTML(post) {
-  const url = `/${GH_REPO}/${post.category}/${post.slug}/`;
+  const url = `/blogs/${post.category}/${post.slug}/`;
   const cover = post.cover ? `${post.category}/${post.slug}/${post.cover}` : null;
   const thumb = cover
     ? `<div class="post-thumb"><img src="${cover}" alt="${post.title}" loading="lazy"></div>`
@@ -1203,7 +821,7 @@ async function loadLatestPosts() {
   try {
     const allMetas = await loadPostsManifest();
     if (!allMetas.length) {
-      el.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><div class="es-icon">📝</div><h3>No posts yet</h3><p>Use the admin panel to publish your first article. Triple-click the gold dot.</p></div>';
+      el.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><div class="es-icon">📝</div><h3>No posts yet</h3><p>Check back soon — new articles are on the way.</p></div>';
       return;
     }
     allMetas.forEach(indexPostForSearch);
@@ -1213,668 +831,6 @@ async function loadLatestPosts() {
   }
 }
 
-/* ══════════════════════════════════════════════
-   FILE STATE
-══════════════════════════════════════════════ */
-let pendingHtmlContent  = null;
-let pendingHtmlFilename = null;
-let pendingImgFiles     = [];
-
-/* ── SLUG HELPERS ── */
-function slugify(str) {
-  return str.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g,'')
-    .trim()
-    .replace(/\s+/g,'-')
-    .replace(/-+/g,'-')
-    .substring(0,60)
-    .replace(/^-|-$/g,'');
-}
-
-function onTitleInput() {
-  const v = document.getElementById('f-title').value;
-  const cc = document.getElementById('title-count');
-  if (cc) { cc.textContent=`${v.length} / 100`; cc.className='char-count'+(v.length>80?' warn':'')+(v.length>=100?' over':''); }
-  // Auto-fill slug
-  const slugEl = document.getElementById('f-slug');
-  if (slugEl && !slugEl.dataset.manual) {
-    slugEl.value = slugify(v);
-    updateSlugCount();
-  }
-}
-function onSlugInput() {
-  const el = document.getElementById('f-slug');
-  if (el) {
-    el.dataset.manual = '1';
-    // Sanitise
-    el.value = el.value.toLowerCase().replace(/[^a-z0-9-]/g,'').replace(/-+/g,'-');
-    updateSlugCount();
-  }
-}
-function updateSlugCount() {
-  const v = document.getElementById('f-slug')?.value||'';
-  const cc = document.getElementById('slug-count');
-  if (cc) { cc.textContent=`${v.length} / 60`; cc.className='char-count'+(v.length>50?' warn':'')+(v.length>=60?' over':''); }
-}
-function onDescInput() {
-  const v = document.getElementById('f-desc').value;
-  const cc = document.getElementById('desc-count');
-  if (cc) { cc.textContent=`${v.length} / 160`; cc.className='char-count'+(v.length>140?' warn':'')+(v.length>=160?' over':''); }
-}
-function updateSlugPrefix() {} // reserved for future use
-
-/* ── DRAG & DROP / HTML UPLOAD ── */
-function onDragOver(e) { e.preventDefault(); document.getElementById('html-drop')?.classList.add('drag'); }
-function onDrop(e) {
-  e.preventDefault();
-  document.getElementById('html-drop')?.classList.remove('drag');
-  const file = e.dataTransfer.files[0];
-  if (file) processHtmlFile(file);
-}
-function onHtmlFileChange(e) {
-  const file = e.target.files[0];
-  if (file) processHtmlFile(file);
-}
-function processHtmlFile(file) {
-  const reader = new FileReader();
-  reader.onload = ev => {
-    const content = ev.target.result;
-    pendingHtmlContent  = content;
-    pendingHtmlFilename = file.name;
-    const statusEl = document.getElementById('html-file-status');
-    if (statusEl) statusEl.textContent = `✅ ${file.name} loaded (${(file.size/1024).toFixed(1)} KB)`;
-    validateHtml(content);
-  };
-  reader.readAsText(file);
-}
-function validateHtml(content) {
-  const ul = document.getElementById('validation-list');
-  if (!ul) return;
-  const checks = [
-    { ok: /<html/i.test(content), label: 'Contains <html> tag' },
-    { ok: !/<title>/i.test(content) || /<title>[^<]{1,120}<\/title>/i.test(content), label: 'Title tag looks good' },
-    { ok: !/src=["']\//i.test(content) && !/href=["']\//i.test(content), label: 'No absolute paths (src="/…" or href="/…")' },
-    { ok: /<meta\s[^>]*name=["']description/i.test(content), label: 'Has meta description' },
-    { ok: content.length < 50*1024*1024, label: 'File size under 50 MB' },
-  ];
-  ul.innerHTML = checks.map(c =>
-    `<li class="${c.ok?'ok':'err'}">${c.ok?'✅':'❌'} ${c.label}</li>`
-  ).join('');
-  return checks.every(c=>c.ok);
-}
-
-/* ── IMAGE FILES ── */
-document.addEventListener('DOMContentLoaded', () => {
-  const imgInput = document.getElementById('img-files-input');
-  if (imgInput) {
-    imgInput.addEventListener('change', e => {
-      pendingImgFiles = Array.from(e.target.files);
-      const s = document.getElementById('img-files-status');
-      if (s) s.textContent = `✅ ${pendingImgFiles.length} image file(s) selected`;
-    });
-  }
-});
-
-/* ── GITHUB HELPERS ── */
-async function ghGetSHA(token, path) {
-  const res = await fetch(`${GH_API}${path}`, {
-    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
-  });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`Cannot fetch ${path}: HTTP ${res.status}`);
-  return (await res.json()).sha;
-}
-async function ghPushFile(token, path, content, sha, commitMsg, isBase64) {
-  // isBase64: true when `content` is already a base64 string (e.g. from
-  // imageToBase64()) and must be sent to the GitHub API as-is. Without this
-  // flag, an already-base64 image string was being base64-encoded a SECOND
-  // time here, so GitHub's one-time decode left literal base64 text as the
-  // file's bytes instead of real binary image data.
-  const encoded = isBase64
-    ? content
-    : btoa(unescape(encodeURIComponent(content)));
-  const body = { message: commitMsg, content: encoded };
-  if (sha) body.sha = sha;
-  const res = await fetch(`${GH_API}${path}`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `token ${token}`,
-      'Accept': 'application/vnd.github+json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(()=>({}));
-    throw new Error(err.message || `Push failed for ${path}: ${res.status}`);
-  }
-}
-async function imageToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const r = new FileReader();
-    r.onload = ev => resolve(ev.target.result.split(',')[1]);
-    r.onerror = () => reject(new Error('File read error'));
-    r.readAsDataURL(file);
-  });
-}
-async function ghListDir(token, path) {
-  const headers = {'Accept':'application/vnd.github+json'};
-  if (token) headers['Authorization'] = `token ${token}`;
-  const res = await fetch(`${GH_API}${path}`, {headers});
-  if (res.status === 404) return [];
-  if (!res.ok) throw new Error(`Cannot list ${path}: HTTP ${res.status}`);
-  return res.json();
-}
-
-/* ── PUSH CATEGORIES TO GITHUB ── */
-/* Pushes the locally-saved category list into index.html on GitHub, using
-   whatever token is passed in. Silently does nothing if there's nothing to
-   push. Returns true if a push happened, false otherwise. Called
-   automatically from publishPost() so there's no separate button/token needed. */
-async function syncCategoriesToGitHub(token, log) {
-  if (localStorage.getItem('rdj_blog_cats_dirty') !== '1') return false; // nothing staged
-  const cats = getCategories();
-  const res = await fetch(`${GH_API}index.html`, {
-    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
-  });
-  if (!res.ok) throw new Error(`Could not fetch index.html for category sync: HTTP ${res.status}`);
-  const data = await res.json();
-  const sha = data.sha;
-  let homeHtml = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
-
-  const blockRe = /(<script id="rdj-blog-cats" type="application\/json">)([\s\S]*?)(<\/script>)/;
-  if (!blockRe.test(homeHtml)) throw new Error('Could not find the rdj-blog-cats data block in index.html');
-  const newJson = JSON.stringify(cats, null, 2);
-  homeHtml = homeHtml.replace(blockRe, (m, open, _old, close) => `${open}\n${newJson}\n${close}`);
-
-  const encoded = btoa(unescape(encodeURIComponent(homeHtml)));
-  const put = await fetch(`${GH_API}index.html`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `token ${token}`,
-      'Accept': 'application/vnd.github+json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ message: 'Update categories', content: encoded, sha })
-  });
-  if (!put.ok) {
-    const err = await put.json().catch(()=>({}));
-    throw new Error(err.message || `Category sync push failed: HTTP ${put.status}`);
-  }
-
-  localStorage.removeItem('rdj_blog_cats_dirty');
-  renderAdminCats();
-  return true;
-}
-
-/* ── IST DATE ── */
-function nowIST() {
-  // Returns ISO 8601 with +05:30 offset
-  const now = new Date();
-  const offset = 5*60 + 30;
-  const local = new Date(now.getTime() + offset*60000);
-  const iso = local.toISOString().slice(0,19);
-  return iso + '+05:30';
-}
-
-/* ══════════════════════════════════════════════
-   CATEGORY PAGE GENERATOR
-   Reads all meta.json in a category folder on
-   GitHub and builds {Category}/index.html
-══════════════════════════════════════════════ */
-async function buildCategoryPage(token, catId, commitMsg) {
-  const cats = getCategories();
-  const cat = cats.find(c=>c.id===catId) || {id:catId,name:catId,icon:'📁',desc:''};
-  // List all folders in {catId}/
-  const items = await ghListDir(token, catId);
-  const slugFolders = items.filter(i=>i.type==='dir');
-  // Fetch all meta.json
-  const metas = (await Promise.all(
-    slugFolders.map(async f => {
-      try {
-        const res = await fetch(`${GH_API}${catId}/${f.name}/meta.json`,{
-          headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github+json'}
-        });
-        if (!res.ok) return null;
-        const data = await res.json();
-        return JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,'')))));
-      } catch{ return null; }
-    })
-  )).filter(Boolean);
-  metas.sort((a,b)=>new Date(b.date)-new Date(a.date));
-
-  const postCards = metas.map(m => {
-    const cover = m.cover ? `${m.slug}/${m.cover}` : null;
-    const thumbHtml = cover
-      ? `<img src="${cover}" alt="${m.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`
-      : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg,#084d44,#0d8a79);font-size:2.5rem;color:rgba(255,255,255,0.3);">📝</div>`;
-    return `
-  <article class="post-card">
-    <div class="post-thumb">${thumbHtml}</div>
-    <div class="post-body">
-      <div class="post-meta">
-        <span class="post-cat-tag">${m.category}</span>
-        <time class="post-date" datetime="${m.date}">${fmtDate(m.date)}</time>
-      </div>
-      <h2 class="post-title">${m.title}</h2>
-      <p class="post-desc">${m.description||''}</p>
-      <a class="post-read-more" href="${m.slug}/">Read More →</a>
-    </div>
-  </article>`;
-  }).join('');
-
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"><\/script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G5M1ZPJW29');<\/script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8728382905346597" crossorigin="anonymous"><\/script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${cat.name} Articles | RDJ Publishers Blog</title>
-<meta name="description" content="Browse ${cat.name} articles on RDJ Publishers Blog. ${cat.desc}">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://rdjpublishers.com/blogs/${catId}/">
-<meta property="og:title" content="${cat.name} Articles | RDJ Publishers Blog">
-<meta property="og:description" content="Browse ${cat.name} articles — free guides and tutorials.">
-<meta property="og:url" content="https://rdjpublishers.com/blogs/${catId}/">
-<meta property="og:image" content="https://rdjpublishers.com/blogs/blog.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"${cat.name} | RDJ Publishers Blog","url":"https://rdjpublishers.com/blogs/${catId}/","description":"${cat.desc}"}<\/script>
-<link rel="icon" href="https://rdjpublishers.com/blogs/blog.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../search/pagefind-ui.css">
-<script src="../search/pagefind-ui.js"><\/script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--ink:#0f1e1c;--teal:#0b6e61;--teal-dark:#084d44;--teal-mid:#0d8a79;--teal-pale:#e6f4f2;--gold:#c8892a;--surface:#fff;--bg:#f5f7f7;--border:#dde8e6;--muted:#6b8c88;--r:14px;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);}
-a{text-decoration:none;color:inherit;}
-nav{position:sticky;top:0;z-index:100;height:58px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);display:flex;align-items:center;padding:0 1.2rem;border-bottom:1px solid var(--border);gap:.8rem;}
-nav .brand{font-family:var(--serif);font-size:1rem;}nav .brand span{color:var(--teal);}
-nav .links{margin-left:auto;display:flex;gap:.2rem;}
-nav .links a{font-size:.78rem;font-weight:600;padding:.3rem .75rem;border-radius:8px;color:var(--muted);}
-nav .links a:hover{background:var(--teal-pale);color:var(--teal);}
-.breadcrumb{font-size:.72rem;color:var(--muted);padding:.8rem 1.2rem;display:flex;gap:.3rem;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{color:var(--teal);}
-.cat-hero{background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));padding:2rem 1.4rem 1.8rem;display:flex;align-items:flex-start;gap:1rem;}
-.cat-hero .icon{font-size:2.5rem;}
-.cat-hero h1{font-family:var(--serif);font-size:1.5rem;color:#fff;}
-.cat-hero p{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:.3rem;line-height:1.6;}
-.search-wrap{padding:1rem 1.2rem 0;}
-.pagefind-ui{--pagefind-ui-primary:var(--teal);}
-.post-grid{display:grid;grid-template-columns:1fr;gap:1.1rem;padding:1.2rem 1.2rem 2rem;}
-@media(min-width:600px){.post-grid{grid-template-columns:1fr 1fr;}}
-@media(min-width:1024px){.post-grid{grid-template-columns:1fr 1fr 1fr;}}
-.post-card{background:var(--surface);border-radius:var(--r);border:1.5px solid var(--border);overflow:hidden;box-shadow:0 2px 12px rgba(11,110,97,.08);display:flex;flex-direction:column;transition:all .22s;}
-.post-card:hover{transform:translateY(-4px);box-shadow:0 6px 28px rgba(11,110,97,.14);border-color:var(--teal);}
-.post-thumb{width:100%;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;}
-.post-body{padding:1rem;flex:1;display:flex;flex-direction:column;}
-.post-meta{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;}
-.post-cat-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:.2rem .55rem;border-radius:100px;}
-.post-date{font-size:.68rem;color:var(--muted);}
-.post-title{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.35;margin-bottom:.4rem;flex:1;}
-.post-desc{font-size:.8rem;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.post-read-more{display:inline-flex;align-items:center;gap:.3rem;margin-top:.8rem;font-size:.78rem;font-weight:700;color:var(--teal);}
-footer{background:var(--ink);padding:1.5rem 1.2rem;margin-top:2rem;}
-footer p{font-size:.73rem;color:rgba(255,255,255,.3);}
-footer .fl{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin:.6rem 0;}
-footer .fl a{font-size:.73rem;color:rgba(255,255,255,.4);}footer .fl a:hover{color:var(--gold);}
-</style>
-</head>
-<body>
-<nav>
-  <a href="../" class="brand">RDJ <span>Blog</span></a>
-  <div class="links">
-    <a href="../">Home</a>
-    <a href="https://rdjpublishers.com/" target="_blank">Tools</a>
-  </div>
-</nav>
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="https://rdjpublishers.com/">Home</a> /
-  <a href="../">Blog</a> /
-  <span>${cat.name}</span>
-</nav>
-<div class="cat-hero">
-  <div class="icon">${cat.icon}</div>
-  <div>
-    <h1>${cat.name}</h1>
-    <p>${cat.desc}</p>
-  </div>
-</div>
-<div class="search-wrap">
-  <div id="search"></div>
-</div>
-<div class="post-grid">
-  ${postCards || '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted);">No posts in this category yet.</div>'}
-</div>
-<footer>
-  <p>© 2026 RDJ Publishers · Free guides &amp; tutorials</p>
-  <div class="fl">
-    <a href="../">Blog Home</a>
-    <a href="https://rdjpublishers.com/">Tools</a>
-    <a href="https://rdjpublishers.com/#contact">Contact</a>
-  </div>
-</footer>
-\x3cscript\x3e
-window.addEventListener('DOMContentLoaded',()=>{
-  if(window.PagefindUI) new PagefindUI({element:'#search',showImages:false,showSubResults:true});
-});
-\x3c/script\x3e
-</body></html>`;
-
-  const sha = await ghGetSHA(token, `${catId}/index.html`);
-  await ghPushFile(token, `${catId}/index.html`, html, sha, commitMsg);
-}
-
-/* ══════════════════════════════════════════════
-   SITEMAP GENERATOR
-   Builds sitemap_blogs.xml — structured by category,
-   with every post URL included. Regenerated on
-   every publish so new posts are auto-included.
-══════════════════════════════════════════════ */
-async function buildSitemap(token, commitMsg) {
-  const cats = getCategories();
-  const BASE = 'https://rdjpublishers.com/blogs';
-  const today = new Date().toISOString().slice(0,10);
-
-  const urlEntries = [];
-
-  // Root blog index
-  urlEntries.push(`  <url>\n    <loc>${BASE}/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>`);
-
-  for (const cat of cats) {
-    // Category index page
-    urlEntries.push(`\n  <!-- ══ Category: ${cat.name} ══ -->`);
-    urlEntries.push(`  <url>\n    <loc>${BASE}/${cat.id}/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`);
-
-    // All posts in this category
-    let metas = [];
-    try {
-      const items = await ghListDir(token, cat.id);
-      const slugFolders = items.filter(i=>i.type==='dir');
-      metas = (await Promise.all(
-        slugFolders.map(async f => {
-          try {
-            const res = await fetch(`${GH_API}${cat.id}/${f.name}/meta.json`,{
-              headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github+json'}
-            });
-            if (!res.ok) return null;
-            const data = await res.json();
-            return JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,'')))));
-          } catch{ return null; }
-        })
-      )).filter(Boolean);
-      metas.sort((a,b)=>new Date(b.date)-new Date(a.date));
-    } catch {}
-
-    for (const m of metas) {
-      const lastmod = (m.date||today).slice(0,10);
-      urlEntries.push(`  <url>\n    <loc>${BASE}/${cat.id}/${m.slug}/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`);
-    }
-  }
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries.join('\n')}\n</urlset>\n`;
-
-  const sha = await ghGetSHA(token, `sitemap_blogs.xml`);
-  await ghPushFile(token, `sitemap_blogs.xml`, xml, sha, commitMsg);
-}
-
-async function regenerateSitemap() {
-  const token = document.getElementById('sm-token')?.value?.trim() || '';
-  if (!token) { showToast('⚠️ GitHub token required'); return; }
-  try {
-    showToast('🔄 Regenerating sitemap…');
-    await buildSitemap(token, 'Regenerate sitemap_blogs.xml');
-    showToast('✅ Sitemap updated');
-  } catch(err) {
-    showToast('❌ ' + err.message);
-  }
-}
-
-/* ══════════════════════════════════════════════
-   PAGEFIND INJECT HELPERS
-══════════════════════════════════════════════ */
-
-/**
- * injectPagefindScript(html)
- * Blocks publish if HTML contains absolute paths (src="/" or href="/").
- * Injects pagefind-ui.css and pagefind-ui.js using relative paths before </head>.
- * pagefind-ui.js automatically loads pagefind.js from the same directory.
- * Returns the modified HTML string.
- */
-function injectPagefindScript(html) {
-  // Block if absolute paths found (e.g. src="/..." or href="/...")
-  if (/src=["']\//i.test(html) || /href=["']\//i.test(html)) {
-    throw new Error('❌ Absolute paths detected (src="/" or href="/"). Use relative paths instead, e.g. src="image.jpg" not src="/image.jpg".');
-  }
-  // Inject pagefind-ui.css before </head> if not already present
-  if (!/search\/pagefind-ui\.css/i.test(html)) {
-    html = html.replace('</head>', '<link rel="stylesheet" href="../../search/pagefind-ui.css" onerror="this.remove()">\n</head>');
-  }
-  // Inject pagefind-ui.js before </head> if not already present
-  // pagefind-ui.js auto-loads pagefind.js — no need to inject pagefind.js separately
-  if (!/search\/pagefind-ui\.js/i.test(html)) {
-    html = html.replace('</head>', '<script src="../../search/pagefind-ui.js"><\/script>\n</head>');
-  }
-  return html;
-}
-
-/**
- * ensureHomepageSearch(token)
- * Fetches repo root index.html via GitHub API.
- * Checks for: <div id="search"></div>, pagefind.js, and PagefindUI init with showSubResults: true.
- * If any are missing, injects a complete search section before </body> and pushes the update.
- * Non-blocking — errors are swallowed so publish is not interrupted.
- */
-async function ensureHomepageSearch(token) {
-  try {
-    const ghApiBase = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/`;
-    const res = await fetch(`${ghApiBase}index.html`, {
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
-    });
-    if (!res.ok) return; // homepage not found, skip silently
-
-    const data = await res.json();
-    const sha = data.sha;
-    let homeHtml = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
-
-    const hasSearchDiv    = /<div[^>]*id=["']search["']/i.test(homeHtml);
-    const hasPagefindJs   = /search\/pagefind(\.js|-ui\.js)/i.test(homeHtml);
-    const hasPagefindInit = /PagefindUI[\s\S]*?showSubResults\s*:\s*true/i.test(homeHtml);
-
-    if (hasSearchDiv && hasPagefindJs && hasPagefindInit) return; // already complete
-
-    // Inject missing pieces before </body>
-    const searchSection = [
-      '<!-- Auto-injected Pagefind Search -->',
-      '<link rel="stylesheet" href="search/pagefind-ui.css">',
-      '\x3cscript src="search/pagefind-ui.js">\x3c/script>',
-      '<section style="max-width:700px;margin:1.2rem auto;padding:0 1.2rem;">',
-      '  <div id="search"></div>',
-      '</section>',
-      '\x3cscript>',
-      'window.addEventListener(\'DOMContentLoaded\',function(){',
-      '  if(window.PagefindUI){new PagefindUI({element:\'#search\',showImages:false,showSubResults:true});}',
-      '});',
-      '\x3c/script>'
-    ].join('\n');
-
-    if (!homeHtml.includes('</body>')) return; // malformed, skip
-    homeHtml = homeHtml.replace('</body>', searchSection + '\n</body>');
-
-    // Push update to GitHub
-    const encoded = btoa(unescape(encodeURIComponent(homeHtml)));
-    await fetch(`${ghApiBase}index.html`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `token ${token}`,
-        'Accept': 'application/vnd.github+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: 'Auto-add Pagefind search bar [skip ci]',
-        content: encoded,
-        sha: sha
-      })
-    });
-  } catch (e) {
-    // Non-blocking: log but do not throw
-    console.warn('ensureHomepageSearch: failed silently —', e.message);
-  }
-}
-
-/**
- * ensureSearchBar()
- * Called on page load. If #search exists in DOM but PagefindUI is not yet
- * initialised, re-tries PagefindUI init. Useful when the search/ folder
- * is already deployed but the script loaded before DOMContentLoaded fired.
- */
-function ensureSearchBar() {
-  const el = document.getElementById('search');
-  if (!el) return;
-  // If already populated skip
-  if (el.children.length > 0) return;
-  if (window.PagefindUI) {
-    new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
-  }
-}
-
-/* ══════════════════════════════════════════════
-   PUBLISH POST
-══════════════════════════════════════════════ */
-async function publishPost() {
-  if (!isAdmin) return;
-  const token   = document.getElementById('gh-token')?.value?.trim() || '';
-  const cat     = document.getElementById('f-cat')?.value?.trim() || '';
-  const title   = document.getElementById('f-title')?.value?.trim() || '';
-  const slug    = document.getElementById('f-slug')?.value?.trim() || '';
-  const desc    = document.getElementById('f-desc')?.value?.trim() || '';
-  const tagsRaw = document.getElementById('f-tags')?.value?.trim() || '';
-  const cover   = document.getElementById('f-cover')?.value?.trim() || 'cover.jpg';
-
-  // Validation
-  if (!token) { showToast('⚠️ GitHub token required'); return; }
-  if (!cat)   { showToast('⚠️ Category required'); return; }
-  if (!title) { showToast('⚠️ Title required'); return; }
-  if (!slug)  { showToast('⚠️ Slug required'); return; }
-  if (!/^[a-z0-9-]+$/.test(slug)) { showToast('⚠️ Slug: lowercase a-z, 0-9, hyphens only'); return; }
-  if (slug.length > 60) { showToast('⚠️ Slug max 60 chars'); return; }
-  if (!pendingHtmlContent) { showToast('⚠️ Upload your HTML file first'); return; }
-
-  // Validate HTML
-  if (!/<html/i.test(pendingHtmlContent)) { showToast('❌ HTML file must contain <html> tag'); return; }
-  if (/src=["']\//i.test(pendingHtmlContent) || /href=["']\//i.test(pendingHtmlContent)) {
-    showToast('❌ Use relative paths in HTML: src="image.jpg" not src="/image.jpg"');
-    return;
-  }
-
-  // Slug uniqueness check
-  const existSHA = await ghGetSHA(token, `${cat}/${slug}/meta.json`).catch(()=>null);
-  if (existSHA !== null && existSHA !== undefined) {
-    showToast(`❌ Slug "${slug}" already exists in ${cat}/. Try "${slug}-2"`);
-    return;
-  }
-
-  const btn = document.getElementById('publish-btn');
-  if (btn) { btn.disabled = true; btn.textContent = '⏳ Publishing…'; }
-  const logEl = document.getElementById('publish-log');
-  const box   = document.getElementById('publish-box');
-  if (box) box.style.display = 'block';
-  if (logEl) { logEl.innerHTML = ''; }
-
-  function log(msg, type='info') {
-    if (!logEl) return;
-    const cls = type==='ok'?'log-ok':type==='err'?'log-err':'log-info';
-    logEl.innerHTML += `<span class="${cls}">${msg}</span>\n`;
-    logEl.scrollTop = logEl.scrollHeight;
-  }
-
-  const tags = tagsRaw ? tagsRaw.split(',').map(t=>t.trim()).filter(Boolean) : [];
-  const date = nowIST();
-  const commitMsg = `Add post: ${cat}/${slug} - ${title}`;
-  const basePath  = `${cat}/${slug}`;
-
-  try {
-    // 0. Sync any locally-saved-but-unpushed category changes first (reuses this token)
-    try {
-      const synced = await syncCategoriesToGitHub(token, log);
-      if (synced) log(`✅ Category changes synced to GitHub`, 'ok');
-    } catch(catErr) {
-      log(`⚠️ Category sync failed: ${catErr.message} (continuing with post publish)`, 'err');
-    }
-
-    // 1. meta.json
-    log(`📤 Pushing ${basePath}/meta.json…`);
-    const meta = { title, slug, category:cat, date, description:desc, tags, cover };
-    await ghPushFile(token, `${basePath}/meta.json`, JSON.stringify(meta, null, 2), null, commitMsg);
-    log(`✅ meta.json pushed`, 'ok');
-
-    // 2. index.html (inject breadcrumb + title + meta if needed)
-    log(`📤 Pushing ${basePath}/index.html…`);
-    let postHtml = pendingHtmlContent;
-    // Inject title if missing
-    if (!/<title>/i.test(postHtml)) {
-      postHtml = postHtml.replace('</head>', `<title>${title} | RDJ Publishers</title>\n<meta name="description" content="${desc}">\n</head>`);
-    }
-    // Inject GA4 + AdSense in <head> if not present
-    if (!/G-G5M1ZPJW29/.test(postHtml)) {
-      const gaSnippet = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G5M1ZPJW29');<\/script>`;
-      postHtml = postHtml.replace('<head>', `<head>\n${gaSnippet}`);
-    }
-    if (!/ca-pub-8728382905346597/.test(postHtml)) {
-      const adsSnippet = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8728382905346597" crossorigin="anonymous"><\/script>`;
-      postHtml = postHtml.replace('</head>', `${adsSnippet}\n</head>`);
-    }
-    // Inject pagefind.js into post HTML (throws if absolute paths found)
-    postHtml = injectPagefindScript(postHtml);
-    await ghPushFile(token, `${basePath}/index.html`, postHtml, null, commitMsg);
-    log(`✅ index.html pushed`, 'ok');
-
-    // 3. Image files
-    if (pendingImgFiles.length) {
-      log(`📤 Pushing ${pendingImgFiles.length} image(s)…`);
-      for (const file of pendingImgFiles) {
-        const b64 = await imageToBase64(file);
-        const imgPath = `${basePath}/${file.name}`;
-        const imgSHA = await ghGetSHA(token, imgPath).catch(()=>null);
-        await ghPushFile(token, imgPath, b64, imgSHA, commitMsg, true);
-        log(`✅ ${file.name} pushed`, 'ok');
-      }
-    }
-
-    // 4. Regenerate {Category}/index.html
-    log(`🔄 Regenerating ${cat}/index.html…`);
-    await buildCategoryPage(token, cat, commitMsg);
-    log(`✅ ${cat}/index.html updated`, 'ok');
-
-    // 4b. Regenerate sitemap_blogs.xml
-    log(`🔄 Updating sitemap_blogs.xml…`);
-    await buildSitemap(token, commitMsg);
-    log(`✅ sitemap_blogs.xml updated`, 'ok');
-
-    // 5. Done
-    log(`\n🎉 Post "${title}" published! Live in 5–10 min at:`, 'ok');
-    log(`   https://rdjpublishers.com/blogs/${cat}/${slug}/`, 'ok');
-    showToast('✅ Post published!');
-
-    // Ensure homepage has search bar
-    log(`🔍 Checking homepage search bar…`);
-    await ensureHomepageSearch(token);
-
-    // Show the new post immediately in this session (posts-manifest.json
-    // itself is regenerated by the CI workflow after this push — usually
-    // within a minute or two — so other visitors see it once that lands)
-    addPostToManifestCache(meta);
-    loadLatestPosts();
-
-  } catch(err) {
-    log(`❌ ${err.message}`, 'err');
-    showToast('❌ Publish failed. See log.');
-  } finally {
-    if (btn) { btn.disabled=false; btn.textContent='🚀 Publish Post'; }
-  }
-}
 
 /* ── CONTACT FORM ── */
 async function submitContactForm() {
@@ -1959,6 +915,17 @@ function nativeSearch(query) {
   }).join('');
 }
 
+/* Re-init Pagefind when #search exists but hasn't been populated yet
+   (e.g. script loaded before DOMContentLoaded). */
+function ensureSearchBar() {
+  const el = document.getElementById('search');
+  if (!el) return;
+  if (el.children.length > 0) return;
+  if (window.PagefindUI) {
+    new PagefindUI({ element: '#search', showImages: false, showSubResults: true });
+  }
+}
+
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
@@ -1983,5 +950,7 @@ window.addEventListener('load', function() {
   }
 });
 </script>
+<!-- Owner flow script (no visible output until activated) -->
+<script src="scripts/owner-panel.js" defer></script>
 </body>
 </html>
