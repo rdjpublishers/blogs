@@ -302,6 +302,9 @@ footer .f-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:.9rem;}
 footer .f-links a{font-size:.75rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .2s;cursor:pointer;}
 footer .f-links a:hover{color:var(--gold);}
 footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;border-top:1px solid rgba(255,255,255,0.06);padding-top:.8rem;}
+footer .f-disclosure{font-size:.7rem;color:rgba(255,255,255,0.4);line-height:1.6;margin-top:1rem;padding-top:.9rem;border-top:1px solid rgba(255,255,255,0.06);}
+footer .f-disclosure a{color:rgba(255,255,255,0.55);text-decoration:underline;}
+footer .f-disclosure a:hover{color:var(--gold);}
 </style>
 </head>
 <body>
@@ -320,8 +323,10 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
   <div class="sb-nav">
     <div class="sb-group">Navigate</div>
     <button class="sb-link active" onclick="goTo('home')"><span class="ic">🏠</span> Home</button>
-    <button class="sb-link" onclick="goTo('about')"><span class="ic">ℹ️</span> About</button>
-    <button class="sb-link" onclick="goTo('contact')"><span class="ic">✉️</span> Contact</button>
+    <a class="sb-link" href="https://rdjpublishers.com/about.html"><span class="ic">ℹ️</span> About</a>
+    <a class="sb-link" href="https://rdjpublishers.com/contact.html"><span class="ic">✉️</span> Contact</a>
+    <a class="sb-link" href="https://rdjpublishers.com/privacy-policy.html"><span class="ic">🔒</span> Privacy</a>
+    <a class="sb-link" href="https://rdjpublishers.com/terms.html"><span class="ic">📄</span> Terms</a>
     <div class="sb-div"></div>
     <div class="sb-group">Categories</div>
     <div id="sb-cat-links"></div>
@@ -342,9 +347,10 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <button class="menu-btn" id="menu-btn" onclick="openSidebar()" aria-label="Open menu"><span></span><span></span><span></span></button>
     <div class="topbar-brand">RDJ <span>Blog</span></div>
     <div class="topbar-right">
-      <button onclick="goTo('about')">About</button>
-      <button onclick="goTo('contact')">Contact</button>
-      <a href="https://rdjpublishers.com/" target="_blank">Tools</a>
+      <a href="https://rdjpublishers.com/about.html">About</a>
+      <a href="https://rdjpublishers.com/contact.html">Contact</a>
+      <a href="https://rdjpublishers.com/terms.html">Terms</a>
+      <a href="https://rdjpublishers.com/" target="_blank" rel="noopener">Tools</a>
       <div class="site-trigger-dot" data-owner-entry aria-hidden="true"></div>
     </div>
   </header>
@@ -430,16 +436,10 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
       </div>
     </a>
 
-    <!-- The empty-state fallback below is shown only if every prerendered card
-         is hidden by the JS hydration step (e.g. all manifest entries fail).
-         Search engines see the cards above; visitors without JS see them too. -->
-    <noscript>
-      <div class="empty-state" style="grid-column:1/-1;">
-        <div class="es-icon">📝</div>
-        <h3>Posts are loading…</h3>
-        <p>Enable JavaScript to see the full feed, or browse a category above.</p>
-      </div>
-    </noscript>
+    <!-- The pre-rendered cards above are the main content and are visible
+         to crawlers and to visitors without JavaScript. No "Posts are
+         loading…" placeholder is rendered, so non-JS users see the same
+         article cards as JavaScript-enabled users. -->
   </div>
 
   <footer>
@@ -447,13 +447,15 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <p>Free guides, tutorials and tips — no paywalls, no sign-ups.</p>
     <div class="f-links">
       <a onclick="goTo('home')">Home</a>
-      <a onclick="goTo('about')">About</a>
-      <a onclick="goTo('contact')">Contact</a>
-      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
+      <a href="https://rdjpublishers.com/about.html">About</a>
+      <a href="https://rdjpublishers.com/contact.html">Contact</a>
+      <a href="https://rdjpublishers.com/" target="_blank" rel="noopener">RDJ Tools</a>
       <a href="/blogs/sitemap_blogs.xml">Sitemap</a>
-      <a onclick="goTo('privacy')">Privacy</a>
+      <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a>
+      <a href="https://rdjpublishers.com/terms.html">Terms of Service</a>
     </div>
-    <div class="f-copy">© 2026 RDJ Publishers. All rights reserved. · New posts live in 5–10 min after publish.</div>
+    <p class="f-disclosure">Advertising on this page may be served by Google AdSense using cookies or device-level identifiers. See our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> for details and opt-out information.</p>
+    <div class="f-copy">© 2026 RDJ Publishers. All rights reserved. · Owned and operated by RDJ Publishers. · New posts live in 5–10 min after publish.</div>
   </footer>
 </div>
 
@@ -483,11 +485,14 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <div class="f-brand">RDJ Publishers Blog</div>
     <div class="f-links">
       <a onclick="goTo('home')">Home</a>
-      <a onclick="goTo('about')">About</a>
-      <a onclick="goTo('contact')">Contact</a>
-      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
+      <a href="https://rdjpublishers.com/about.html">About</a>
+      <a href="https://rdjpublishers.com/contact.html">Contact</a>
+      <a href="https://rdjpublishers.com/" target="_blank" rel="noopener">RDJ Tools</a>
+      <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a>
+      <a href="https://rdjpublishers.com/terms.html">Terms of Service</a>
     </div>
-    <div class="f-copy">© 2026 RDJ Publishers.</div>
+    <p class="f-disclosure">Advertising on this page may be served by Google AdSense using cookies or device-level identifiers. See our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> for details and opt-out information.</p>
+    <div class="f-copy">© 2026 RDJ Publishers. · Owned and operated by RDJ Publishers.</div>
   </footer>
 </div>
 
@@ -540,11 +545,13 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <div class="f-brand">RDJ Publishers Blog</div>
     <div class="f-links">
       <a onclick="goTo('home')">Home</a>
-      <a onclick="goTo('contact')">Contact</a>
-      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
-      <a onclick="goTo('privacy')">Privacy</a>
+      <a href="https://rdjpublishers.com/contact.html">Contact</a>
+      <a href="https://rdjpublishers.com/" target="_blank" rel="noopener">RDJ Tools</a>
+      <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a>
+      <a href="https://rdjpublishers.com/terms.html">Terms of Service</a>
     </div>
-    <div class="f-copy">© 2026 RDJ Publishers.</div>
+    <p class="f-disclosure">Advertising on this page may be served by Google AdSense using cookies or device-level identifiers. See our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> for details and opt-out information.</p>
+    <div class="f-copy">© 2026 RDJ Publishers. · Owned and operated by RDJ Publishers.</div>
   </footer>
 </div>
 
@@ -624,10 +631,13 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
     <div class="f-brand">RDJ Publishers Blog</div>
     <div class="f-links">
       <a onclick="goTo('home')">Home</a>
-      <a onclick="goTo('about')">About</a>
-      <a href="https://rdjpublishers.com/" target="_blank">RDJ Tools</a>
+      <a href="https://rdjpublishers.com/about.html">About</a>
+      <a href="https://rdjpublishers.com/" target="_blank" rel="noopener">RDJ Tools</a>
+      <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a>
+      <a href="https://rdjpublishers.com/terms.html">Terms of Service</a>
     </div>
-    <div class="f-copy">© 2026 RDJ Publishers.</div>
+    <p class="f-disclosure">Advertising on this page may be served by Google AdSense using cookies or device-level identifiers. See our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> for details and opt-out information.</p>
+    <div class="f-copy">© 2026 RDJ Publishers. · Owned and operated by RDJ Publishers.</div>
   </footer>
 </div>
 
@@ -657,16 +667,20 @@ footer .f-copy{font-size:.67rem;color:rgba(255,255,255,0.2);margin-top:1rem;bord
       <h4 style="color:var(--teal);margin:1.1rem 0 .3rem;">Analytics</h4>
       <p>We use Google Analytics (GA4) to understand how visitors use this blog. This data is aggregated and does not identify individual users.</p>
       <h4 style="color:var(--teal);margin:1.1rem 0 .3rem;">Contact Us</h4>
-      <p>For questions, contact us via the <span onclick="goTo('contact')" style="color:var(--teal);cursor:pointer;font-weight:600;">Contact page</span> or email <a href="mailto:rdjpublishers@gmail.com" style="color:var(--teal);">rdjpublishers@gmail.com</a>.</p>
+      <p>For questions, contact us via the <a href="https://rdjpublishers.com/contact.html" style="color:var(--teal);font-weight:600;">Contact page</a> or email <a href="mailto:rdjpublishers@gmail.com" style="color:var(--teal);">rdjpublishers@gmail.com</a>.</p>
     </div>
   </div>
   <footer>
     <div class="f-brand">RDJ Publishers Blog</div>
     <div class="f-links">
       <a onclick="goTo('home')">Home</a>
-      <a onclick="goTo('about')">About</a>
+      <a href="https://rdjpublishers.com/about.html">About</a>
+      <a href="https://rdjpublishers.com/contact.html">Contact</a>
+      <a href="https://rdjpublishers.com/" target="_blank" rel="noopener">RDJ Tools</a>
+      <a href="https://rdjpublishers.com/terms.html">Terms of Service</a>
     </div>
-    <div class="f-copy">© 2026 RDJ Publishers.</div>
+    <p class="f-disclosure">Advertising on this page may be served by Google AdSense using cookies or device-level identifiers. See our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> for details and opt-out information.</p>
+    <div class="f-copy">© 2026 RDJ Publishers. · Owned and operated by RDJ Publishers.</div>
   </footer>
 </div>
 
