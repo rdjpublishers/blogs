@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-09-29T01:47:17.729Z",
+  "posts": [
+    {
+      "title": "Best Free Python IDEs for Beginners in 2026",
+      "slug": "best-free-python-ides-2026",
+      "category": "Programming",
+      "date": "2026-09-18T10:00:00+05:30",
+      "description": "A practical guide to the best free Python IDEs and editors for beginners in 2026 — comparing setup speed, learning curve, and features so you can pick the right one.",
+      "tags": [
+        "Python",
+        "Python IDE",
+        "Python for Beginners",
+        "VS Code",
+        "PyCharm",
+        "Thonny",
+        "Free Tools",
+        "Code Editors"
+      ],
+      "cover": "cover.jpg"
+    },
+    {
+      "title": "Top 7 Free AI Tools Worth Trying in 2026",
+      "slug": "top-free-ai-tools-2026",
+      "category": "AiNews",
+      "date": "2026-09-15T11:30:00+05:30",
+      "description": "A curated list of seven genuinely useful, free-tier AI tools for writing, image generation, coding and research in 2026 — with what each one is best at.",
+      "tags": [
+        "AI Tools",
+        "Free AI",
+        "Gemini",
+        "Claude",
+        "Copilot",
+        "Perplexity",
+        "Whisper",
+        "NotebookLM",
+        "Microsoft Image Creator"
+      ],
+      "cover": "cover.jpg"
+    },
+    {
+      "title": "6 Free Python Courses Worth Your Time in 2026",
+      "slug": "free-python-courses-2026",
+      "category": "Programming",
+      "date": "2026-08-22T12:00:00+05:30",
+      "description": "Six free, well-structured Python courses ranked by depth, pacing and how quickly you'll be able to build real projects after finishing.",
+      "tags": [
+        "Python",
+        "Python Courses",
+        "Learn Python",
+        "Free Courses",
+        "CS50P",
+        "freeCodeCamp",
+        "Automate the Boring Stuff",
+        "Kaggle"
+      ],
+      "cover": "cover.jpg"
+    },
+    {
+      "title": "Top 10 Python Projects for Beginners (With Source Ideas)",
+      "slug": "top-10-python-projects-for-beginners",
+      "category": "Programming",
+      "date": "2026-07-30T17:58:00+05:30",
+      "description": "Top 10 Python projects for beginners - from to-do list app to 2048 game. Easy projects for beginners with descriptions, key features, and skills you'll learn.",
+      "tags": [
+        "2048 Game",
+        "Beginner Python Projects",
+        "Coding for Beginners",
+        "Learn Python",
+        "Python",
+        "Python for Beginners",
+        "Python Games",
+        "Python Mini Projects",
+        "Python Programming",
+        "Python Projects"
+      ],
+      "cover": "cover.jpg"
+    }
+  ]
+}
