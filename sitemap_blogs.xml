@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rdjpublishers.com/blogs/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -50,7 +50,7 @@
   <!-- ══ Category: TechNews ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/TechNews/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -58,7 +58,7 @@
   <!-- ══ Category: Tutorials and How-to Guides ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/Tutorials/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
