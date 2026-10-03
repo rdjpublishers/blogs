@@ -709,10 +709,11 @@ const MANIFEST_URL = 'posts-manifest.json';
 /* ── CATEGORIES DATA (shared) ── */
 function getCategories() {
   try {
-    // getItem returns null ONLY if the key was never set. Once
-    // saveCategories() has run even once, trust it completely —
-    // including an intentionally empty [] after deleting the last category.
-    const s = localStorage.getItem('rdj_blog_cats');
+    // Storage key is versioned (`_v2`) so stale localStorage from before
+    // the 2026-10 category restructure (Tech News / Prompt Tech / Ai Tech /
+    // Business Ideas / Programming / Technologies) doesn't shadow the new
+    // embedded list. Bump the suffix if the categories schema changes again.
+    const s = localStorage.getItem('rdj_blog_cats_v2');
     if (s !== null) {
       const parsed = JSON.parse(s);
       if (Array.isArray(parsed)) return parsed;

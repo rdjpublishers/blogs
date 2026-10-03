@@ -604,7 +604,10 @@
     const h = host();
     if (h.getCategories) return h.getCategories();
     try {
-      const s = localStorage.getItem('rdj_blog_cats');
+      // Storage key versioned to match host page (`_v2`) so stale cached
+      // categories from before the 2026-10 restructure don't override the
+      // new list. Bump the suffix if the categories schema changes again.
+      const s = localStorage.getItem('rdj_blog_cats_v2');
       if (s !== null) {
         const parsed = JSON.parse(s);
         if (Array.isArray(parsed)) return parsed;
@@ -615,14 +618,16 @@
       if (embedded) return JSON.parse(embedded.textContent);
     } catch (e) {}
     return [
-      { id: 'Tech',      name: 'Tech',         icon: '💻', desc: 'Technology guides, browser tools, coding tips and more.' },
-      { id: 'SEO',       name: 'SEO',          icon: '🔍', desc: 'Search engine optimisation strategies and keyword research.' },
-      { id: 'Productivity', name: 'Productivity', icon: '⚡', desc: 'Work smarter with productivity tips and workflows.' },
-      { id: 'AITools',   name: 'AI Tools',     icon: '🤖', desc: 'Guides to the best AI tools and how to use them.' }
+      { id: 'TechNews',      name: 'Tech News',      icon: '💻', desc: 'Latest news and updates from the world of technology.' },
+      { id: 'PromptTech',    name: 'Prompt Tech',    icon: '✨', desc: 'Tips, tricks and techniques for crafting better AI prompts.' },
+      { id: 'AiTech',        name: 'Ai Tech',        icon: '🤖', desc: 'Latest news, tools and updates about AI and machine learning.' },
+      { id: 'BusinessIdeas', name: 'Business Ideas', icon: '💡', desc: 'Practical business ideas, side hustles and entrepreneurship tips.' },
+      { id: 'Programming',   name: 'Programming',    icon: '👨‍💻', desc: 'Project ideas and tips for beginners to advanced coders.' },
+      { id: 'Technologies',  name: 'Technologies',   icon: '🛠️', desc: 'Deep dives into modern technologies, frameworks and platforms.' }
     ];
   }
   function saveCategories(cats) {
-    localStorage.setItem('rdj_blog_cats', JSON.stringify(cats));
+    localStorage.setItem('rdj_blog_cats_v2', JSON.stringify(cats));
     localStorage.setItem('rdj_blog_cats_dirty', '1');
   }
   function getCatsDraft() {
