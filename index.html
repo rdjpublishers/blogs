@@ -411,11 +411,11 @@ footer .f-disclosure a:hover{color:var(--gold);}
       </div>
     </a>
 
-    <a class="post-card" href="AiNews/top-free-ai-tools-2026/" aria-label="Read: Top 7 Free AI Tools Worth Trying in 2026">
-      <div class="post-thumb"><img src="AiNews/top-free-ai-tools-2026/cover.jpg" alt="Top 7 Free AI Tools Worth Trying in 2026" loading="lazy"></div>
+    <a class="post-card" href="AiTech/top-free-ai-tools-2026/" aria-label="Read: Top 7 Free AI Tools Worth Trying in 2026">
+      <div class="post-thumb"><img src="AiTech/top-free-ai-tools-2026/cover.jpg" alt="Top 7 Free AI Tools Worth Trying in 2026" loading="lazy"></div>
       <div class="post-body">
         <div class="post-meta">
-          <span class="post-cat-tag">AI News</span>
+          <span class="post-cat-tag">Ai Tech</span>
           <time class="post-date" datetime="2026-09-15">15 Sep 2026</time>
         </div>
         <div class="post-title">Top 7 Free AI Tools Worth Trying in 2026</div>
@@ -657,28 +657,40 @@ footer .f-disclosure a:hover{color:var(--gold);}
 <script id="rdj-blog-cats" type="application/json">
 [
   {
-    "id": "Programming",
-    "name": "Programming",
-    "icon": "👨‍💻",
-    "desc": "Project ideas and tips for beginners to advanced coders."
-  },
-  {
-    "id": "AiNews",
-    "name": "Ai News",
-    "icon": "🤖",
-    "desc": "Daily news and updates about AI tools and technology."
-  },
-  {
     "id": "TechNews",
     "name": "Tech News",
     "icon": "💻",
     "desc": "Latest news and updates from the world of technology."
   },
   {
-    "id": "Tutorials",
-    "name": "Tutorials and How-to Guides",
-    "icon": "📖",
-    "desc": "Easy step-by-step lessons to learn tech skills and tools."
+    "id": "PromptTech",
+    "name": "Prompt Tech",
+    "icon": "✨",
+    "desc": "Tips, tricks and techniques for crafting better AI prompts."
+  },
+  {
+    "id": "AiTech",
+    "name": "Ai Tech",
+    "icon": "🤖",
+    "desc": "Latest news, tools and updates about AI and machine learning."
+  },
+  {
+    "id": "BusinessIdeas",
+    "name": "Business Ideas",
+    "icon": "💡",
+    "desc": "Practical business ideas, side hustles and entrepreneurship tips."
+  },
+  {
+    "id": "Programming",
+    "name": "Programming",
+    "icon": "👨‍💻",
+    "desc": "Project ideas and tips for beginners to advanced coders."
+  },
+  {
+    "id": "Technologies",
+    "name": "Technologies",
+    "icon": "🛠️",
+    "desc": "Deep dives into modern technologies, frameworks and platforms."
   }
 ]
 </script>
@@ -712,10 +724,12 @@ function getCategories() {
   } catch(e) {}
   // Hard-coded fallback so categories always show
   return [
-    {id:'Tech',      name:'Tech',         icon:'💻', desc:'Technology guides, browser tools, coding tips and more.'},
-    {id:'SEO',       name:'SEO',          icon:'🔍', desc:'Search engine optimisation strategies and keyword research.'},
-    {id:'Productivity',name:'Productivity',icon:'⚡', desc:'Work smarter with productivity tips and workflows.'},
-    {id:'AITools',   name:'AI Tools',     icon:'🤖', desc:'Guides to the best AI tools and how to use them.'}
+    {id:'TechNews',      name:'Tech News',      icon:'💻', desc:'Latest news and updates from the world of technology.'},
+    {id:'PromptTech',    name:'Prompt Tech',    icon:'✨', desc:'Tips, tricks and techniques for crafting better AI prompts.'},
+    {id:'AiTech',        name:'Ai Tech',        icon:'🤖', desc:'Latest news, tools and updates about AI and machine learning.'},
+    {id:'BusinessIdeas', name:'Business Ideas', icon:'💡', desc:'Practical business ideas, side hustles and entrepreneurship tips.'},
+    {id:'Programming',   name:'Programming',    icon:'👨‍💻', desc:'Project ideas and tips for beginners to advanced coders.'},
+    {id:'Technologies',  name:'Technologies',   icon:'🛠️', desc:'Deep dives into modern technologies, frameworks and platforms.'}
   ];
 }
 
@@ -794,12 +808,18 @@ function postCardHTML(post) {
   const thumb = cover
     ? `<div class="post-thumb"><img src="${cover}" alt="${post.title}" loading="lazy"></div>`
     : `<div class="post-thumb"><span class="post-thumb-placeholder">📝</span></div>`;
+  // Resolve human-readable category name from the categories list so labels
+  // render as "Ai Tech" instead of the raw id "AiTech". Falls back to the id
+  // when the category isn't defined (defensive — should not normally happen).
+  const cats = getCategories();
+  const cat = cats.find(c => c.id === post.category);
+  const catName = cat ? cat.name : post.category;
   const tags = (post.tags||[]).slice(0,2).map(t=>`<span style="display:inline-block;background:var(--teal-pale);color:var(--teal);font-size:.58rem;font-weight:700;padding:.15rem .45rem;border-radius:100px;margin-left:.3rem;">${t}</span>`).join('');
   return `<a class="post-card" href="${url}">
     ${thumb}
     <div class="post-body">
       <div class="post-meta">
-        <span class="post-cat-tag">${post.category}</span>
+        <span class="post-cat-tag">${catName}</span>
         <time class="post-date" datetime="${post.date}">${fmtDate(post.date)}</time>
       </div>
       <div class="post-title">${post.title}</div>

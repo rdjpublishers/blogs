@@ -33,15 +33,15 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- ══ Category: AiNews ══ -->
+  <!-- ══ Category: AiTech ══ -->
   <url>
-    <loc>https://rdjpublishers.com/blogs/AiNews/</loc>
+    <loc>https://rdjpublishers.com/blogs/AiTech/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rdjpublishers.com/blogs/AiNews/top-free-ai-tools-2026/</loc>
+    <loc>https://rdjpublishers.com/blogs/AiTech/top-free-ai-tools-2026/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,14 +50,6 @@
   <!-- ══ Category: TechNews ══ -->
   <url>
     <loc>https://rdjpublishers.com/blogs/TechNews/</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- ══ Category: Tutorials and How-to Guides ══ -->
-  <url>
-    <loc>https://rdjpublishers.com/blogs/Tutorials/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
